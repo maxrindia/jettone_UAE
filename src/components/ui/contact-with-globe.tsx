@@ -9,6 +9,8 @@ import {
   Mail,
   Phone,
   MessageSquare,
+  MapPin,
+  ShieldCheck,
   CheckCircle2,
   AlertCircle,
   Loader2,
@@ -21,16 +23,16 @@ const smoothEase = [0.25, 0.1, 0.25, 1] as const;
 
 export const JETTONE_CONTACT_LINKS = [
   {
+    icon: MapPin,
+    label: "Dubai, United Arab Emirates",
+    href: "#",
+    subtext: "Location",
+  },
+  {
     icon: Phone,
     label: "+91 80568 46874",
     href: "tel:+918056846874",
-    subtext: "Direct Executive Line",
-  },
-  {
-    icon: MessageSquare,
-    label: "+91 80568 46874",
-    href: "https://wa.me/918056846874",
-    subtext: "WhatsApp Direct Message",
+    subtext: "Phone & WhatsApp",
   },
   {
     icon: Mail,
@@ -290,29 +292,18 @@ export default function ContactWithGlobe({
               ))}
             </div>
 
-            {/* Global Connection Network Visual Window (Replaced Global Telemetry) */}
-            <div className="relative overflow-hidden rounded-2xl bg-gradient-to-br from-[#0F3524]/60 via-[#0A2619]/70 to-[#06180F]/90 border border-[#287348]/55 shadow-2xl h-64 sm:h-72 flex items-center justify-center group">
-              <img
-                src="/images/global-connections.jpg"
-                alt="Global Connection Network"
-                className="w-full h-full object-cover object-center brightness-105 contrast-110 group-hover:scale-105 transition-transform duration-700 ease-out"
-              />
-              
-              {/* Subtle Ambient Vignette & Gradient Overlays */}
-              <div className="absolute inset-0 bg-gradient-to-t from-[#06140E] via-transparent to-black/30 pointer-events-none" />
-              <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,rgba(0,230,118,0.1)_0%,transparent_75%)] pointer-events-none" />
-
-              {/* Bottom Network Status Strip */}
-              <div className="absolute bottom-3 inset-x-3 bg-[#0A2619]/90 backdrop-blur-md border border-[#287348]/60 rounded-xl px-3.5 py-2 flex items-center justify-between shadow-lg">
-                <div className="flex items-center gap-2">
-                  <span className="w-2 h-2 rounded-full bg-[#00E676] animate-pulse shadow-[0_0_8px_#00E676]" />
-                  <span className="text-xs font-mono font-semibold text-white tracking-wider uppercase">
-                    Global Network
+            {/* Direct & Confidential Assurance */}
+            <div className="p-4 sm:p-5 rounded-2xl bg-[#06180F]/85 border border-[#1E4D34]/70 shadow-lg mt-1">
+              <div className="flex items-start gap-3">
+                <ShieldCheck className="w-5 h-5 text-[#00E676] shrink-0 mt-0.5" />
+                <div className="flex flex-col gap-1">
+                  <span className="text-xs font-mono font-bold uppercase text-[#F5D327] tracking-wider">
+                    Direct &amp; Confidential
                   </span>
+                  <p className="font-body text-xs text-[#A8D3BA] leading-relaxed">
+                    All communications are held in strict confidence. Your information is used solely for responding to your inquiry.
+                  </p>
                 </div>
-                <span className="text-[10px] font-mono text-[#F5D327] font-bold">
-                  24/7 Active
-                </span>
               </div>
             </div>
           </motion.div>
