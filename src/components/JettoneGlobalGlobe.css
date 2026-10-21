@@ -1,0 +1,128 @@
+/* JETTONE — Holographic Cyber-Earth & Floating Glass Terminal */
+
+.jettone-globe-container {
+  position: relative;
+  width: 100%;
+  max-width: 540px;
+  aspect-ratio: 1 / 1.02;
+  min-height: 380px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: visible;
+  isolation: isolate;
+  background: radial-gradient(
+    circle at 50% 46%,
+    rgba(0, 230, 118, 0.16) 0%,
+    rgba(6, 44, 34, 0.12) 36%,
+    rgba(245, 211, 39, 0.05) 54%,
+    transparent 72%
+  );
+}
+
+.jettone-globe-container canvas {
+  position: absolute !important;
+  inset: 0;
+  width: 100% !important;
+  height: 100% !important;
+  pointer-events: auto;
+  cursor: grab;
+}
+
+.jettone-globe-container canvas:active {
+  cursor: grabbing;
+}
+
+/* Subtle ambient holographic floor glow */
+.jettone-globe-floor-glow {
+  position: absolute;
+  bottom: 8%;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 72%;
+  height: 18%;
+  border-radius: 50%;
+  background: radial-gradient(
+    ellipse at center,
+    rgba(79, 224, 225, 0.28) 0%,
+    rgba(245, 211, 39, 0.15) 35%,
+    transparent 75%
+  );
+  filter: blur(16px);
+  pointer-events: none;
+  z-index: 0;
+}
+
+/* 3D City HTML Label attached to geographic marker */
+.city-globe-label {
+  display: inline-flex;
+  align-items: center;
+  gap: 5.5px;
+  padding: 3.5px 8.5px;
+  background: rgba(3, 16, 12, 0.92);
+  border: 1px solid rgba(245, 211, 39, 0.75);
+  border-radius: 9999px;
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.75), 0 0 12px rgba(245, 211, 39, 0.3);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  white-space: nowrap;
+  user-select: none;
+  pointer-events: none;
+  transform-origin: center bottom;
+  will-change: transform, opacity;
+}
+
+.city-globe-label-dot {
+  width: 5.5px;
+  height: 5.5px;
+  border-radius: 50%;
+  background: #F5D327;
+  box-shadow: 0 0 8px #F5D327, 0 0 14px rgba(245, 211, 39, 0.9);
+  flex-shrink: 0;
+}
+
+.city-globe-name {
+  font-family: 'Manrope', -apple-system, BlinkMacSystemFont, sans-serif;
+  font-size: 10px;
+  font-weight: 800;
+  color: #FFFFFF;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+/* Responsive adjustments */
+@media (max-width: 640px) {
+  .jettone-globe-container {
+    max-width: 440px;
+    min-height: 330px;
+    aspect-ratio: 1 / 1;
+  }
+  .city-globe-label {
+    padding: 3px 7px;
+    gap: 4px;
+  }
+  .city-globe-name {
+    font-size: 9px;
+  }
+  .city-globe-label-dot {
+    width: 4.5px;
+    height: 4.5px;
+  }
+}
+
+@media (max-width: 380px) {
+  .jettone-globe-container {
+    min-height: 290px;
+  }
+  .city-globe-label {
+    padding: 2.5px 6px;
+    gap: 3.5px;
+  }
+  .city-globe-name {
+    font-size: 8px;
+  }
+  .city-globe-label-dot {
+    width: 4px;
+    height: 4px;
+  }
+}

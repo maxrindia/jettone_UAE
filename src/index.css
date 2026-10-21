@@ -1,0 +1,182 @@
+@import "tailwindcss";
+
+@theme {
+  --font-headline: "Manrope", sans-serif;
+  --font-serif: "Playfair Display", "Cormorant Garamond", Georgia, serif;
+  --font-body: "Inter", sans-serif;
+  --font-mono: "IBM Plex Mono", monospace;
+
+  /* Dubai Wealth & Quantitative Trading Color Tokens */
+  --color-gold: #F5D327;
+  --color-gold-deep: #D9A80D;
+  --color-gold-soft: #FEFCE8;
+  --color-gold-light: #FFF9C4;
+
+  /* Elegant Institutional Navy & Slate Palette */
+  --color-navy: #0B1528;
+  --color-navy-deep: #060E1A;
+  --color-navy-card: #0F1D33;
+  --color-navy-surface: #13243E;
+
+  --color-bg-main: #F8FAF7;
+  --color-bg-secondary: #F1F5F0;
+  --color-card: #FFFFFF;
+  --color-green-soft: #EAF4EC;
+  --color-border: #E1E7DF;
+
+  --color-text-primary: #0B1528;
+  --color-text-secondary: #334155;
+  --color-text-muted: #64748B;
+
+  --color-bullish: #16A34A;
+  --color-bullish-deep: #15803D;
+  --color-bearish: #DC2626;
+  --color-neutral: #94A3A8;
+}
+
+@layer base {
+  html, body {
+    margin: 0;
+    padding: 0;
+    width: 100%;
+    max-width: 100%;
+    overflow-x: hidden;
+    background-color: #06140E;
+    color: #FFFFFF;
+    font-family: var(--font-body);
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    font-family: var(--font-headline);
+  }
+}
+
+::-webkit-scrollbar {
+  width: 7px;
+}
+::-webkit-scrollbar-track {
+  background: #F8FAF7;
+}
+::-webkit-scrollbar-thumb {
+  background: #E1E7DF;
+  border-radius: 4px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: #F5D327;
+}
+
+@keyframes marquee {
+  0% { transform: translateX(0); }
+  100% { transform: translateX(-50%); }
+}
+
+.animate-marquee {
+  display: flex;
+  width: max-content;
+  animation: marquee 34s linear infinite;
+}
+
+.animate-marquee:hover {
+  animation-play-state: paused;
+}
+
+@keyframes rotateRings {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
+}
+
+@keyframes rotateRingsReverse {
+  from { transform: rotate(360deg); }
+  to { transform: rotate(0deg); }
+}
+
+@keyframes pulseNode {
+  0%, 100% { transform: scale(1); opacity: 0.95; }
+  50% { transform: scale(1.6); opacity: 0.3; }
+}
+
+@keyframes dashFlow {
+  to { stroke-dashoffset: -100; }
+}
+
+.spin-ring {
+  transform-origin: 250px 250px;
+  animation: rotateRings 24s linear infinite;
+}
+
+.spin-ring-rev {
+  transform-origin: 250px 250px;
+  animation: rotateRingsReverse 30s linear infinite;
+}
+
+.pulse-node {
+  transform-box: fill-box;
+  transform-origin: center;
+  animation: pulseNode 2.2s ease-in-out infinite;
+}
+
+.dash-flow {
+  stroke-dasharray: 6 4;
+  animation: dashFlow 12s linear infinite;
+}
+
+.dash-flow-fast {
+  stroke-dasharray: 4 3;
+  animation: dashFlow 5s linear infinite;
+}
+
+@keyframes chartFloat {
+  0%, 100% { transform: translateY(0px); }
+  50% { transform: translateY(-3.5px); }
+}
+
+@keyframes chartBarPulse {
+  0%, 100% { transform: scaleY(1); }
+  50% { transform: scaleY(0.82); }
+}
+
+@keyframes chartRipple {
+  0% { transform: scale(0.8); opacity: 0.8; }
+  100% { transform: scale(2.2); opacity: 0; }
+}
+
+.chart-float {
+  animation: chartFloat 3s ease-in-out infinite;
+}
+
+.chart-float-delayed {
+  animation: chartFloat 3.5s ease-in-out 1.2s infinite;
+}
+
+.chart-bar-pulse {
+  transform-origin: bottom;
+  animation: chartBarPulse 2.4s ease-in-out infinite;
+}
+
+.chart-ripple {
+  transform-box: fill-box;
+  transform-origin: center;
+  animation: chartRipple 2s cubic-bezier(0, 0.2, 0.8, 1) infinite;
+}
+/* TradingView Live Ticker Tape Container - Perfectly Centered Equal Top & Bottom Space */
+.tradingview-widget-container {
+  width: 100% !important;
+  height: 36px !important;
+  max-height: 36px !important;
+  display: flex !important;
+  align-items: center !important;
+  overflow: hidden !important;
+}
+
+.tradingview-widget-container iframe {
+  width: 100% !important;
+  height: 36px !important;
+  max-height: 36px !important;
+  display: block !important;
+  vertical-align: middle !important;
+}
+
+
+

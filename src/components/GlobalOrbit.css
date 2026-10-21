@@ -1,0 +1,58 @@
+.global-orbit {
+  position: relative;
+  width: 100%;
+  max-width: 760px;
+  aspect-ratio: 1 / 0.9;
+  min-height: 340px;
+  overflow: hidden;
+  isolation: isolate;
+  background:
+    radial-gradient(ellipse at 50% 48%, rgba(7, 116, 99, .25), transparent 54%),
+    radial-gradient(ellipse at 50% 50%, rgba(3, 15, 20, .12), transparent 72%);
+}
+.global-orbit canvas { position: absolute !important; inset: 0; }
+.global-orbit::after {
+  content: "";
+  position: absolute; inset: 4%; border-radius: 50%;
+  pointer-events: none; z-index: 1;
+  background: radial-gradient(circle, transparent 52%, rgba(1, 12, 15, .25) 77%, transparent 79%);
+}
+.orbit-caption {
+  position: absolute; z-index: 2; display: flex; flex-direction: column; gap: 4px;
+  color: #f7fbfa; font: 700 11px/1.2 system-ui, sans-serif; letter-spacing: .09em;
+  text-shadow: 0 1px 10px #00110e; pointer-events: none;
+}
+.orbit-caption small { color: #a7c4bf; font-size: 10px; font-weight: 400; letter-spacing: .02em; }
+.orbit-caption i {
+  width: 7px; height: 7px; border-radius: 50%; display: inline-block;
+  background: #ffd45a; box-shadow: 0 0 12px #ffd45a; margin-bottom: 3px;
+}
+.orbit-caption--newyork { top: 15%; left: 7%; }
+.orbit-caption--london { top: 15%; right: 8%; }
+.orbit-caption--tokyo { right: 5%; bottom: 16%; }
+.orbit-hub {
+  position: absolute; z-index: 2; left: 50%; top: 52%; transform: translate(-50%, -50%);
+  display: flex; align-items: center; gap: 8px; white-space: nowrap;
+  padding: 9px 13px; border: 1px solid rgba(255, 212, 90, .7); border-radius: 999px;
+  background: rgba(2, 17, 16, .86); color: #f7f5e9;
+  font: 700 9px/1 system-ui, sans-serif; letter-spacing: .09em;
+}
+.orbit-hub span {
+  width: 7px; height: 7px; border-radius: 50%; background: #ffd45a;
+  box-shadow: 0 0 12px #ffd45a;
+}
+@media (max-width: 600px) {
+  .global-orbit { aspect-ratio: 1 / 1; min-height: 290px; }
+  .orbit-caption { font-size: 9px; }
+  .orbit-caption small { font-size: 9px; }
+  .orbit-caption--newyork { top: 8%; left: 2%; }
+  .orbit-caption--london { top: 8%; right: 2%; }
+  .orbit-caption--tokyo { bottom: 8%; right: 2%; }
+}
+@media (max-width: 380px) {
+  .global-orbit { min-height: 260px; }
+  .orbit-caption { font-size: 8px; }
+  .orbit-caption small { font-size: 8px; }
+  .orbit-hub { font-size: 8px; padding: 6px 10px; gap: 5px; }
+  .orbit-hub span { width: 5px; height: 5px; }
+}
