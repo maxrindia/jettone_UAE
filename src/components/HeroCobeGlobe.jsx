@@ -1,5 +1,6 @@
 import React, { useState, useEffect, useRef, useMemo, useCallback } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
+import { MapPin } from 'lucide-react';
 import { Globe } from '@/components/ui/cobe-globe';
 import { GLOBAL_MARKETS, getLiveMarketStatus } from '@/data/marketsData';
 
@@ -130,20 +131,6 @@ export default function HeroCobeGlobe() {
   // Position of the currently active front-facing market
   const activePosition = positionsMap[activeCityId] || { x: 50, y: 50, isFront: true, rotZ: 1 };
 
-  // Prepare markers for Cobe: Active market is larger and bright gold
-  const cobeMarkers = useMemo(() => {
-    return GLOBAL_MARKETS.map((m) => {
-      const isActive = m.id === activeCityId;
-      return {
-        id: m.id,
-        location: m.location,
-        label: m.name,
-        size: isActive ? 0.048 : 0.024,
-        color: isActive ? [1.0, 0.95, 0.28] : [0.96, 0.83, 0.15],
-      };
-    });
-  }, [activeCityId]);
-
   // User manually selects a city from the quick chips or globe marker
   const handleSelectCity = useCallback((market) => {
     manualLockUntilRef.current = Date.now() + 7000; // Hold user selection for 7s before auto-tracking resumes
@@ -185,9 +172,9 @@ export default function HeroCobeGlobe() {
       {/* 3D Cobe Globe Canvas Container */}
       <div className="relative z-10 w-full aspect-square flex items-center justify-center">
         
-        {/* WebGL Globe (Continuous rotation with stable arrays) */}
+        {/* WebGL Globe (Continuous rotation with stable arrays, no duplicate WebGL markers) */}
         <Globe
-          markers={cobeMarkers}
+          markers={EMPTY_ARCS}
           arcs={EMPTY_ARCS}
           className="w-full h-full"
           markerColor={MARKER_COLOR}
@@ -224,17 +211,19 @@ export default function HeroCobeGlobe() {
               }}
             >
               {isActive ? (
-                /* Active Blinking Radar Beacon on Front-Facing City */
-                <div className="relative flex items-center justify-center">
-                  <span className="absolute -inset-4 rounded-full bg-[#00E676]/35 animate-ping pointer-events-none" />
-                  <span className="absolute -inset-2 rounded-full bg-[#F5D327]/60 animate-pulse pointer-events-none" />
-                  <span className="relative block w-3.5 h-3.5 rounded-full bg-[#F5D327] border-2 border-[#04120B] shadow-[0_0_18px_#F5D327]" />
+                /* Active Location Pin Marker on Front-Facing City */
+                <div className="relative flex flex-col items-center justify-center -translate-y-1">
+                  <span className="absolute -inset-2.5 rounded-full bg-[#00E676]/35 animate-ping pointer-events-none" />
+                  <div className="relative w-6 h-6 rounded-full bg-[#061811] border-2 border-[#00E676] shadow-[0_0_16px_rgba(0,230,118,0.75),0_0_8px_#F5D327] flex items-center justify-center text-[#F5D327] z-10">
+                    <MapPin className="w-3.5 h-3.5 text-[#F5D327] fill-[#F5D327]/30 stroke-[2.2]" />
+                  </div>
+                  <span className="w-1.5 h-1.5 rounded-full bg-[#F5D327] shadow-[0_0_8px_#F5D327] mt-0.5" />
                 </div>
               ) : (
-                /* Compact Dot & Subtle Hover Label for Other Front Cities */
+                /* Compact Single Gold Dot & Subtle Hover Label for Other Front Cities */
                 <div className="relative flex items-center justify-center">
-                  <span className="block w-2 h-2 rounded-full bg-[#F5D327]/80 hover:bg-[#F5D327] hover:scale-125 border border-black/50 transition-all shadow-[0_0_8px_rgba(245,211,39,0.5)]" />
-                  <span className="opacity-0 group-hover:opacity-100 absolute -top-5 left-1/2 -translate-x-1/2 px-1.5 py-0.5 rounded bg-black/85 border border-[#00E676]/40 text-[9px] font-mono text-white whitespace-nowrap transition-opacity pointer-events-none">
+                  <span className="block w-2.5 h-2.5 rounded-full bg-[#F5D327] hover:scale-125 border border-black/60 transition-all shadow-[0_0_8px_rgba(245,211,39,0.7)]" />
+                  <span className="opacity-0 group-hover:opacity-100 absolute -top-5 left-1/2 -translate-x-1/2 px-1.5 py-0.5 rounded bg-black/90 border border-[#00E676]/40 text-[9px] font-mono text-white whitespace-nowrap transition-opacity pointer-events-none">
                     {market.flag} {market.city}
                   </span>
                 </div>
@@ -285,8 +274,9 @@ export default function HeroCobeGlobe() {
                 {/* Right: Market Information & Live Status */}
                 <div className="flex flex-col text-left pr-0.5 sm:pr-1 min-w-[110px] sm:min-w-[135px]">
                   
-                  {/* City Title with Country Flag */}
+                  {/* City Title with Location Pin & Country Flag */}
                   <div className="flex items-center gap-1 sm:gap-1.5">
+                    <MapPin className="w-3 h-3 sm:w-3.5 sm:h-3.5 text-[#00E676] shrink-0" />
                     <span className="text-xs sm:text-base leading-none" role="img" aria-label={activeMarket.country}>
                       {activeMarket.flag}
                     </span>
