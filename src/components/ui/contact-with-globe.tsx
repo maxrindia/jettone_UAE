@@ -372,7 +372,7 @@ export default function ContactWithGlobe({
                     value={formData.phone}
                     onChange={(e) => handleChange("phone", e.target.value)}
                     onBlur={() => handleBlur("phone")}
-                    placeholder="+91 80568 46874"
+                    placeholder="+971 50 123 4567"
                     className={cn(
                       "w-full bg-[#06180F]/90 border rounded-xl px-4 py-2.5 text-sm text-white placeholder-[#5A7E6B] font-mono outline-none transition-all duration-200",
                       touched.phone && errors.phone
