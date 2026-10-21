@@ -16,6 +16,7 @@ import {
   Layers
 } from 'lucide-react';
 import SEO from '../components/SEO';
+import ContactCtaStrip from '../components/ContactCtaStrip';
 
 const expandedFeatures = [
   {
@@ -225,28 +226,13 @@ export default function ExploreJBot() {
         </div>
       </section>
 
-      {/* 5. CTA */}
-      <section className="relative py-12 sm:py-16 px-4 sm:px-6 lg:px-10 xl:px-12 2xl:px-16 max-w-7xl xl:max-w-[1380px] 2xl:max-w-[1640px] [@media(min-width:2000px)]:max-w-[1880px] mx-auto w-full text-center">
-        <div className="rounded-2xl sm:rounded-3xl p-8 sm:p-12 bg-gradient-to-br from-[#0F3524]/90 via-[#0A2619]/95 to-[#123E2A]/85 backdrop-blur-2xl border border-[#287348]/60 shadow-xl max-w-3xl mx-auto">
-          <h2 className="font-headline text-2xl sm:text-4xl font-bold text-white mb-3">
-            Ready to Build With JBot?
-          </h2>
-          <p className="font-body text-[#BCE2CD] text-sm sm:text-base mb-6 max-w-xl mx-auto">
-            Get in touch with our Dubai technology desk to schedule a direct system walkthrough.
-          </p>
-
-          <motion.div whileHover={{ scale: 1.02 }} whileTap={{ scale: 0.98 }} className="inline-block">
-            <Link
-              to="/contact"
-              className="relative overflow-hidden group inline-flex items-center gap-2.5 px-8 py-3.5 bg-gradient-to-r from-[#E5B80B] via-[#F5D327] to-[#D9A300] text-[#0B1528] font-body text-sm font-bold rounded-xl transition-all shadow-[inset_0_1px_1px_rgba(255,255,255,0.7),0_4px_18px_rgba(245,211,39,0.38)] hover:shadow-[0_6px_26px_rgba(245,211,39,0.55)]"
-            >
-              <span className="absolute inset-0 bg-gradient-to-r from-transparent via-white/45 to-transparent -translate-x-full group-hover:translate-x-full transition-transform duration-1000 ease-out pointer-events-none" />
-              <span className="relative z-10">Get Started</span>
-              <ArrowRight className="w-4 h-4 relative z-10 stroke-[2.5]" />
-            </Link>
-          </motion.div>
-        </div>
-      </section>
+      {/* 5. Edge-to-Edge CTA */}
+      <ContactCtaStrip
+        title="Ready to Build With JBot?"
+        subtext="Get in touch with our Dubai technology desk to schedule a direct system walkthrough."
+        ctaText="Get Started →"
+        ctaLink="/contact"
+      />
     </>
   );
 }

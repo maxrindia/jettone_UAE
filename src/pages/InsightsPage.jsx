@@ -79,44 +79,56 @@ export default function InsightsPage() {
       </section>
 
       {/* Featured Articles Grid */}
-      <section className="relative py-6 sm:py-10 px-4 sm:px-6 lg:px-10 xl:px-12 2xl:px-16 max-w-7xl xl:max-w-[1380px] 2xl:max-w-[1640px] [@media(min-width:2000px)]:max-w-[1880px] mx-auto w-full mb-12">
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8">
+      <section className="relative py-4 sm:py-8 px-4 sm:px-6 lg:px-10 xl:px-12 2xl:px-16 max-w-7xl xl:max-w-[1380px] 2xl:max-w-[1640px] [@media(min-width:2000px)]:max-w-[1880px] mx-auto w-full mb-10">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6">
           {insightsArticles.map((article, index) => (
             <motion.div
               key={article.id}
-              initial={{ opacity: 0, y: 20 }}
+              initial={{ opacity: 0, y: 16 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
-              transition={{ duration: 0.45, delay: index * 0.08 }}
-              className="bg-gradient-to-br from-[#0F3524]/75 via-[#0A2619]/80 to-[#123E2A]/70 backdrop-blur-2xl p-6 sm:p-7 rounded-2xl border border-[#287348]/55 shadow-lg flex flex-col justify-between hover:border-[#00E676]/70 transition-all group"
+              transition={{ duration: 0.4, delay: index * 0.08 }}
+              className="bg-gradient-to-br from-[#0F3524]/85 via-[#0A2619]/90 to-[#123E2A]/80 backdrop-blur-2xl rounded-xl border border-[#287348]/55 shadow-md flex flex-col justify-between hover:border-[#00E676]/70 transition-all group overflow-hidden"
             >
               <div>
-                <div className="flex items-center justify-between mb-4">
-                  <span className={`text-[10px] font-mono font-semibold uppercase px-2.5 py-0.5 rounded-full border ${article.badgeClass}`}>
-                    {article.category}
-                  </span>
-                  <div className="flex items-center gap-1.5 text-[11px] font-mono text-[#88A896]">
-                    <Clock className="w-3.5 h-3.5 text-[#00E676]" />
-                    <span>{article.readTime}</span>
+                {/* Article Visual Thumbnail */}
+                <div className="relative w-full h-32 sm:h-36 overflow-hidden bg-[#0A2619]">
+                  <img
+                    src={article.image}
+                    alt={article.title}
+                    className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500 opacity-85"
+                  />
+                  <div className="absolute inset-0 bg-gradient-to-t from-[#0A2619] via-transparent to-transparent opacity-60" />
+                  <div className="absolute top-2.5 left-2.5">
+                    <span className={`text-[9.5px] font-mono font-semibold uppercase px-2 py-0.5 rounded-md border ${article.badgeClass} bg-[#0A2619]/85 backdrop-blur-md`}>
+                      {article.category}
+                    </span>
                   </div>
                 </div>
 
-                <h3 className="font-headline text-lg sm:text-xl font-bold text-white mb-3 leading-snug group-hover:text-[#F5D327] transition-colors">
-                  {article.title}
-                </h3>
+                <div className="p-3.5 sm:p-4 pb-2">
+                  <div className="flex items-center gap-1.5 mb-1.5 text-[10.5px] font-mono text-[#88A896]">
+                    <Clock className="w-3 h-3 text-[#00E676]" />
+                    <span>{article.readTime}</span>
+                  </div>
 
-                <p className="font-body text-xs sm:text-sm text-[#BCE2CD] leading-relaxed mb-6">
-                  {article.summary}
-                </p>
+                  <h3 className="font-headline text-sm sm:text-base font-bold text-white mb-1.5 leading-snug group-hover:text-[#F5D327] transition-colors line-clamp-2">
+                    {article.title}
+                  </h3>
+
+                  <p className="font-body text-xs text-[#BCE2CD] leading-relaxed line-clamp-2">
+                    {article.summary}
+                  </p>
+                </div>
               </div>
 
-              <div className="pt-4 border-t border-[#25633F]/40 flex items-center justify-between">
+              <div className="p-3.5 sm:p-4 pt-2 border-t border-[#25633F]/40 flex items-center justify-between">
                 <Link
                   to={`/insights/${article.id}`}
-                  className="inline-flex items-center gap-2 text-xs sm:text-sm font-semibold text-[#F5D327] hover:text-white transition-colors"
+                  className="inline-flex items-center gap-1.5 text-xs font-semibold text-[#F5D327] hover:text-white transition-colors group/link"
                 >
                   <span>Read Full Article</span>
-                  <ArrowRight className="w-4 h-4 text-[#00E676] group-hover:translate-x-1 transition-transform" />
+                  <ArrowRight className="w-3.5 h-3.5 text-[#00E676] group-hover/link:translate-x-1 transition-transform" />
                 </Link>
                 <span className="text-[10px] font-mono text-[#88A896]">
                   {article.date}

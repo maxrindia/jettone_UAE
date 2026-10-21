@@ -43,55 +43,59 @@ export default function Insights() {
         </motion.div>
       </div>
 
-      {/* 3 Articles Grid */}
-      <div className="relative z-10 grid grid-cols-1 lg:grid-cols-3 gap-6 sm:gap-8">
+      {/* 3 Articles Grid — Compact & Sleek */}
+      <div className="relative z-10 grid grid-cols-1 lg:grid-cols-3 gap-4 sm:gap-6">
         {insightsArticles.slice(0, 3).map((item, index) => (
           <motion.article
             key={item.id}
-            initial={{ opacity: 0, y: 20 }}
+            initial={{ opacity: 0, y: 16 }}
             whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true, margin: '-30px' }}
-            transition={{ duration: 0.45, delay: index * 0.1 }}
-            whileHover={{ y: -5, transition: { duration: 0.2 } }}
-            className="relative bg-gradient-to-br from-[#0F3524]/75 via-[#0A2619]/80 to-[#123E2A]/70 backdrop-blur-2xl rounded-2xl flex flex-col justify-between border border-[#287348]/55 shadow-[inset_0_1px_1px_rgba(255,255,255,0.18),0_12px_36px_rgba(10,38,25,0.18)] group hover:border-[#00E676]/75 transition-all hover:shadow-[0_16px_44px_rgba(0,230,118,0.25)]"
+            viewport={{ once: true, margin: '-20px' }}
+            transition={{ duration: 0.4, delay: index * 0.08 }}
+            whileHover={{ y: -4, transition: { duration: 0.2 } }}
+            className="relative bg-gradient-to-br from-[#0F3524]/85 via-[#0A2619]/90 to-[#123E2A]/80 backdrop-blur-2xl rounded-xl flex flex-col justify-between border border-[#287348]/55 shadow-[inset_0_1px_1px_rgba(255,255,255,0.18),0_8px_24px_rgba(10,38,25,0.2)] group hover:border-[#00E676]/75 transition-all hover:shadow-[0_12px_32px_rgba(0,230,118,0.2)]"
           >
             <div>
-              {/* Image */}
-              <div className="relative w-full h-44 rounded-t-2xl overflow-hidden bg-[#0A2619]">
+              {/* Compact Thumbnail Image */}
+              <div className="relative w-full h-32 sm:h-36 rounded-t-xl overflow-hidden bg-[#0A2619]">
                 <img
                   src={item.image}
                   alt={item.title}
-                  className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500 opacity-80 rounded-t-2xl"
+                  className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500 opacity-85 rounded-t-xl"
                 />
-                <div className="absolute top-3 left-3 bg-[#0A2619]/90 backdrop-blur-md px-2.5 py-1 rounded-full text-[10.5px] font-mono font-semibold text-[#F5D77F] border border-[#2E7A4E]/60">
+                <div className="absolute inset-0 bg-gradient-to-t from-[#0A2619] via-transparent to-transparent opacity-60" />
+                <div className="absolute top-2.5 left-2.5 bg-[#0A2619]/90 backdrop-blur-md px-2 py-0.5 rounded text-[10px] font-mono font-semibold text-[#F5D77F] border border-[#2E7A4E]/60">
                   {item.category}
                 </div>
               </div>
 
-              <div className="p-5 sm:p-6">
-                <div className="flex items-center gap-2 mb-2.5 text-xs text-[#A8D3BA] font-mono">
-                  <Clock className="w-3.5 h-3.5 text-[#00E676]" />
-                  <span className="text-[11px] text-[#A8D3BA]">{item.readTime}</span>
+              <div className="p-3.5 sm:p-4 pb-2">
+                <div className="flex items-center gap-1.5 mb-1.5 text-[10.5px] text-[#A8D3BA] font-mono">
+                  <Clock className="w-3 h-3 text-[#00E676]" />
+                  <span>{item.readTime}</span>
                 </div>
 
-                <h3 className="font-headline text-lg sm:text-xl font-semibold text-white mb-2.5 group-hover:text-[#F5D327] transition-colors leading-snug">
+                <h3 className="font-headline text-sm sm:text-base font-semibold text-white mb-1.5 group-hover:text-[#F5D327] transition-colors leading-snug line-clamp-2">
                   {item.title}
                 </h3>
 
-                <p className="font-body text-xs sm:text-sm text-[#BCE2CD] leading-relaxed mb-4">
+                <p className="font-body text-xs text-[#BCE2CD] leading-relaxed line-clamp-2">
                   {item.summary}
                 </p>
               </div>
             </div>
 
-            <div className="p-5 sm:p-6 pt-0 border-t border-[#25633F]/40 mt-auto">
+            <div className="p-3.5 sm:p-4 pt-2 border-t border-[#25633F]/40 mt-auto flex items-center justify-between">
               <Link
                 to={`/insights/${item.id}`}
-                className="inline-flex items-center gap-2 text-xs sm:text-sm font-semibold text-[#F5D327] hover:text-white transition-colors pt-3 group/link"
+                className="inline-flex items-center gap-1.5 text-xs font-semibold text-[#F5D327] hover:text-white transition-colors group/link"
               >
                 <span>Read Article</span>
-                <ArrowRight className="w-3.5 h-3.5 group-hover/link:translate-x-1 transition-transform" />
+                <ArrowRight className="w-3.5 h-3.5 group-hover/link:translate-x-1 transition-transform text-[#00E676]" />
               </Link>
+              <span className="text-[10px] font-mono text-[#88A896]">
+                {item.date}
+              </span>
             </div>
           </motion.article>
         ))}

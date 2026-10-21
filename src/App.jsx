@@ -123,6 +123,7 @@ export default function App() {
             <Route path="/services" element={<ServicesPage />} />
             
             {/* JBot Technology */}
+            <Route path="/services/jbot" element={<JBotPage />} />
             <Route path="/jbot" element={<JBotPage />} />
             <Route path="/explore-jbot" element={<ExploreJBot />} />
             

@@ -137,17 +137,17 @@ export default function JBotSection() {
 
           {/* Action CTAs */}
           <div className="flex flex-wrap items-center gap-4 w-full">
-            {/* Explore JBot triggers concise details modal / showcase */}
-            <motion.button
-              whileHover={{ scale: 1.02 }}
-              whileTap={{ scale: 0.98 }}
-              onClick={() => setShowDetailsModal(true)}
-              className="relative overflow-hidden group w-full sm:w-auto px-8 py-3.5 bg-gradient-to-r from-[#E5B80B] via-[#F5D327] to-[#D9A300] text-[#0B1528] font-body text-sm font-bold rounded-xl transition-all shadow-[inset_0_1px_1px_rgba(255,255,255,0.7),0_4px_18px_rgba(245,211,39,0.38)] hover:shadow-[0_6px_26px_rgba(245,211,39,0.55)] flex items-center justify-center gap-2 cursor-pointer"
-            >
-              <span className="absolute inset-0 bg-gradient-to-r from-transparent via-white/45 to-transparent -translate-x-full group-hover:translate-x-full transition-transform duration-1000 ease-out pointer-events-none" />
-              <span className="relative z-10">Explore JBot</span>
-              <Activity className="w-4 h-4 relative z-10 stroke-[2.5]" />
-            </motion.button>
+            {/* Explore JBot links to dedicated /services/jbot page */}
+            <motion.div whileHover={{ scale: 1.02 }} whileTap={{ scale: 0.98 }} className="w-full sm:w-auto">
+              <Link
+                to="/services/jbot"
+                className="relative overflow-hidden group w-full sm:w-auto px-8 py-3.5 bg-gradient-to-r from-[#E5B80B] via-[#F5D327] to-[#D9A300] text-[#0B1528] font-body text-sm font-bold rounded-xl transition-all shadow-[inset_0_1px_1px_rgba(255,255,255,0.7),0_4px_18px_rgba(245,211,39,0.38)] hover:shadow-[0_6px_26px_rgba(245,211,39,0.55)] flex items-center justify-center gap-2"
+              >
+                <span className="absolute inset-0 bg-gradient-to-r from-transparent via-white/45 to-transparent -translate-x-full group-hover:translate-x-full transition-transform duration-1000 ease-out pointer-events-none" />
+                <span className="relative z-10">Explore JBot</span>
+                <Activity className="w-4 h-4 relative z-10 stroke-[2.5]" />
+              </Link>
+            </motion.div>
 
             <motion.button
               whileHover={{ scale: 1.02 }}
