@@ -60,7 +60,7 @@ export default function Footer() {
                 <img
                   src="/jettone-logo.png"
                   alt="JETTONE"
-                  className="h-6 w-auto object-contain brightness-0 invert"
+                  className="h-5 sm:h-[22px] w-auto object-contain brightness-0 invert"
                 />
               </Link>
             </div>

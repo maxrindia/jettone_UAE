@@ -70,7 +70,7 @@ export default function Navbar() {
             <img
               src="/jettone-logo.png"
               alt="JETTONE"
-              className="h-8 sm:h-[34px] md:h-9 2xl:h-10 w-auto object-contain transition-transform group-hover:scale-[1.02]"
+              className="h-[26px] sm:h-7 md:h-[30px] 2xl:h-8 w-auto object-contain transition-transform group-hover:scale-[1.02]"
             />
           </Link>
 
