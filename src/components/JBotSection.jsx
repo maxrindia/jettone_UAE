@@ -173,7 +173,7 @@ export default function JBotSection() {
             <div className="flex items-center gap-2">
               <span className="w-2 h-2 rounded-full bg-[#00E676] animate-pulse shadow-[0_0_8px_#00E676]" />
               <span className="text-xs font-mono font-semibold text-[#F5D327] tracking-wider uppercase ml-1">
-                JBot Quantitative Platform
+                JBot Platform
               </span>
             </div>
 
@@ -214,10 +214,6 @@ export default function JBotSection() {
                   className="w-full h-full object-cover object-top opacity-95"
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-[#0A2619] via-transparent to-transparent opacity-80" />
-                <div className="absolute top-3 left-3 bg-[#0A2619]/90 backdrop-blur-md px-2.5 py-1 rounded-lg border border-[#2E7A4E]/60 text-[10px] font-mono text-[#00E676] font-semibold flex items-center gap-1.5">
-                  <span className="w-1.5 h-1.5 rounded-full bg-[#00E676] animate-ping" />
-                  Live Stream Engine
-                </div>
               </div>
 
               <div className="grid grid-cols-2 sm:grid-cols-4 gap-2 sm:gap-2.5">

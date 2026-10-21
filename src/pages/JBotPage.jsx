@@ -160,7 +160,7 @@ export default function JBotPage() {
   return (
     <>
       <SEO
-        title="JBot Quantitative Platform | JETTONE Dubai"
+        title="JBot Platform | JETTONE Dubai"
         description="JBot by JETTONE is an algorithmic trading software platform for strategy formulation, tick backtesting, and automated execution via secure broker APIs."
         path="/services/jbot"
       />
@@ -173,7 +173,7 @@ export default function JBotPage() {
           <div className="lg:col-span-7">
             <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-[#00E676]/10 border border-[#00E676]/30 text-[#00E676] text-xs font-mono font-semibold uppercase tracking-wider mb-3">
               <Cpu className="w-3.5 h-3.5" />
-              <span>JBOT QUANTITATIVE PLATFORM</span>
+              <span>JBOT PLATFORM</span>
             </div>
 
             <h1 className="font-headline text-3xl sm:text-5xl lg:text-6xl font-bold text-white tracking-tight leading-[1.1] mb-5">

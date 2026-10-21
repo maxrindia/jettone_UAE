@@ -247,10 +247,6 @@ export default function ContactPage() {
                   <span className="absolute inset-0 bg-gradient-to-r from-transparent via-white/45 to-transparent -translate-x-full group-hover:translate-x-full transition-transform duration-1000 ease-out pointer-events-none" />
                   <span className="relative z-10">Send Enquiry →</span>
                 </motion.button>
-
-                <p className="font-mono text-xs text-[#88A896] mt-3">
-                  We will respond within 2 business days.
-                </p>
               </div>
 
               {/* Submission Feedback Toast */}
@@ -263,7 +259,7 @@ export default function ContactPage() {
                     className="p-4 rounded-xl bg-[#0D2D1E] border border-[#00E676]/60 text-[#00E676] text-xs sm:text-sm font-medium flex items-center gap-2.5 shadow-lg"
                   >
                     <CheckCircle2 className="w-5 h-5 text-[#00E676] shrink-0" />
-                    <span>Your enquiry has been received. Our team will contact you within 2 business days.</span>
+                    <span>Your enquiry has been received. Our team will contact you shortly.</span>
                   </motion.div>
                 )}
               </AnimatePresence>

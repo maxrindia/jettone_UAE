@@ -232,12 +232,9 @@ function StructuredChart() {
 const markets = [
   {
     id: 'forex',
-    num: '01',
     title: 'Forex Trading',
     description: 'Major, minor and emerging currency pairs with competitive tight spreads.',
     icon: CurrencyExchangeIcon,
-    badgeText: 'Active',
-    badgeType: 'active',
     chart: ForexChart,
     leftMetric: 'EUR/USD • USD/JPY',
     rightMetric: 'Live Feed',
@@ -245,12 +242,9 @@ const markets = [
   },
   {
     id: 'metals',
-    num: '02',
     title: 'Gold & Silver',
     description: 'Spot and futures bullion pricing with transparent market spreads.',
     icon: RosetteClusterIcon,
-    badgeText: 'Bullion',
-    badgeType: 'bullion',
     chart: MetalsChart,
     leftMetric: 'XAU/USD • XAG/USD',
     rightMetric: 'Spot & Futures',
@@ -258,12 +252,9 @@ const markets = [
   },
   {
     id: 'energy',
-    num: '03',
     title: 'Energy & Commodities',
     description: 'Crude oil, natural gas, agricultural and industrial commodity benchmarks.',
     icon: OilBarrelIcon,
-    badgeText: 'Active',
-    badgeType: 'active',
     chart: EnergyChart,
     leftMetric: 'Brent • WTI • Gas',
     rightMetric: 'Real-Time',
@@ -271,12 +262,9 @@ const markets = [
   },
   {
     id: 'indices',
-    num: '04',
     title: 'Global Indices',
     description: 'Access to leading global equity benchmarks and regional bourses.',
     icon: TrendingUp,
-    badgeText: 'Active',
-    badgeType: 'active',
     chart: IndicesChart,
     leftMetric: 'S&P 500 • NASDAQ',
     rightMetric: 'Global Feeds',
@@ -284,12 +272,9 @@ const markets = [
   },
   {
     id: 'crypto',
-    num: '05',
     title: 'Cryptocurrency',
     description: 'Major digital assets and token trading via deep liquidity providers.',
     icon: BrainCircuit,
-    badgeText: 'Digital Asset',
-    badgeType: 'algorithmic',
     chart: CryptoChart,
     leftMetric: 'BTC • ETH • Majors',
     rightMetric: '24/7 Liquidity',
@@ -297,12 +282,9 @@ const markets = [
   },
   {
     id: 'futures',
-    num: '06',
     title: 'Futures & Options',
     description: 'Exchange-traded derivative contracts for hedging and risk management.',
     icon: Landmark,
-    badgeText: 'Derivatives',
-    badgeType: 'active',
     chart: EquitiesChart,
     leftMetric: 'Multi-Exchange',
     rightMetric: 'Order Routing',
@@ -310,12 +292,9 @@ const markets = [
   },
   {
     id: 'analysis',
-    num: '07',
     title: 'Market Analysis & Education',
     description: 'Technical, macroeconomic, and quantitative research to support informed execution.',
     icon: FileText,
-    badgeText: 'Research',
-    badgeType: 'active',
     chart: FixedIncomeChart,
     leftMetric: 'Daily Intelligence',
     rightMetric: 'Educational',
@@ -323,12 +302,9 @@ const markets = [
   },
   {
     id: 'consulting',
-    num: '08',
     title: 'Stock Market Consulting',
     description: 'Strategic portfolio discussions and market structuring across equities.',
     icon: MoleculeBranchIcon,
-    badgeText: 'Advisory',
-    badgeType: 'bespoke',
     chart: StructuredChart,
     leftMetric: 'Bespoke Advisory',
     rightMetric: 'Custom Review',
@@ -371,13 +347,6 @@ export default function Markets() {
             const Icon = item.icon;
             const Chart = item.chart;
 
-            // Badges in official gold & emerald tones
-            const isGoldBadge = item.badgeType === 'algorithmic' || item.badgeType === 'bullion' || item.badgeType === 'bespoke';
-            const badgeClasses = isGoldBadge
-              ? 'text-[#F5D327] bg-[#F5D327]/15 border border-[#F5D327]/40 shadow-[0_0_8px_rgba(245,211,39,0.25)]'
-              : 'text-[#00E676] bg-[#00E676]/15 border border-[#00E676]/40 shadow-[0_0_8px_rgba(0,230,118,0.22)]';
-            const dotColor = isGoldBadge ? 'bg-[#F5D327]' : 'bg-[#00E676]';
-
             return (
               <motion.div
                 key={item.id}
@@ -389,20 +358,11 @@ export default function Markets() {
                 className="relative bg-gradient-to-br from-[#0F3524]/75 via-[#0A2619]/80 to-[#123E2A]/70 backdrop-blur-2xl p-5 sm:p-6 rounded-2xl flex flex-col justify-between shadow-[inset_0_1px_1px_rgba(255,255,255,0.18),0_12px_36px_rgba(10,38,25,0.22)] border border-[#287348]/55 group hover:border-[#00E676]/75 transition-all hover:shadow-[0_16px_44px_rgba(0,230,118,0.26)] hover:from-[#0F3524]/85 hover:via-[#0A2619]/90 hover:to-[#123E2A]/80"
               >
                 <div>
-                  {/* Top Bar: Number + Icon + Status Badge */}
-                  <div className="flex items-center justify-between mb-4">
-                    <div className="flex items-center gap-2.5">
-                      <span className="text-xs font-mono font-bold text-[#F5D327]/80">
-                        {item.num}
-                      </span>
-                      <div className="w-9 h-9 rounded-xl bg-[#14422B]/90 border border-[#2E7A4E]/60 flex items-center justify-center text-[#00E676] group-hover:bg-[#00E676] group-hover:text-[#0A2619] transition-all shadow-[0_0_12px_rgba(0,230,118,0.25)]">
-                        <Icon className="w-4.5 h-4.5 stroke-[1.9]" />
-                      </div>
+                  {/* Card Icon */}
+                  <div className="mb-4">
+                    <div className="w-9 h-9 rounded-xl bg-[#14422B]/90 border border-[#2E7A4E]/60 flex items-center justify-center text-[#00E676] group-hover:bg-[#00E676] group-hover:text-[#0A2619] transition-all shadow-[0_0_12px_rgba(0,230,118,0.25)]">
+                      <Icon className="w-4.5 h-4.5 stroke-[1.9]" />
                     </div>
-                    <span className={`inline-flex items-center gap-1.5 text-[10px] font-semibold font-mono px-2.5 py-0.5 rounded-full ${badgeClasses}`}>
-                      <span className={`w-1.5 h-1.5 rounded-full ${dotColor}`} />
-                      {item.badgeText}
-                    </span>
                   </div>
 
                   {/* Title & Description */}

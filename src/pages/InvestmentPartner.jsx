@@ -17,7 +17,6 @@ import {
   PieChart,
   Target,
   FileText,
-  Clock,
   Sparkles
 } from 'lucide-react';
 import SEO from '../components/SEO';
@@ -161,7 +160,6 @@ const timelineSteps = [
   {
     number: '01',
     title: 'Discovery & Strategic Alignment',
-    duration: 'Week 1',
     badge: 'STAGE 01',
     summary:
       'We begin with an in-depth confidential consultation to evaluate mutual strategic alignment, risk appetite, capital scale, and target horizon.',
@@ -175,7 +173,6 @@ const timelineSteps = [
   {
     number: '02',
     title: 'Framework Review & Due Diligence',
-    duration: 'Weeks 2 – 3',
     badge: 'STAGE 02',
     summary:
       'Review a customized operational proposal specifying capital allocation bands, liquidity horizons, and comprehensive risk mitigation rules.',
@@ -189,7 +186,6 @@ const timelineSteps = [
   {
     number: '03',
     title: 'Mandate Structuring & Agreement',
-    duration: 'Week 4',
     badge: 'STAGE 03',
     summary:
       'Formalize the collaborative relationship through definitive legal agreements, fee schedules, and governance documentation rooted in Dubai.',
@@ -203,7 +199,6 @@ const timelineSteps = [
   {
     number: '04',
     title: 'Ongoing Telemetry & Review',
-    duration: 'Continuous',
     badge: 'STAGE 04',
     summary:
       'Active management under pre-agreed parameters, backed by granular monthly statements, quarterly strategic reviews, and continuous dialogue.',
@@ -368,7 +363,7 @@ export default function InvestmentPartner() {
       <section className="relative py-10 sm:py-14 px-4 sm:px-6 lg:px-10 xl:px-12 2xl:px-16 max-w-7xl xl:max-w-[1380px] 2xl:max-w-[1640px] [@media(min-width:2000px)]:max-w-[1880px] mx-auto w-full">
         <div className="mb-8">
           <span className="text-xs font-semibold tracking-wider uppercase text-[#F5D327] block mb-2 font-mono">
-            PROGRESSION TIMELINE
+            PROGRESSION FRAMEWORK
           </span>
           <h2 className="font-headline text-2xl sm:text-4xl font-bold text-white">
             How It Works
@@ -400,7 +395,6 @@ export default function InvestmentPartner() {
                     <span className={`text-xs font-mono font-bold ${isActive ? 'text-[#F5D327]' : isPassed ? 'text-[#00E676]' : 'text-[#88A896]'}`}>
                       STEP {step.number}
                     </span>
-                    <span className="text-[10px] font-mono text-[#88A896]">{step.duration}</span>
                   </div>
                   <h4 className={`font-headline text-xs sm:text-sm font-semibold truncate ${isActive ? 'text-white' : 'text-[#BCE2CD]'}`}>
                     {step.title}
@@ -426,10 +420,6 @@ export default function InvestmentPartner() {
                 <div className="flex items-center gap-2 mb-3">
                   <span className="text-xs font-mono font-bold text-[#F5D327] px-2.5 py-0.5 rounded bg-[#F5D327]/15 border border-[#F5D327]/30">
                     {currentStep.badge}
-                  </span>
-                  <span className="text-xs font-mono text-[#88A896] flex items-center gap-1.5">
-                    <Clock className="w-3.5 h-3.5 text-[#00E676]" />
-                    {currentStep.duration}
                   </span>
                 </div>
 
