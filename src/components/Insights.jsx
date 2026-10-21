@@ -37,22 +37,22 @@ const articles = [
 
 export default function Insights() {
   return (
-    <section className="relative py-8 sm:py-10 px-4 sm:px-6 lg:px-12 max-w-7xl mx-auto w-full" id="insights">
+    <section className="relative py-10 sm:py-14 2xl:py-20 px-4 sm:px-6 lg:px-10 xl:px-12 2xl:px-16 max-w-7xl xl:max-w-[1380px] 2xl:max-w-[1640px] [@media(min-width:2000px)]:max-w-[1880px] mx-auto w-full" id="insights">
       {/* Section Header */}
-      <div className="relative z-10 flex flex-col md:flex-row md:items-end justify-between mb-7 sm:mb-8">
+      <div className="relative z-10 flex flex-col md:flex-row md:items-end justify-between mb-7 sm:mb-8 2xl:mb-12">
         <motion.div
           initial={{ opacity: 0, y: 16 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
-          className="max-w-2xl"
+          className="max-w-2xl 2xl:max-w-3xl"
         >
-          <span className="text-xs font-semibold tracking-wider uppercase text-[#F5D327] mb-3 block">
+          <span className="text-xs 2xl:text-sm font-semibold tracking-wider uppercase text-[#F5D327] mb-3 block">
             Market Insights
           </span>
-          <h2 className="font-headline text-3xl sm:text-4xl md:text-[2.6rem] font-bold text-white mb-3 leading-tight">
+          <h2 className="font-headline text-3xl sm:text-4xl md:text-[2.6rem] 2xl:text-[3.2rem] font-bold text-white mb-3 leading-tight">
             Market Perspectives.
           </h2>
-          <p className="font-body text-[#BCE2CD] font-normal text-sm md:text-base leading-relaxed mt-4">
+          <p className="font-body text-[#BCE2CD] font-normal text-sm md:text-base 2xl:text-lg leading-relaxed mt-4">
             Explore educational resources, market developments, trading concepts and technology insights to build a clearer understanding of financial markets.
           </p>
         </motion.div>

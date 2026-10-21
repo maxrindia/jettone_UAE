@@ -173,7 +173,7 @@ export default function HeroCobeGlobe() {
   }, [activePosition.x, activePosition.y]);
 
   return (
-    <div className="relative w-full max-w-[290px] xs:max-w-[340px] sm:max-w-[420px] md:max-w-[460px] lg:max-w-[500px] xl:max-w-[530px] mx-auto flex flex-col items-center justify-center select-none">
+    <div className="relative w-full max-w-[290px] xs:max-w-[340px] sm:max-w-[420px] md:max-w-[460px] lg:max-w-[500px] xl:max-w-[560px] 2xl:max-w-[640px] [@media(min-width:2000px)]:max-w-[700px] mx-auto flex flex-col items-center justify-center select-none">
       
       {/* Background Ambient Radial Glow matching JETTONE dark luxury aesthetic */}
       <div className="absolute inset-0 -m-8 rounded-full bg-[radial-gradient(circle_at_center,rgba(0,230,118,0.18)_0%,rgba(245,211,39,0.14)_45%,transparent_70%)] blur-[70px] pointer-events-none" />

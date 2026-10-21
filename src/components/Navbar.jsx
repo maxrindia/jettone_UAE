@@ -39,23 +39,23 @@ export default function Navbar() {
             : 'bg-white/95 backdrop-blur-sm border-b border-[#E2E8F0]'
         }`}
       >
-        <div className="h-14 sm:h-[58px] md:h-[62px] max-w-7xl mx-auto px-4 sm:px-6 lg:px-12 flex items-center justify-between">
+        <div className="h-14 sm:h-[58px] md:h-[62px] 2xl:h-[68px] max-w-7xl xl:max-w-[1380px] 2xl:max-w-[1640px] [@media(min-width:2000px)]:max-w-[1880px] mx-auto px-4 sm:px-6 lg:px-10 xl:px-12 2xl:px-16 flex items-center justify-between">
           {/* Brand Logo - Cropped to bounds, fits tightly with zero excess whitespace */}
           <a href="#" className="flex items-center gap-3 group">
             <img
               src="/jettone-logo.png"
               alt="JETTONE"
-              className="h-8 sm:h-[34px] md:h-9 w-auto object-contain transition-transform group-hover:scale-[1.02]"
+              className="h-8 sm:h-[34px] md:h-9 2xl:h-10 w-auto object-contain transition-transform group-hover:scale-[1.02]"
             />
           </a>
 
           {/* Desktop Navigation - Slightly increased font size */}
-          <nav className="hidden lg:flex items-center gap-7 xl:gap-8">
+          <nav className="hidden lg:flex items-center gap-7 xl:gap-8 2xl:gap-10">
             {navLinks.map((link, idx) => (
               <a
                 key={link.name}
                 href={link.href}
-                className={`text-[16.5px] font-semibold transition-colors relative py-1.5 tracking-[-0.01em] ${
+                className={`text-[16px] xl:text-[16.5px] 2xl:text-[17.5px] font-semibold transition-colors relative py-1.5 tracking-[-0.01em] ${
                   idx === 0
                     ? 'text-[#0B1528] font-bold'
                     : 'text-[#334155] hover:text-[#0B1528]'

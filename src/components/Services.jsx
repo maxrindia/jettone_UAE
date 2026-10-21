@@ -40,20 +40,20 @@ const services = [
 
 export default function Services() {
   return (
-    <section className="relative pt-6 sm:pt-8 pb-8 sm:pb-10 px-4 sm:px-6 lg:px-12 max-w-7xl mx-auto w-full" id="services">
+    <section className="relative pt-8 sm:pt-12 2xl:pt-16 pb-12 sm:pb-16 2xl:pb-24 px-4 sm:px-6 lg:px-10 xl:px-12 2xl:px-16 max-w-7xl xl:max-w-[1380px] 2xl:max-w-[1640px] [@media(min-width:2000px)]:max-w-[1880px] mx-auto w-full" id="services">
       {/* Section Header */}
-      <div className="relative z-10 flex flex-col md:flex-row md:items-end justify-between mb-7 sm:mb-8">
+      <div className="relative z-10 flex flex-col md:flex-row md:items-end justify-between mb-7 sm:mb-8 2xl:mb-12">
         <motion.div
           initial={{ opacity: 0, y: 16 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true, margin: '-40px' }}
           transition={{ duration: 0.5 }}
-          className="max-w-2xl"
+          className="max-w-2xl 2xl:max-w-3xl"
         >
-          <span className="text-xs font-semibold tracking-wider uppercase text-[#F5D327] mb-2 block">
+          <span className="text-xs 2xl:text-sm font-semibold tracking-wider uppercase text-[#F5D327] mb-2 block">
             Our Services
           </span>
-          <h2 className="font-headline text-3xl sm:text-4xl md:text-[2.6rem] font-bold text-white leading-tight">
+          <h2 className="font-headline text-3xl sm:text-4xl md:text-[2.6rem] 2xl:text-[3.2rem] font-bold text-white leading-tight">
             Three Paths. One Perspective.
           </h2>
         </motion.div>
@@ -63,14 +63,14 @@ export default function Services() {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true, margin: '-40px' }}
           transition={{ duration: 0.5, delay: 0.1 }}
-          className="font-body text-[#BCE2CD] max-w-md mt-3 md:mt-0 font-normal leading-relaxed text-sm md:text-base"
+          className="font-body text-[#BCE2CD] max-w-md 2xl:max-w-lg mt-3 md:mt-0 font-normal leading-relaxed text-sm md:text-base 2xl:text-lg"
         >
           JETTONE brings together investment opportunities, market expertise and trading technology through three distinct service areas.
         </motion.p>
       </div>
 
       {/* 3 Service Pillar Cards with Transparent Emerald Glassy Finish - NO overflow:hidden on card container */}
-      <div className="relative z-10 grid grid-cols-1 lg:grid-cols-3 gap-6 sm:gap-8">
+      <div className="relative z-10 grid grid-cols-1 lg:grid-cols-3 gap-6 sm:gap-8 2xl:gap-10">
         {services.map((service, index) => {
           const Icon = service.icon;
           return (
@@ -84,7 +84,7 @@ export default function Services() {
               className="relative bg-gradient-to-br from-[#0F3524]/75 via-[#0A2619]/80 to-[#123E2A]/70 backdrop-blur-2xl rounded-2xl flex flex-col justify-between border border-[#287348]/55 shadow-[inset_0_1px_1px_rgba(255,255,255,0.18),0_12px_36px_rgba(10,38,25,0.18)] hover:border-[#00E676]/75 transition-all hover:shadow-[0_16px_44px_rgba(0,230,118,0.25)] hover:from-[#0F3524]/85 hover:via-[#0A2619]/90 hover:to-[#123E2A]/80 group"
             >
               {/* Realistic Header Image child gets borderTopLeftRadius + borderTopRightRadius per rule */}
-              <div className="relative w-full h-44 rounded-t-2xl overflow-hidden bg-[#0A2619]">
+              <div className="relative w-full h-44 2xl:h-52 rounded-t-2xl overflow-hidden bg-[#0A2619]">
                 <img
                   src={service.image}
                   alt={service.title}

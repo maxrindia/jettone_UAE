@@ -73,12 +73,12 @@ export default function Contact() {
   };
 
   return (
-    <section className="py-6 sm:py-8 bg-transparent px-4 sm:px-6 lg:px-12 max-w-7xl mx-auto w-full" id="contact">
+    <section className="py-10 sm:py-14 2xl:py-20 bg-transparent px-4 sm:px-6 lg:px-10 xl:px-12 2xl:px-16 max-w-7xl xl:max-w-[1380px] 2xl:max-w-[1640px] [@media(min-width:2000px)]:max-w-[1880px] mx-auto w-full" id="contact">
       {/* 
         Card container with NO overflow:hidden per rule:
         "overflow: hidden — FORBIDDEN on: Card containers (clips buttons at 110%+ zoom), Form containers"
       */}
-      <div className="relative bg-gradient-to-br from-[#0F3524]/80 via-[#0A2619]/85 to-[#123E2A]/75 backdrop-blur-2xl rounded-2xl p-5 sm:p-8 lg:p-9 border border-[#287348]/55 shadow-[inset_0_1px_1px_rgba(255,255,255,0.18),0_16px_40px_rgba(10,38,25,0.22)]">
+      <div className="relative bg-gradient-to-br from-[#0F3524]/80 via-[#0A2619]/85 to-[#123E2A]/75 backdrop-blur-2xl rounded-2xl p-5 sm:p-8 lg:p-9 2xl:p-12 border border-[#287348]/55 shadow-[inset_0_1px_1px_rgba(255,255,255,0.18),0_16px_40px_rgba(10,38,25,0.22)]">
         
         {/* Soft Ambient Radial Accents */}
         <div className="absolute -right-20 -bottom-20 w-72 h-72 rounded-full bg-[#00E676]/12 blur-3xl pointer-events-none" />

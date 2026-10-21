@@ -329,35 +329,35 @@ const markets = [
 
 export default function Markets() {
   return (
-    <section className="relative py-8 sm:py-10 bg-transparent px-4 sm:px-6 lg:px-12 w-full" id="markets">
+    <section className="relative py-10 sm:py-14 2xl:py-20 bg-transparent px-4 sm:px-6 lg:px-10 xl:px-12 2xl:px-16 w-full" id="markets">
       {/* Soft Ambient Radial Accents */}
       <div className="absolute top-0 right-1/4 w-[600px] h-[350px] bg-[radial-gradient(ellipse_at_center,rgba(0,230,118,0.12)_0%,transparent_70%)] blur-[80px] pointer-events-none" />
 
-      <div className="relative z-10 max-w-7xl mx-auto">
+      <div className="relative z-10 max-w-7xl xl:max-w-[1380px] 2xl:max-w-[1640px] [@media(min-width:2000px)]:max-w-[1880px] mx-auto">
 
         {/* Section Header - Perfectly Left-Aligned like Services & Insights */}
-        <div className="flex flex-col md:flex-row md:items-end justify-between mb-7 sm:mb-8">
+        <div className="flex flex-col md:flex-row md:items-end justify-between mb-7 sm:mb-8 2xl:mb-12">
           <motion.div
             initial={{ opacity: 0, y: 16 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true, margin: '-40px' }}
             transition={{ duration: 0.5 }}
-            className="max-w-2xl text-left"
+            className="max-w-2xl 2xl:max-w-3xl text-left"
           >
-            <span className="text-xs font-semibold tracking-wider uppercase text-[#F5D327] mb-2 block">
+            <span className="text-xs 2xl:text-sm font-semibold tracking-wider uppercase text-[#F5D327] mb-2 block">
               Global Markets &amp; Trading Services
             </span>
-            <h2 className="font-headline text-3xl sm:text-4xl md:text-[2.6rem] font-bold text-white leading-tight mb-2.5">
+            <h2 className="font-headline text-3xl sm:text-4xl md:text-[2.6rem] 2xl:text-[3.2rem] font-bold text-white leading-tight mb-2.5">
               Explore the Opportunities.
             </h2>
-            <p className="font-body text-[#BCE2CD] font-normal text-sm md:text-base leading-relaxed">
+            <p className="font-body text-[#BCE2CD] font-normal text-sm md:text-base 2xl:text-lg leading-relaxed">
               Explore market analysis and institutional services across supported global asset classes.
             </p>
           </motion.div>
         </div>
 
         {/* 8 Transparent Emerald Glass Finish Market Cards Grid with Bespoke Charts */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 2xl:gap-8">
           {markets.map((item, index) => {
             const Icon = item.icon;
             const Chart = item.chart;

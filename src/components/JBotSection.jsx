@@ -56,9 +56,9 @@ export default function JBotSection() {
     quantTabs.find((t) => t.id === activeQuantTab) || quantTabs[0];
 
   return (
-    <section className="relative py-8 sm:py-10 px-4 sm:px-6 lg:px-12 max-w-7xl mx-auto w-full" id="jbot">
+    <section className="relative py-10 sm:py-14 2xl:py-20 px-4 sm:px-6 lg:px-10 xl:px-12 2xl:px-16 max-w-7xl xl:max-w-[1380px] 2xl:max-w-[1640px] [@media(min-width:2000px)]:max-w-[1880px] mx-auto w-full" id="jbot">
       {/* 2-Column Grid with Perfect Vertical Alignment */}
-      <div className="relative z-10 grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 items-center">
+      <div className="relative z-10 grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 2xl:gap-16 items-center">
         
         {/* Left Column: Official Content & Feature List */}
         <motion.div
@@ -68,13 +68,13 @@ export default function JBotSection() {
           transition={{ duration: 0.6 }}
           className="lg:col-span-6 flex flex-col justify-center"
         >
-          {/* Eyebrow Tag - v4.2 PRO removed, matching website standard */}
-          <span className="text-xs font-semibold tracking-wider uppercase text-[#C49206] mb-2.5 block">
+          {/* Eyebrow Tag */}
+          <span className="text-xs 2xl:text-sm font-semibold tracking-wider uppercase text-[#F5D327] mb-2.5 block">
             JBot Technology
           </span>
 
           {/* Heading */}
-          <h2 className="font-headline text-3xl sm:text-4xl md:text-[2.6rem] font-bold text-white mb-4 leading-tight">
+          <h2 className="font-headline text-3xl sm:text-4xl md:text-[2.6rem] 2xl:text-[3.2rem] font-bold text-white mb-4 2xl:mb-6 leading-tight">
             From Strategy to Automation.
           </h2>
 
