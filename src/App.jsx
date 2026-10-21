@@ -75,8 +75,8 @@ export default function App() {
         <Navbar />
       </div>
 
-      {/* <main> — flex: 1, min-height: 0, overflow-y: auto (ONLY scroll element), paddingBottom: 5rem (pb-20) minimum */}
-      <main id="main-content" className="relative z-10 flex-1 min-h-0 w-full overflow-y-auto overflow-x-hidden pb-20 scroll-smooth">
+      {/* <main> — flex: 1, min-height: 0, overflow-y: auto (ONLY scroll element) */}
+      <main id="main-content" className="relative z-10 flex-1 min-h-0 w-full overflow-y-auto overflow-x-hidden scroll-smooth">
         {/* 1. Hero Section */}
         <Hero />
 
@@ -95,10 +95,8 @@ export default function App() {
         {/* 6. Contact Section: Start a Conversation with JETTONE. */}
         <Contact />
 
-        {/* Footer */}
-        <div className="relative z-10 w-full">
-          <Footer />
-        </div>
+        {/* Footer — flush at bottom with zero extra space below */}
+        <Footer />
       </main>
     </div>
   );

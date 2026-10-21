@@ -2,7 +2,7 @@ import React from 'react';
 
 export default function Footer() {
   return (
-    <footer className="w-full bg-[#06140E]/95 backdrop-blur-md border-t border-[#1F5D3B]/40 pt-10 2xl:pt-14 pb-8 2xl:pb-12">
+    <footer className="w-full bg-[#06140E] border-t border-[#1F5D3B]/40 pt-10 2xl:pt-14 pb-8 2xl:pb-12">
       <div className="max-w-7xl xl:max-w-[1380px] 2xl:max-w-[1640px] [@media(min-width:2000px)]:max-w-[1880px] mx-auto px-4 sm:px-6 lg:px-10 xl:px-12 2xl:px-16 flex flex-col gap-8 2xl:gap-12">
         
         {/* Main Footer Content */}
