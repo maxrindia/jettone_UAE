@@ -1,6 +1,7 @@
 "use client"
 
 import { Globe } from "@/components/ui/cobe-globe"
+import ContactWithGlobe from "@/components/ui/contact-with-globe"
 
 const markers = [
   { id: "sf", location: [37.7595, -122.4367] as [number, number], label: "San Francisco" },
@@ -28,6 +29,10 @@ const arcs = [
     label: "NYC → London",
   },
 ]
+
+export function ContactWithGlobeDemo() {
+  return <ContactWithGlobe />;
+}
 
 export default function GlobeDemo() {
   return (

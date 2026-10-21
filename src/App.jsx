@@ -2,6 +2,7 @@ import React, { useEffect, Suspense, lazy } from 'react';
 import { Routes, Route, useLocation, Navigate } from 'react-router-dom';
 import Navbar from './components/Navbar';
 import Footer from './components/Footer';
+import ScrollToTopButton from './components/ScrollToTopButton';
 
 // Critical Homepage loaded directly for zero-latency initial render
 import HomePage from './pages/HomePage';
@@ -153,6 +154,9 @@ export default function App() {
         {/* Footer — flush at bottom with zero extra space below */}
         <Footer />
       </main>
+
+      {/* Floating Scroll To Top Button (bottom-right) */}
+      <ScrollToTopButton />
     </div>
   );
 }
