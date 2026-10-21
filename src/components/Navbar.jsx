@@ -25,10 +25,10 @@ export default function Navbar() {
   }, [location.pathname]);
 
   const navLinks = [
-    { name: 'Home', hash: '#hero', fallback: '/' },
-    { name: 'Our Services', hash: '#services', fallback: '/#services' },
-    { name: 'JBot', hash: '#jbot', fallback: '/#jbot' },
-    { name: 'Insights', hash: '#insights', fallback: '/#insights' }
+    { name: 'Home', hash: '#hero', fallback: '/', isPage: false },
+    { name: 'Our Services', hash: '#services', fallback: '/#services', isPage: false },
+    { name: 'JBot', hash: '#jbot', fallback: '/#jbot', isPage: false },
+    { name: 'Insights', path: '/insights', isPage: true }
   ];
 
   const handleNavClick = (e, item) => {
@@ -76,16 +76,26 @@ export default function Navbar() {
 
           {/* Desktop Navigation */}
           <nav className="hidden lg:flex items-center gap-7 xl:gap-9 2xl:gap-11">
-            {navLinks.map((link) => (
-              <a
-                key={link.name}
-                href={location.pathname === '/' ? link.hash : link.fallback}
-                onClick={(e) => handleNavClick(e, link)}
-                className="text-[15px] xl:text-[16px] 2xl:text-[17px] font-semibold text-[#334155] hover:text-[#0B1528] transition-colors relative py-1.5 tracking-[-0.01em]"
-              >
-                {link.name}
-              </a>
-            ))}
+            {navLinks.map((link) =>
+              link.isPage ? (
+                <Link
+                  key={link.name}
+                  to={link.path}
+                  className="text-[15px] xl:text-[16px] 2xl:text-[17px] font-semibold text-[#334155] hover:text-[#0B1528] transition-colors relative py-1.5 tracking-[-0.01em]"
+                >
+                  {link.name}
+                </Link>
+              ) : (
+                <a
+                  key={link.name}
+                  href={location.pathname === '/' ? link.hash : link.fallback}
+                  onClick={(e) => handleNavClick(e, link)}
+                  className="text-[15px] xl:text-[16px] 2xl:text-[17px] font-semibold text-[#334155] hover:text-[#0B1528] transition-colors relative py-1.5 tracking-[-0.01em]"
+                >
+                  {link.name}
+                </a>
+              )
+            )}
           </nav>
 
           {/* Enquire CTA & Mobile Toggle */}
@@ -122,16 +132,27 @@ export default function Navbar() {
             className="lg:hidden bg-white/98 border-b border-[#E2E8F0] px-4 pt-3 pb-6 shadow-xl overflow-hidden"
           >
             <div className="flex flex-col space-y-2">
-              {navLinks.map((link) => (
-                <a
-                  key={link.name}
-                  href={location.pathname === '/' ? link.hash : link.fallback}
-                  onClick={(e) => handleNavClick(e, link)}
-                  className="px-3 py-2 rounded-lg text-sm font-semibold text-[#334155] hover:bg-gray-100 hover:text-[#0B1528] transition-colors"
-                >
-                  {link.name}
-                </a>
-              ))}
+              {navLinks.map((link) =>
+                link.isPage ? (
+                  <Link
+                    key={link.name}
+                    to={link.path}
+                    onClick={() => setMobileMenuOpen(false)}
+                    className="px-3 py-2 rounded-lg text-sm font-semibold text-[#334155] hover:bg-gray-100 hover:text-[#0B1528] transition-colors"
+                  >
+                    {link.name}
+                  </Link>
+                ) : (
+                  <a
+                    key={link.name}
+                    href={location.pathname === '/' ? link.hash : link.fallback}
+                    onClick={(e) => handleNavClick(e, link)}
+                    className="px-3 py-2 rounded-lg text-sm font-semibold text-[#334155] hover:bg-gray-100 hover:text-[#0B1528] transition-colors"
+                  >
+                    {link.name}
+                  </a>
+                )
+              )}
               <div className="pt-3 border-t border-gray-100">
                 <Link
                   to="/contact"

@@ -65,6 +65,7 @@ export default function Hero() {
                 <span className="text-[#F5D327] block mt-1">
                   Smarter Future.
                 </span>
+                <span className="sr-only"> — JETTONE Dubai Financial Services</span>
               </h1>
 
               {/* Subtext: strictly per spec */}
