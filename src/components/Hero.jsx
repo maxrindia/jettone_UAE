@@ -6,7 +6,7 @@ import HeroTradingBackground from './HeroTradingBackground';
 
 export default function Hero() {
   return (
-    <section className="relative w-full overflow-hidden pt-8 sm:pt-12 pb-6 sm:pb-8 bg-gradient-to-b from-[#06140E]/92 via-[#091F16]/88 to-[#0D1820]/92 backdrop-blur-xs">
+    <section className="relative w-full pt-8 sm:pt-12 pb-6 sm:pb-8 bg-gradient-to-b from-[#06140E]/92 via-[#091F16]/88 to-[#0D1820]/92 backdrop-blur-xs">
       {/* Radiant Emerald & Golden Ambient Atmospheric Glows */}
       <div className="absolute top-0 left-1/4 w-[620px] h-[520px] rounded-full bg-[radial-gradient(circle_at_center,rgba(0,230,118,0.16)_0%,rgba(5,150,105,0.06)_40%,transparent_70%)] blur-[100px] pointer-events-none" />
       <div className="absolute top-1/3 -left-20 w-[480px] h-[480px] rounded-full bg-[radial-gradient(circle_at_center,rgba(5,150,105,0.12)_0%,rgba(245,211,39,0.1)_40%,transparent_70%)] blur-[110px] pointer-events-none" />

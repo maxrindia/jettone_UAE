@@ -56,7 +56,7 @@ export default function JBotSection() {
     quantTabs.find((t) => t.id === activeQuantTab) || quantTabs[0];
 
   return (
-    <section className="relative py-8 sm:py-10 px-4 sm:px-6 lg:px-12 max-w-7xl mx-auto w-full overflow-hidden" id="jbot">
+    <section className="relative py-8 sm:py-10 px-4 sm:px-6 lg:px-12 max-w-7xl mx-auto w-full" id="jbot">
       {/* 2-Column Grid with Perfect Vertical Alignment */}
       <div className="relative z-10 grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 items-center">
         
@@ -161,10 +161,10 @@ export default function JBotSection() {
           whileInView={{ opacity: 1, x: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.6 }}
-          className="lg:col-span-6 bg-gradient-to-br from-[#0F3524]/75 via-[#0A2619]/80 to-[#123E2A]/70 backdrop-blur-2xl rounded-3xl border border-[#287348]/55 shadow-[inset_0_1px_1px_rgba(255,255,255,0.18),0_16px_44px_rgba(10,38,25,0.22)] overflow-hidden flex flex-col justify-between"
+          className="lg:col-span-6 bg-gradient-to-br from-[#0F3524]/75 via-[#0A2619]/80 to-[#123E2A]/70 backdrop-blur-2xl rounded-3xl border border-[#287348]/55 shadow-[inset_0_1px_1px_rgba(255,255,255,0.18),0_16px_44px_rgba(10,38,25,0.22)] flex flex-col justify-between"
         >
-          {/* Top Control Bar with Glassy View Switcher */}
-          <div className="bg-[#081F14]/90 border-b border-[#25633F]/50 px-4 sm:px-5 py-3 sm:py-3.5 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-3">
+          {/* Top Control Bar with Glassy View Switcher — header child gets borderTopLeftRadius + borderTopRightRadius */}
+          <div className="bg-[#081F14]/90 border-b border-[#25633F]/50 px-4 sm:px-5 py-3 sm:py-3.5 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-3 rounded-t-3xl">
             <div className="flex items-center gap-2">
               <span className="w-2 h-2 rounded-full bg-[#00E676] animate-pulse shadow-[0_0_8px_#00E676]" />
               <span className="text-xs font-mono font-semibold text-[#F5D327] tracking-wider uppercase ml-1">
@@ -343,8 +343,8 @@ export default function JBotSection() {
             </div>
           )}
 
-          {/* Universal Footer Strip */}
-          <div className="bg-[#081F14]/90 border-t border-[#25633F]/50 px-4 sm:px-5 py-2.5 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-1.5 text-[11px] text-[#A8D3BA]">
+          {/* Universal Footer Strip — bottom child gets borderBottomLeftRadius + borderBottomRightRadius */}
+          <div className="bg-[#081F14]/90 border-t border-[#25633F]/50 px-4 sm:px-5 py-2.5 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-1.5 text-[11px] text-[#A8D3BA] rounded-b-3xl">
             <span className="flex items-center gap-1.5">
               <CheckCircle2 className="w-3.5 h-3.5 text-[#00E676]" />
               <span className="text-[#E4F5EB]">Zero Fund Lock-in • Sovereign Broker Account</span>

@@ -82,7 +82,7 @@ export default function Approach() {
                 viewport={{ once: true, margin: '-40px' }}
                 transition={{ duration: 0.5, delay: index * 0.12 }}
                 whileHover={{ y: -6, transition: { duration: 0.2 } }}
-                className="bg-[#ffffff] rounded-2xl p-7 border border-[#e8ded3] shadow-[0_4px_16px_rgba(72,50,38,0.03)] flex flex-col justify-between hover:border-[#c2652a]/50 transition-all hover:shadow-md group relative overflow-hidden"
+                className="bg-[#ffffff] rounded-2xl p-7 border border-[#e8ded3] shadow-[0_4px_16px_rgba(72,50,38,0.03)] flex flex-col justify-between hover:border-[#c2652a]/50 transition-all hover:shadow-md group relative"
               >
                 {/* Background Large Step Number */}
                 <div className="absolute -top-3 -right-2 text-6xl font-headline font-bold text-[#e5dcd3]/30 select-none group-hover:text-[#c2652a]/10 transition-colors pointer-events-none">

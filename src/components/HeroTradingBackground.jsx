@@ -84,7 +84,7 @@ export default function HeroTradingBackground() {
           ease: 'easeInOut',
           delay: 0.8,
         }}
-        className="absolute top-1/3 -right-6 lg:right-12 hidden sm:flex items-center gap-2 px-3.5 py-1.5 rounded-xl bg-[#061811]/60 border border-[#00E676]/35 backdrop-blur-md shadow-[0_0_24px_rgba(0,230,118,0.14)] opacity-65"
+        className="absolute top-1/3 right-3 sm:right-6 lg:right-12 hidden sm:flex items-center gap-2 px-3.5 py-1.5 rounded-xl bg-[#061811]/60 border border-[#00E676]/35 backdrop-blur-md shadow-[0_0_24px_rgba(0,230,118,0.14)] opacity-65"
       >
         <TrendingUp className="w-4 h-4 text-[#00E676]" />
         <div className="flex flex-col text-left">

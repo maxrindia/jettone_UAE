@@ -157,23 +157,23 @@ export default function HeroCobeGlobe() {
     const posX = activePosition.x;
     const posY = activePosition.y;
 
-    // Clamp horizontal position so the card never extends outside the globe boundary
-    const clampedX = Math.max(24, Math.min(76, posX));
+    // Tightly clamp horizontal position so card never clips or overflows on 320px/360px mobile or 200% zoom
+    const clampedX = Math.max(34, Math.min(66, posX));
 
     // Place card above the marker if in lower half, below if in upper third
-    const isAbove = posY > 36;
+    const isAbove = posY > 38;
 
     return {
       left: `${clampedX}%`,
       ...(isAbove
-        ? { bottom: `${Math.max(12, 100 - posY + 4)}%` }
-        : { top: `${Math.max(12, posY + 4)}%` }),
+        ? { bottom: `${Math.max(12, 100 - posY + 5)}%` }
+        : { top: `${Math.max(12, posY + 5)}%` }),
       isAbove,
     };
   }, [activePosition.x, activePosition.y]);
 
   return (
-    <div className="relative w-full max-w-[500px] mx-auto flex flex-col items-center justify-center select-none">
+    <div className="relative w-full max-w-[290px] xs:max-w-[340px] sm:max-w-[420px] md:max-w-[460px] lg:max-w-[500px] xl:max-w-[530px] mx-auto flex flex-col items-center justify-center select-none">
       
       {/* Background Ambient Radial Glow matching JETTONE dark luxury aesthetic */}
       <div className="absolute inset-0 -m-8 rounded-full bg-[radial-gradient(circle_at_center,rgba(0,230,118,0.18)_0%,rgba(245,211,39,0.14)_45%,transparent_70%)] blur-[70px] pointer-events-none" />
@@ -258,20 +258,20 @@ export default function HeroCobeGlobe() {
                 ...(cardStyle.bottom ? { bottom: cardStyle.bottom } : { top: cardStyle.top }),
               }}
             >
-              {/* Card Container Matching reference image (media_1792559786998.png) */}
-              <div className="relative flex items-center gap-2.5 sm:gap-3 px-3 py-2 sm:px-3.5 sm:py-2.5 rounded-2xl bg-[#061811]/95 border border-[#00E676]/65 shadow-[0_0_24px_rgba(0,230,118,0.35),inset_0_0_12px_rgba(0,230,118,0.08)] backdrop-blur-md max-w-[270px] sm:max-w-[285px]">
+              {/* Card Container Matching reference image (media_1792559786998.png) with fluid responsive sizing */}
+              <div className="relative flex items-center gap-2 sm:gap-3 p-2 sm:px-3.5 sm:py-2.5 rounded-2xl bg-[#061811]/95 border border-[#00E676]/65 shadow-[0_0_24px_rgba(0,230,118,0.35),inset_0_0_12px_rgba(0,230,118,0.08)] backdrop-blur-md w-[min(250px,82vw)] sm:w-auto sm:max-w-[285px]">
                 
                 {/* Pointer Arrow Stem toward the Marker */}
                 <span
-                  className={`absolute left-1/2 -translate-x-1/2 w-0 h-0 border-x-[6px] border-x-transparent ${
+                  className={`absolute left-1/2 -translate-x-1/2 w-0 h-0 border-x-[5px] sm:border-x-[6px] border-x-transparent ${
                     cardStyle.isAbove
-                      ? 'top-full border-t-[6px] border-t-[#061811]'
-                      : 'bottom-full border-b-[6px] border-b-[#061811]'
+                      ? 'top-full border-t-[5px] sm:border-t-[6px] border-t-[#061811]'
+                      : 'bottom-full border-b-[5px] sm:border-b-[6px] border-b-[#061811]'
                   }`}
                 />
 
                 {/* Left: 3D Golden Miniature Architectural Landmark Render */}
-                <div className="relative w-11 h-15 sm:w-13 sm:h-17 flex-shrink-0 flex items-center justify-center overflow-hidden rounded-lg bg-black/50 border border-[#00E676]/25">
+                <div className="relative w-9 h-13 sm:w-13 sm:h-17 flex-shrink-0 flex items-center justify-center overflow-hidden rounded-lg bg-black/50 border border-[#00E676]/25">
                   <img
                     src={activeMarket.image}
                     alt={activeMarket.landmark}
@@ -283,11 +283,11 @@ export default function HeroCobeGlobe() {
                 </div>
 
                 {/* Right: Market Information & Live Status */}
-                <div className="flex flex-col text-left pr-1 min-w-[125px] sm:min-w-[135px]">
+                <div className="flex flex-col text-left pr-0.5 sm:pr-1 min-w-[110px] sm:min-w-[135px]">
                   
                   {/* City Title with Country Flag */}
-                  <div className="flex items-center gap-1.5">
-                    <span className="text-sm sm:text-base leading-none" role="img" aria-label={activeMarket.country}>
+                  <div className="flex items-center gap-1 sm:gap-1.5">
+                    <span className="text-xs sm:text-base leading-none" role="img" aria-label={activeMarket.country}>
                       {activeMarket.flag}
                     </span>
                     <span className="text-xs sm:text-[13px] font-bold text-white tracking-tight leading-tight">
@@ -296,21 +296,21 @@ export default function HeroCobeGlobe() {
                   </div>
 
                   {/* Subtitle / Exchange info */}
-                  <span className="text-[10px] sm:text-[10.5px] text-[#94A3B8] font-normal leading-tight mt-0.5">
+                  <span className="text-[9px] sm:text-[10.5px] text-[#94A3B8] font-normal leading-tight mt-0.5">
                     {activeMarket.subtitle}
                   </span>
 
                   {/* Live Market Open / Closed Status Indicator */}
-                  <div className="flex items-center gap-1.5 mt-1 sm:mt-1.5">
+                  <div className="flex items-center gap-1 sm:gap-1.5 mt-1 sm:mt-1.5">
                     <span
-                      className={`inline-block w-2 h-2 rounded-full ${
+                      className={`inline-block w-1.5 h-1.5 sm:w-2 sm:h-2 rounded-full ${
                         marketStatus.isOpen
                           ? 'bg-[#00E676] shadow-[0_0_8px_#00E676] animate-pulse'
                           : 'bg-[#F59E0B] shadow-[0_0_8px_#F59E0B]'
                       }`}
                     />
                     <span
-                      className={`text-[10px] sm:text-[10.5px] font-semibold tracking-wide ${
+                      className={`text-[9px] sm:text-[10.5px] font-semibold tracking-wide ${
                         marketStatus.isOpen ? 'text-[#00E676]' : 'text-[#F59E0B]'
                       }`}
                     >
@@ -319,7 +319,7 @@ export default function HeroCobeGlobe() {
                   </div>
 
                   {/* Live Local Time with Timezone Code e.g. "05:42 PM (GST)" */}
-                  <span className="text-[10px] sm:text-[10.5px] font-mono text-white/95 tracking-wider mt-0.5 font-medium">
+                  <span className="text-[9.5px] sm:text-[10.5px] font-mono text-white/95 tracking-wider mt-0.5 font-medium">
                     {marketStatus.formattedTime}
                   </span>
 

@@ -298,23 +298,29 @@ export function Globe({
       setTimeout(() => canvas && (canvas.style.opacity = "1"))
     }
 
+    const ro = new ResizeObserver((entries) => {
+      const entry = entries[0]
+      if (entry && entry.contentRect.width > 0) {
+        const width = Math.round(entry.contentRect.width)
+        if (!globe) {
+          init()
+        } else {
+          globe.update({ width, height: width })
+        }
+      }
+    })
+    ro.observe(canvas)
+
     if (canvas.offsetWidth > 0) {
       init()
-    } else {
-      const ro = new ResizeObserver((entries) => {
-        if (entries[0]?.contentRect.width > 0) {
-          ro.disconnect()
-          init()
-        }
-      })
-      ro.observe(canvas)
     }
 
     return () => {
+      ro.disconnect()
       if (animationId) cancelAnimationFrame(animationId)
       if (globe) globe.destroy()
     }
-  }, []) // Initialized once on mount! Never destroyed when parent re-renders!
+  }, [])
 
   return (
     <div className={`relative aspect-square select-none ${className}`}>

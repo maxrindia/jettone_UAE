@@ -40,7 +40,7 @@ const services = [
 
 export default function Services() {
   return (
-    <section className="relative pt-6 sm:pt-8 pb-8 sm:pb-10 px-4 sm:px-6 lg:px-12 max-w-7xl mx-auto w-full overflow-hidden" id="services">
+    <section className="relative pt-6 sm:pt-8 pb-8 sm:pb-10 px-4 sm:px-6 lg:px-12 max-w-7xl mx-auto w-full" id="services">
       {/* Section Header */}
       <div className="relative z-10 flex flex-col md:flex-row md:items-end justify-between mb-7 sm:mb-8">
         <motion.div
@@ -69,7 +69,7 @@ export default function Services() {
         </motion.p>
       </div>
 
-      {/* 3 Service Pillar Cards with Transparent Emerald Glassy Finish */}
+      {/* 3 Service Pillar Cards with Transparent Emerald Glassy Finish - NO overflow:hidden on card container */}
       <div className="relative z-10 grid grid-cols-1 lg:grid-cols-3 gap-6 sm:gap-8">
         {services.map((service, index) => {
           const Icon = service.icon;
@@ -81,14 +81,14 @@ export default function Services() {
               viewport={{ once: true, margin: '-40px' }}
               transition={{ duration: 0.5, delay: index * 0.12 }}
               whileHover={{ y: -5, transition: { duration: 0.25 } }}
-              className="relative bg-gradient-to-br from-[#0F3524]/75 via-[#0A2619]/80 to-[#123E2A]/70 backdrop-blur-2xl rounded-2xl overflow-hidden flex flex-col justify-between border border-[#287348]/55 shadow-[inset_0_1px_1px_rgba(255,255,255,0.18),0_12px_36px_rgba(10,38,25,0.18)] hover:border-[#00E676]/75 transition-all hover:shadow-[0_16px_44px_rgba(0,230,118,0.25)] hover:from-[#0F3524]/85 hover:via-[#0A2619]/90 hover:to-[#123E2A]/80 group"
+              className="relative bg-gradient-to-br from-[#0F3524]/75 via-[#0A2619]/80 to-[#123E2A]/70 backdrop-blur-2xl rounded-2xl flex flex-col justify-between border border-[#287348]/55 shadow-[inset_0_1px_1px_rgba(255,255,255,0.18),0_12px_36px_rgba(10,38,25,0.18)] hover:border-[#00E676]/75 transition-all hover:shadow-[0_16px_44px_rgba(0,230,118,0.25)] hover:from-[#0F3524]/85 hover:via-[#0A2619]/90 hover:to-[#123E2A]/80 group"
             >
-              {/* Realistic Header Image with Glassy Fade */}
-              <div className="relative w-full h-44 overflow-hidden bg-[#0A2619]">
+              {/* Realistic Header Image child gets borderTopLeftRadius + borderTopRightRadius per rule */}
+              <div className="relative w-full h-44 rounded-t-2xl overflow-hidden bg-[#0A2619]">
                 <img
                   src={service.image}
                   alt={service.title}
-                  className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500 opacity-90"
+                  className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500 opacity-90 rounded-t-2xl"
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-[#0A2619] via-[#0A2619]/35 to-transparent" />
                 <div className="absolute top-3 left-3 bg-[#0A2619]/90 backdrop-blur-md px-2.5 py-1 rounded-lg flex items-center gap-2 border border-[#2E7A4E]/60 shadow-sm">

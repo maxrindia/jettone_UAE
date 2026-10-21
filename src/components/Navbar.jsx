@@ -8,11 +8,13 @@ export default function Navbar() {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
 
   useEffect(() => {
+    const main = document.getElementById('main-content');
+    if (!main) return;
     const handleScroll = () => {
-      setScrolled(window.scrollY > 20);
+      setScrolled(main.scrollTop > 20);
     };
-    window.addEventListener('scroll', handleScroll);
-    return () => window.removeEventListener('scroll', handleScroll);
+    main.addEventListener('scroll', handleScroll, { passive: true });
+    return () => main.removeEventListener('scroll', handleScroll);
   }, []);
 
   const navLinks = [
@@ -25,7 +27,7 @@ export default function Navbar() {
   ];
 
   return (
-    <header className="fixed top-0 left-0 right-0 w-full z-50">
+    <header className="relative w-full z-50 shrink-0">
       {/* 1. Live Market Continuous Scrolling Ticker at the very top */}
       <TickerBar />
 
@@ -103,7 +105,7 @@ export default function Navbar() {
             animate={{ opacity: 1, height: 'auto' }}
             exit={{ opacity: 0, height: 0 }}
             transition={{ duration: 0.25, ease: 'easeInOut' }}
-            className="lg:hidden border-t border-[#E1E7DF] bg-[#F8FAF7]/98 backdrop-blur-lg px-5 sm:px-6 py-5 sm:py-6 space-y-3 max-h-[calc(100vh-100px)] overflow-y-auto shadow-lg"
+            className="lg:hidden absolute top-full left-0 right-0 z-50 border-t border-[#E1E7DF] bg-[#F8FAF7]/98 backdrop-blur-lg px-5 sm:px-6 py-5 sm:py-6 space-y-3 max-h-[calc(100dvh-100px)] overflow-y-auto shadow-2xl"
           >
             {navLinks.map((link) => (
               <a

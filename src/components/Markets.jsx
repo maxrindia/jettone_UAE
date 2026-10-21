@@ -329,7 +329,7 @@ const markets = [
 
 export default function Markets() {
   return (
-    <section className="relative py-8 sm:py-10 bg-transparent px-4 sm:px-6 lg:px-12 overflow-hidden" id="markets">
+    <section className="relative py-8 sm:py-10 bg-transparent px-4 sm:px-6 lg:px-12 w-full" id="markets">
       {/* Soft Ambient Radial Accents */}
       <div className="absolute top-0 right-1/4 w-[600px] h-[350px] bg-[radial-gradient(ellipse_at_center,rgba(0,230,118,0.12)_0%,transparent_70%)] blur-[80px] pointer-events-none" />
 

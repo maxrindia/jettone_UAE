@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import Navbar from './components/Navbar';
 import Hero from './components/Hero';
 import Services from './components/Services';
@@ -9,8 +9,36 @@ import Contact from './components/Contact';
 import Footer from './components/Footer';
 
 export default function App() {
+  // Smooth scroll handler for all internal anchor links inside the scrollable main container
+  useEffect(() => {
+    const handleAnchorClick = (e) => {
+      const anchor = e.target.closest('a[href^="#"]');
+      if (!anchor) return;
+      const href = anchor.getAttribute('href');
+      if (!href) return;
+      const targetId = href.slice(1);
+      const main = document.getElementById('main-content');
+      if (!main) return;
+
+      e.preventDefault();
+      if (!targetId) {
+        main.scrollTo({ top: 0, behavior: 'smooth' });
+      } else {
+        const targetEl = document.getElementById(targetId);
+        if (targetEl) {
+          const mainRect = main.getBoundingClientRect();
+          const elRect = targetEl.getBoundingClientRect();
+          const offset = elRect.top - mainRect.top + main.scrollTop;
+          main.scrollTo({ top: Math.max(0, offset - 12), behavior: 'smooth' });
+        }
+      }
+    };
+    document.addEventListener('click', handleAnchorClick);
+    return () => document.removeEventListener('click', handleAnchorClick);
+  }, []);
+
   return (
-    <div className="relative min-h-screen w-full max-w-full bg-[#06140E] font-body text-white antialiased selection:bg-[#F5D327]/30 selection:text-white overflow-x-hidden">
+    <div className="relative h-[100dvh] w-full max-w-full bg-[#06140E] font-body text-white antialiased selection:bg-[#F5D327]/30 selection:text-white overflow-hidden flex flex-col">
       {/* 
         ========================================================================
         Fixed Global Static Background:
@@ -42,11 +70,13 @@ export default function App() {
         />
       </div>
 
-      {/* Fixed Header with Top Scrolling Ticker + Navigation */}
-      <Navbar />
+      {/* Header — flex-shrink: 0, strictly adhering to layout rules */}
+      <div className="relative z-50 shrink-0 w-full">
+        <Navbar />
+      </div>
 
-      {/* Main Content Sections - Smoothly scrolling over the fixed static background */}
-      <main className="relative z-10 w-full pt-[94px] sm:pt-[96px]">
+      {/* <main> — flex: 1, min-height: 0, overflow-y: auto (ONLY scroll element), paddingBottom: 5rem (pb-20) minimum */}
+      <main id="main-content" className="relative z-10 flex-1 min-h-0 w-full overflow-y-auto overflow-x-hidden pb-20 scroll-smooth">
         {/* 1. Hero Section */}
         <Hero />
 
@@ -64,12 +94,12 @@ export default function App() {
 
         {/* 6. Contact Section: Start a Conversation with JETTONE. */}
         <Contact />
-      </main>
 
-      {/* Footer */}
-      <div className="relative z-10">
-        <Footer />
-      </div>
+        {/* Footer */}
+        <div className="relative z-10 w-full">
+          <Footer />
+        </div>
+      </main>
     </div>
   );
 }

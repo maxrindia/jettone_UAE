@@ -35,12 +35,13 @@
 }
 
 @layer base {
-  html, body {
+  html, body, #root {
     margin: 0;
     padding: 0;
     width: 100%;
+    height: 100%;
     max-width: 100%;
-    overflow-x: hidden;
+    overflow: hidden;
     background-color: #06140E;
     color: #FFFFFF;
     font-family: var(--font-body);
@@ -54,13 +55,14 @@
 }
 
 ::-webkit-scrollbar {
-  width: 7px;
+  width: 6px;
+  height: 6px;
 }
 ::-webkit-scrollbar-track {
-  background: #F8FAF7;
+  background: #06140E;
 }
 ::-webkit-scrollbar-thumb {
-  background: #E1E7DF;
+  background: #18452D;
   border-radius: 4px;
 }
 ::-webkit-scrollbar-thumb:hover {

@@ -37,7 +37,7 @@ const articles = [
 
 export default function Insights() {
   return (
-    <section className="relative py-8 sm:py-10 px-4 sm:px-6 lg:px-12 max-w-7xl mx-auto w-full overflow-hidden" id="insights">
+    <section className="relative py-8 sm:py-10 px-4 sm:px-6 lg:px-12 max-w-7xl mx-auto w-full" id="insights">
       {/* Section Header */}
       <div className="relative z-10 flex flex-col md:flex-row md:items-end justify-between mb-7 sm:mb-8">
         <motion.div
@@ -70,7 +70,7 @@ export default function Insights() {
         </motion.a>
       </div>
 
-      {/* 3 Articles Grid with Transparent Emerald Glass Finish */}
+      {/* 3 Articles Grid with Transparent Emerald Glass Finish - NO overflow:hidden on card container */}
       <div className="relative z-10 grid grid-cols-1 lg:grid-cols-3 gap-8">
         {articles.map((item, index) => (
           <motion.article
@@ -80,14 +80,15 @@ export default function Insights() {
             viewport={{ once: true, margin: '-40px' }}
             transition={{ duration: 0.5, delay: index * 0.12 }}
             whileHover={{ y: -6, transition: { duration: 0.2 } }}
-            className="relative bg-gradient-to-br from-[#0F3524]/75 via-[#0A2619]/80 to-[#123E2A]/70 backdrop-blur-2xl rounded-2xl overflow-hidden flex flex-col justify-between border border-[#287348]/55 shadow-[inset_0_1px_1px_rgba(255,255,255,0.18),0_12px_36px_rgba(10,38,25,0.18)] group hover:border-[#00E676]/75 transition-all hover:shadow-[0_16px_44px_rgba(0,230,118,0.25)] hover:from-[#0F3524]/85 hover:via-[#0A2619]/90 hover:to-[#123E2A]/80"
+            className="relative bg-gradient-to-br from-[#0F3524]/75 via-[#0A2619]/80 to-[#123E2A]/70 backdrop-blur-2xl rounded-2xl flex flex-col justify-between border border-[#287348]/55 shadow-[inset_0_1px_1px_rgba(255,255,255,0.18),0_12px_36px_rgba(10,38,25,0.18)] group hover:border-[#00E676]/75 transition-all hover:shadow-[0_16px_44px_rgba(0,230,118,0.25)] hover:from-[#0F3524]/85 hover:via-[#0A2619]/90 hover:to-[#123E2A]/80"
           >
             <div>
-              <div className="relative w-full h-52 overflow-hidden bg-[#0A2619]">
+              {/* Header image child gets borderTopLeftRadius + borderTopRightRadius per rule */}
+              <div className="relative w-full h-52 rounded-t-2xl overflow-hidden bg-[#0A2619]">
                 <img
                   src={item.image}
                   alt={item.title}
-                  className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500 opacity-90"
+                  className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500 opacity-90 rounded-t-2xl"
                 />
                 <div className="absolute top-4 left-4 bg-[#0A2619]/90 backdrop-blur-md px-3 py-1 rounded-full text-[11px] font-semibold text-[#F5D77F] border border-[#2E7A4E]/60 shadow-[0_0_10px_rgba(0,0,0,0.3)]">
                   {item.category}
