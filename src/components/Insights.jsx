@@ -1,37 +1,32 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 import { motion } from 'framer-motion';
 import { ArrowRight, Clock } from 'lucide-react';
 
 const articles = [
   {
-    title: 'Navigating Interest Rate Shifts in Q3 2024: An Institutional Perspective',
-    category: 'Macro Economics',
-    readTime: '4 min read',
-    summary:
-      'How global central bank divergence creates tactical opportunities across foreign exchange and sovereign debt markets.',
-    author: 'JETTONE Research Desk',
-    image:
-      'https://lh3.googleusercontent.com/aida-public/AB6AXuB7WKTKSCaksA74CjEflYZBiza1RK531VoUINcIJsCyjjSvn3Jf6AF0dWfgGfa6_drB19uhZECZclSrWbjIiVBRb4-hXd_ZONSMkZDQiAJKm4lkkGTWrvvKuklzDfcGCVexU90Q3Glk1IVYlz9RWr-8gtK1tYBskv9fHyvBvEY1wdIR2n1y0_MqaSYUwdMZMyTk3PAt9R5v4Fjl-0WgJnXsscIQdCrkZtlPl_YSnBHDGwWlHsPPbWGd'
+    category: 'MARKETS',
+    title: 'Macro Liquidity & Global Currency Flows in Emerging Financial Centers',
+    summary: 'Evaluating central bank monetary divergence and systematic trade mechanics.',
+    date: 'Date TBC',
+    readTime: 'Placeholder — content pending',
+    image: '/images/service-invest.jpg'
   },
   {
-    title: 'The Role of Neural Networks in Mitigating High-Frequency Drawdowns',
-    category: 'Algorithmic Trading',
-    readTime: '6 min read',
-    summary:
-      'An inside look at how JBot’s adaptive sizing engine responds to sudden liquidity crunches without human latency.',
-    author: 'Dr. Al-Maktoum',
-    image:
-      'https://lh3.googleusercontent.com/aida-public/AB6AXuALGbYqz-8FlsBEHio7ucjxg4DfYEmDNnIRgXIoadQsRR_M_a13cHUVEraCI9a28PC8MxtN30Dmlfr2_jxbdThhG9Z9bn4F5Hn5I12CePrBCPaTpfbCAOnUw2ah8lTaFhsXq7D8EVJZJk2wzd-xsU8IqgIZmSTKjfUQufE6Pxrcg9bGMQGTcjjj35E2VslKDgYjX_0f9ysRuV7j8O6BetymAP5CFEc58Vtz2VYzUzWCE0bZpsuq2Dgd'
+    category: 'TECHNOLOGY',
+    title: 'Algorithmic Risk Parameterization: Managing Execution Latency in Systematic Models',
+    summary: 'A structured examination of rule validation and order management architectures.',
+    date: 'Date TBC',
+    readTime: 'Placeholder — content pending',
+    image: '/images/jbot-mobile-app.jpg'
   },
   {
-    title: 'Structuring Family Office Portfolios for Multi-Generational Stability',
-    category: 'Wealth Strategy',
-    readTime: '5 min read',
-    summary:
-      'Balancing high-alpha alternative assets with robust capital preservation strategies in an evolving regulatory climate.',
-    author: 'Private Wealth Division',
-    image:
-      'https://lh3.googleusercontent.com/aida-public/AB6AXuC0HUNaanzg2CSKL1JoeBSkq-OxYpzhf3bBwIOYVavNrLl3Iom7WwlZKsQpm5VoOBt6RyKAiCqalqHjUWhxT-tHS4qeERlepe_KWhAQzPTGkERNgsTnnNOE9tNbrE7Cv9ahyRiz-wjKMGfDt-0QZiEQny6ZlMRHCOLqtb6ZaRVEOTSRwimkts-6ghe8_l5ekkEE0_l-GePrsTr6bcdj2i_TUmOfN4QYEAL4mGQaIFdzSdr2gN5lwgfx'
+    category: 'STRATEGY',
+    title: 'Institutional Capital Structuring: Frameworks for Long-Term Portfolio Discipline',
+    summary: 'Aligning governance, asset diversity, and institutional standards for sustained performance.',
+    date: 'Date TBC',
+    readTime: 'Placeholder — content pending',
+    image: '/images/service-trading.jpg'
   }
 ];
 
@@ -46,69 +41,82 @@ export default function Insights() {
           viewport={{ once: true }}
           className="max-w-2xl 2xl:max-w-3xl"
         >
-          <span className="text-xs 2xl:text-sm font-semibold tracking-wider uppercase text-[#F5D327] mb-3 block">
-            Market Insights
+          <span className="text-xs 2xl:text-sm font-semibold tracking-wider uppercase text-[#F5D327] mb-2 block">
+            LATEST INSIGHTS
           </span>
-          <h2 className="font-headline text-3xl sm:text-4xl md:text-[2.6rem] 2xl:text-[3.2rem] font-bold text-white mb-3 leading-tight">
+          <h2 className="font-headline text-3xl sm:text-4xl md:text-[2.6rem] 2xl:text-[3.2rem] font-bold text-white mb-2 leading-tight">
             Market Perspectives.
           </h2>
-          <p className="font-body text-[#BCE2CD] font-normal text-sm md:text-base 2xl:text-lg leading-relaxed mt-4">
-            Explore educational resources, market developments, trading concepts and technology insights to build a clearer understanding of financial markets.
+          <p className="font-body text-[#BCE2CD] font-normal text-sm md:text-base leading-relaxed">
+            Market insights, trading strategies and technology perspectives from JETTONE.
           </p>
         </motion.div>
 
-        <motion.a
+        <motion.div
           initial={{ opacity: 0, y: 16 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ delay: 0.1 }}
-          href="#insights"
-          className="mt-6 md:mt-0 inline-flex items-center gap-2 text-sm font-semibold text-[#F5D327] hover:text-[#FFFFFF] transition-colors shrink-0"
+          className="mt-4 md:mt-0"
         >
-          <span>View All Insights</span>
-          <ArrowRight className="w-4 h-4 text-[#00E676]" />
-        </motion.a>
+          <Link
+            to="/insights"
+            className="inline-flex items-center gap-2 text-sm font-semibold text-[#F5D327] hover:text-white transition-colors"
+          >
+            <span>View All Insights</span>
+            <ArrowRight className="w-4 h-4 text-[#00E676]" />
+          </Link>
+        </motion.div>
       </div>
 
-      {/* 3 Articles Grid with Transparent Emerald Glass Finish - NO overflow:hidden on card container */}
-      <div className="relative z-10 grid grid-cols-1 lg:grid-cols-3 gap-8">
+      {/* 3 Placeholder Cards */}
+      <div className="relative z-10 grid grid-cols-1 lg:grid-cols-3 gap-6 sm:gap-8">
         {articles.map((item, index) => (
           <motion.article
             key={item.title}
-            initial={{ opacity: 0, y: 24 }}
+            initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true, margin: '-40px' }}
-            transition={{ duration: 0.5, delay: index * 0.12 }}
-            whileHover={{ y: -6, transition: { duration: 0.2 } }}
-            className="relative bg-gradient-to-br from-[#0F3524]/75 via-[#0A2619]/80 to-[#123E2A]/70 backdrop-blur-2xl rounded-2xl flex flex-col justify-between border border-[#287348]/55 shadow-[inset_0_1px_1px_rgba(255,255,255,0.18),0_12px_36px_rgba(10,38,25,0.18)] group hover:border-[#00E676]/75 transition-all hover:shadow-[0_16px_44px_rgba(0,230,118,0.25)] hover:from-[#0F3524]/85 hover:via-[#0A2619]/90 hover:to-[#123E2A]/80"
+            viewport={{ once: true, margin: '-30px' }}
+            transition={{ duration: 0.45, delay: index * 0.1 }}
+            whileHover={{ y: -5, transition: { duration: 0.2 } }}
+            className="relative bg-gradient-to-br from-[#0F3524]/75 via-[#0A2619]/80 to-[#123E2A]/70 backdrop-blur-2xl rounded-2xl flex flex-col justify-between border border-[#287348]/55 shadow-[inset_0_1px_1px_rgba(255,255,255,0.18),0_12px_36px_rgba(10,38,25,0.18)] group hover:border-[#00E676]/75 transition-all hover:shadow-[0_16px_44px_rgba(0,230,118,0.25)]"
           >
             <div>
-              {/* Header image child gets borderTopLeftRadius + borderTopRightRadius per rule */}
-              <div className="relative w-full h-52 rounded-t-2xl overflow-hidden bg-[#0A2619]">
+              {/* Image */}
+              <div className="relative w-full h-44 rounded-t-2xl overflow-hidden bg-[#0A2619]">
                 <img
                   src={item.image}
                   alt={item.title}
-                  className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500 opacity-90 rounded-t-2xl"
+                  className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500 opacity-80 rounded-t-2xl"
                 />
-                <div className="absolute top-4 left-4 bg-[#0A2619]/90 backdrop-blur-md px-3 py-1 rounded-full text-[11px] font-semibold text-[#F5D77F] border border-[#2E7A4E]/60 shadow-[0_0_10px_rgba(0,0,0,0.3)]">
+                <div className="absolute top-3 left-3 bg-[#0A2619]/90 backdrop-blur-md px-2.5 py-1 rounded-full text-[10.5px] font-mono font-semibold text-[#F5D77F] border border-[#2E7A4E]/60">
                   {item.category}
                 </div>
               </div>
 
-              <div className="p-5 sm:p-7">
-                <div className="flex items-center gap-2 mb-3 text-xs text-[#A8D3BA]">
+              <div className="p-5 sm:p-6">
+                <div className="flex items-center gap-2 mb-2.5 text-xs text-[#A8D3BA] font-mono">
                   <Clock className="w-3.5 h-3.5 text-[#00E676]" />
-                  <span>{item.readTime}</span>
+                  <span className="text-[11px] text-[#F5D327]/80">{item.readTime}</span>
                 </div>
 
-                <h3 className="font-headline text-xl sm:text-2xl font-semibold text-[#FFFFFF] mb-3 group-hover:text-[#F5D77F] transition-colors leading-snug">
+                <h3 className="font-headline text-lg sm:text-xl font-semibold text-white mb-2.5 group-hover:text-[#F5D327] transition-colors leading-snug">
                   {item.title}
                 </h3>
 
-                <p className="font-body text-xs md:text-sm text-[#BCE2CD] leading-relaxed">
+                <p className="font-body text-xs sm:text-sm text-[#BCE2CD] leading-relaxed mb-4">
                   {item.summary}
                 </p>
               </div>
+            </div>
+
+            <div className="p-5 sm:p-6 pt-0 border-t border-[#25633F]/40 mt-auto">
+              <Link
+                to="/insights"
+                className="inline-flex items-center gap-2 text-xs sm:text-sm font-semibold text-[#F5D327] hover:text-white transition-colors pt-3"
+              >
+                <span>Read Article →</span>
+              </Link>
             </div>
           </motion.article>
         ))}

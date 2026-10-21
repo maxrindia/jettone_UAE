@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 import { motion } from 'framer-motion';
 import {
   TrendingUp,
@@ -231,98 +232,106 @@ function StructuredChart() {
 const markets = [
   {
     id: 'forex',
-    title: 'Foreign Exchange',
-    description: 'G10 & Emerging Market currencies with ultra-low spreads.',
+    num: '01',
+    title: 'Forex Trading',
+    description: 'Major, minor and emerging currency pairs with competitive institutional spreads.',
     icon: CurrencyExchangeIcon,
     badgeText: 'Active',
     badgeType: 'active',
     chart: ForexChart,
-    leftMetric: 'Bid/Ask: 0.1 pip',
+    leftMetric: 'EUR/USD • USD/JPY',
     rightMetric: 'Live Feed',
     rightStyle: 'text-[#00E676]'
   },
   {
-    id: 'indices',
-    title: 'Global Indices',
-    description: 'Direct access to major world bourses and equity benchmarks.',
-    icon: TrendingUp,
-    badgeText: 'Active',
-    badgeType: 'active',
-    chart: IndicesChart,
-    leftMetric: 'S&P • FTSE • NIKKEI',
-    rightMetric: '+1.4% Avg',
-    rightStyle: 'text-[#F5D327]'
-  },
-  {
-    id: 'crypto',
-    title: 'Cryptocurrencies',
-    description: 'Institutional liquidity for major digital assets & tokens.',
-    icon: BrainCircuit,
-    badgeText: 'Algorithmic',
-    badgeType: 'algorithmic',
-    chart: CryptoChart,
-    leftMetric: 'BTC/ETH Neural Sync',
-    rightMetric: '24/7 Liquidity',
-    rightStyle: 'text-[#00E676]'
-  },
-  {
     id: 'metals',
-    title: 'Precious Metals',
-    description: 'Gold, Silver, Platinum and Palladium spot & futures.',
+    num: '02',
+    title: 'Gold & Silver',
+    description: 'Spot and futures bullion pricing with transparent market spreads.',
     icon: RosetteClusterIcon,
     badgeText: 'Bullion',
     badgeType: 'bullion',
     chart: MetalsChart,
-    leftMetric: 'XAU/USD $2,384',
-    rightMetric: 'Vault Allocated',
+    leftMetric: 'XAU/USD • XAG/USD',
+    rightMetric: 'Spot & Futures',
     rightStyle: 'text-[#F5D327]'
   },
   {
     id: 'energy',
+    num: '03',
     title: 'Energy & Commodities',
-    description: 'Crude oil, natural gas and agricultural contracts.',
+    description: 'Crude oil, natural gas, agricultural and industrial commodity benchmarks.',
     icon: OilBarrelIcon,
     badgeText: 'Active',
     badgeType: 'active',
     chart: EnergyChart,
-    leftMetric: 'Brent $83.40',
-    rightMetric: '+0.65%',
+    leftMetric: 'Brent • WTI • Gas',
+    rightMetric: 'Real-Time',
     rightStyle: 'text-[#00E676]'
   },
   {
-    id: 'equities',
-    title: 'Global Equities',
-    description: 'Direct access to NYSE, NASDAQ, LSE & regional markets.',
-    icon: Landmark,
+    id: 'indices',
+    num: '04',
+    title: 'Global Indices',
+    description: 'Access to leading global equity benchmarks and regional bourses.',
+    icon: TrendingUp,
     badgeText: 'Active',
     badgeType: 'active',
-    chart: EquitiesChart,
-    leftMetric: 'L2 Order Routing',
-    rightMetric: 'Direct DMA',
+    chart: IndicesChart,
+    leftMetric: 'S&P 500 • NASDAQ',
+    rightMetric: 'Global Feeds',
     rightStyle: 'text-[#F5D327]'
   },
   {
-    id: 'fixed-income',
-    title: 'Fixed Income',
-    description: 'Sovereign bonds, treasury bills and corporate debt instruments.',
-    icon: FileText,
-    badgeText: 'Active',
-    badgeType: 'active',
-    chart: FixedIncomeChart,
-    leftMetric: 'US 10Y: 4.42%',
-    rightMetric: 'AAA Rated',
-    rightStyle: 'text-[#A8D3BA]'
+    id: 'crypto',
+    num: '05',
+    title: 'Cryptocurrency',
+    description: 'Major digital assets and token trading via institutional liquidity providers.',
+    icon: BrainCircuit,
+    badgeText: 'Digital Asset',
+    badgeType: 'algorithmic',
+    chart: CryptoChart,
+    leftMetric: 'BTC • ETH • Majors',
+    rightMetric: '24/7 Liquidity',
+    rightStyle: 'text-[#00E676]'
   },
   {
-    id: 'structured',
-    title: 'Structured Products',
-    description: 'Custom notes, yield enhancement and capital protection.',
+    id: 'futures',
+    num: '06',
+    title: 'Futures & Options',
+    description: 'Exchange-traded derivative contracts for hedging and risk management.',
+    icon: Landmark,
+    badgeText: 'Derivatives',
+    badgeType: 'active',
+    chart: EquitiesChart,
+    leftMetric: 'Multi-Exchange',
+    rightMetric: 'Order Routing',
+    rightStyle: 'text-[#F5D327]'
+  },
+  {
+    id: 'analysis',
+    num: '07',
+    title: 'Market Analysis & Education',
+    description: 'Technical, macroeconomic, and quantitative research to support informed execution.',
+    icon: FileText,
+    badgeText: 'Research',
+    badgeType: 'active',
+    chart: FixedIncomeChart,
+    leftMetric: 'Daily Intelligence',
+    rightMetric: 'Educational',
+    rightStyle: 'text-[#00E676]'
+  },
+  {
+    id: 'consulting',
+    num: '08',
+    title: 'Stock Market Consulting',
+    description: 'Strategic portfolio discussions and market structuring across equities.',
     icon: MoleculeBranchIcon,
-    badgeText: 'Bespoke',
+    badgeText: 'Advisory',
     badgeType: 'bespoke',
     chart: StructuredChart,
-    leftMetric: 'Capital Guaranteed',
-    rightMetric: 'Custom Terms',
+    leftMetric: 'Institutional',
+    rightMetric: 'Custom Review',
     rightStyle: 'text-[#F5D327]'
   }
 ];
@@ -380,10 +389,15 @@ export default function Markets() {
                 className="relative bg-gradient-to-br from-[#0F3524]/75 via-[#0A2619]/80 to-[#123E2A]/70 backdrop-blur-2xl p-5 sm:p-6 rounded-2xl flex flex-col justify-between shadow-[inset_0_1px_1px_rgba(255,255,255,0.18),0_12px_36px_rgba(10,38,25,0.22)] border border-[#287348]/55 group hover:border-[#00E676]/75 transition-all hover:shadow-[0_16px_44px_rgba(0,230,118,0.26)] hover:from-[#0F3524]/85 hover:via-[#0A2619]/90 hover:to-[#123E2A]/80"
               >
                 <div>
-                  {/* Top Bar: Icon + Status Badge */}
+                  {/* Top Bar: Number + Icon + Status Badge */}
                   <div className="flex items-center justify-between mb-4">
-                    <div className="w-10 h-10 rounded-xl bg-[#14422B]/90 border border-[#2E7A4E]/60 flex items-center justify-center text-[#00E676] group-hover:bg-[#00E676] group-hover:text-[#0A2619] transition-all shadow-[0_0_12px_rgba(0,230,118,0.25)]">
-                      <Icon className="w-5 h-5 stroke-[1.9]" />
+                    <div className="flex items-center gap-2.5">
+                      <span className="text-xs font-mono font-bold text-[#F5D327]/80">
+                        {item.num}
+                      </span>
+                      <div className="w-9 h-9 rounded-xl bg-[#14422B]/90 border border-[#2E7A4E]/60 flex items-center justify-center text-[#00E676] group-hover:bg-[#00E676] group-hover:text-[#0A2619] transition-all shadow-[0_0_12px_rgba(0,230,118,0.25)]">
+                        <Icon className="w-4.5 h-4.5 stroke-[1.9]" />
+                      </div>
                     </div>
                     <span className={`inline-flex items-center gap-1.5 text-[10px] font-semibold font-mono px-2.5 py-0.5 rounded-full ${badgeClasses}`}>
                       <span className={`w-1.5 h-1.5 rounded-full ${dotColor}`} />
@@ -421,17 +435,17 @@ export default function Markets() {
 
         {/* Global CTA */}
         <div className="mt-10 text-center">
-          <motion.a
-            whileHover={{ scale: 1.02 }}
-            whileTap={{ scale: 0.98 }}
-            href="#contact"
-            className="relative overflow-hidden group inline-flex items-center gap-2.5 px-8 py-3.5 bg-gradient-to-r from-[#E5B80B] via-[#F5D327] to-[#D9A300] text-[#0B1528] font-body text-sm font-bold rounded-xl transition-all shadow-[inset_0_1px_1px_rgba(255,255,255,0.7),0_4px_18px_rgba(245,211,39,0.38)] hover:shadow-[0_6px_26px_rgba(245,211,39,0.55)]"
-          >
-            {/* Glossy Metallic Light-Sweep Shimmer */}
-            <span className="absolute inset-0 bg-gradient-to-r from-transparent via-white/45 to-transparent -translate-x-full group-hover:translate-x-full transition-transform duration-1000 ease-out pointer-events-none" />
-            <span className="relative z-10">Explore Trading Services</span>
-            <ArrowRight className="w-4 h-4 relative z-10 stroke-[2.5]" />
-          </motion.a>
+          <motion.div whileHover={{ scale: 1.02 }} whileTap={{ scale: 0.98 }} className="inline-block">
+            <Link
+              to="/services"
+              className="relative overflow-hidden group inline-flex items-center gap-2.5 px-8 py-3.5 bg-gradient-to-r from-[#E5B80B] via-[#F5D327] to-[#D9A300] text-[#0B1528] font-body text-sm font-bold rounded-xl transition-all shadow-[inset_0_1px_1px_rgba(255,255,255,0.7),0_4px_18px_rgba(245,211,39,0.38)] hover:shadow-[0_6px_26px_rgba(245,211,39,0.55)]"
+            >
+              {/* Glossy Metallic Light-Sweep Shimmer */}
+              <span className="absolute inset-0 bg-gradient-to-r from-transparent via-white/45 to-transparent -translate-x-full group-hover:translate-x-full transition-transform duration-1000 ease-out pointer-events-none" />
+              <span className="relative z-10">Explore Trading Services</span>
+              <ArrowRight className="w-4 h-4 relative z-10 stroke-[2.5]" />
+            </Link>
+          </motion.div>
         </div>
 
       </div>

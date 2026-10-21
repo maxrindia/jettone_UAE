@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 
 export default function Footer() {
   return (
@@ -11,11 +12,13 @@ export default function Footer() {
           {/* Brand Column */}
           <div className="md:col-span-5 flex flex-col gap-4">
             <div className="flex items-center gap-3">
-              <img
-                src="/jettone-logo.png"
-                alt="JETTONE"
-                className="h-6 w-auto object-contain brightness-0 invert"
-              />
+              <Link to="/">
+                <img
+                  src="/jettone-logo.png"
+                  alt="JETTONE"
+                  className="h-6 w-auto object-contain brightness-0 invert"
+                />
+              </Link>
             </div>
 
             <p className="font-headline text-lg font-bold text-[#F5D327]">
@@ -33,24 +36,28 @@ export default function Footer() {
               Quick Links
             </span>
             <div className="flex flex-col gap-2 text-xs md:text-sm text-[#BCE2CD]">
-              <a href="#services" className="hover:text-[#F5D327] transition-colors">Our Services</a>
-              <a href="#markets" className="hover:text-[#F5D327] transition-colors">Global Markets</a>
-              <a href="#jbot" className="hover:text-[#F5D327] transition-colors">JBot</a>
-              <a href="#insights" className="hover:text-[#F5D327] transition-colors">Insights</a>
-              <a href="#contact" className="hover:text-[#F5D327] transition-colors">Contact</a>
+              <Link to="/" className="hover:text-[#F5D327] transition-colors">Home</Link>
+              <Link to="/services" className="hover:text-[#F5D327] transition-colors">Trading Services</Link>
+              <Link to="/investment-partner" className="hover:text-[#F5D327] transition-colors">Investment Partner</Link>
+              <Link to="/trading-consultancy" className="hover:text-[#F5D327] transition-colors">Trading Consultancy</Link>
+              <Link to="/jbot" className="hover:text-[#F5D327] transition-colors">JBot Technology</Link>
+              <Link to="/explore-jbot" className="hover:text-[#F5D327] transition-colors">Explore JBot</Link>
+              <Link to="/insights" className="hover:text-[#F5D327] transition-colors">Insights</Link>
+              <Link to="/about" className="hover:text-[#F5D327] transition-colors">About JETTONE</Link>
+              <Link to="/contact" className="hover:text-[#F5D327] transition-colors">Contact</Link>
             </div>
           </div>
 
-          {/* Legal Column */}
+          {/* Legal & Compliance Column (Zero Fabricated Claims) */}
           <div className="md:col-span-4 flex flex-col gap-3">
             <span className="font-headline font-semibold text-white tracking-wider text-xs uppercase">
               Legal &amp; Compliance
             </span>
             <div className="flex flex-col gap-2 text-xs md:text-sm text-[#BCE2CD]">
-              <a href="#" className="hover:text-[#F5D327] transition-colors">Privacy Policy</a>
-              <a href="#" className="hover:text-[#F5D327] transition-colors">Terms &amp; Conditions</a>
-              <a href="#" className="hover:text-[#F5D327] transition-colors">Risk Disclosure</a>
-              <a href="#" className="hover:text-[#F5D327] transition-colors">DIFC Regulatory Framework</a>
+              <span className="text-[#88A896]">Institutional Governance</span>
+              <span className="text-[#88A896]">Confidentiality Protocols</span>
+              <span className="text-[#88A896]">Risk Governance Framework</span>
+              <span className="text-[#88A896]">Dubai Financial Ecosystem Standards</span>
             </div>
           </div>
 
@@ -62,8 +69,10 @@ export default function Footer() {
             © 2026 <strong className="text-white font-semibold">JETTONE™</strong>. All rights reserved. Smart Wealth. Smarter Future.
           </p>
 
-          <p className="text-center md:text-right max-w-xl text-[11px] leading-relaxed text-[#88A896]">
-            <em>Financial markets involve risk of loss. Services and instrument availability are subject to applicable terms, eligibility and regulatory requirements.</em>
+          <p className="text-center md:text-right max-w-2xl text-[11px] leading-relaxed text-[#88A896]">
+            <em>
+              Financial markets involve risk of loss. JETTONE is a financial services company operating across investment partnerships, trading consultancy, and trading technology, and is not a retail broker. Services and instrument availability are subject to individual agreements and applicable regulatory requirements.
+            </em>
           </p>
         </div>
 

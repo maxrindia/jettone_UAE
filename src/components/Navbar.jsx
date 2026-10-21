@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react';
+import { Link, useLocation } from 'react-router-dom';
 import { motion, AnimatePresence } from 'framer-motion';
 import { Menu, X, ArrowUpRight } from 'lucide-react';
 import TickerBar from './TickerBar';
@@ -6,6 +7,7 @@ import TickerBar from './TickerBar';
 export default function Navbar() {
   const [scrolled, setScrolled] = useState(false);
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
+  const location = useLocation();
 
   useEffect(() => {
     const main = document.getElementById('main-content');
@@ -17,13 +19,19 @@ export default function Navbar() {
     return () => main.removeEventListener('scroll', handleScroll);
   }, []);
 
+  // Close mobile menu on route change
+  useEffect(() => {
+    setMobileMenuOpen(false);
+  }, [location.pathname]);
+
   const navLinks = [
-    { name: 'Home', href: '#' },
-    { name: 'Our Services', href: '#services' },
-    { name: 'Markets', href: '#markets' },
-    { name: 'JBot', href: '#jbot' },
-    { name: 'Insights', href: '#insights' },
-    { name: 'Contact', href: '#contact' }
+    { name: 'Home', path: '/' },
+    { name: 'Our Services', path: '/services' },
+    { name: 'Trading Consultancy', path: '/trading-consultancy' },
+    { name: 'JBot', path: '/jbot' },
+    { name: 'Insights', path: '/insights' },
+    { name: 'About', path: '/about' },
+    { name: 'Contact', path: '/contact' }
   ];
 
   return (
@@ -40,62 +48,64 @@ export default function Navbar() {
         }`}
       >
         <div className="h-14 sm:h-[58px] md:h-[62px] 2xl:h-[68px] max-w-7xl xl:max-w-[1380px] 2xl:max-w-[1640px] [@media(min-width:2000px)]:max-w-[1880px] mx-auto px-4 sm:px-6 lg:px-10 xl:px-12 2xl:px-16 flex items-center justify-between">
-          {/* Brand Logo - Cropped to bounds, fits tightly with zero excess whitespace */}
-          <a href="#" className="flex items-center gap-3 group">
+          {/* Brand Logo */}
+          <Link to="/" className="flex items-center gap-3 group">
             <img
               src="/jettone-logo.png"
               alt="JETTONE"
               className="h-8 sm:h-[34px] md:h-9 2xl:h-10 w-auto object-contain transition-transform group-hover:scale-[1.02]"
             />
-          </a>
+          </Link>
 
-          {/* Desktop Navigation - Slightly increased font size */}
-          <nav className="hidden lg:flex items-center gap-7 xl:gap-8 2xl:gap-10">
-            {navLinks.map((link, idx) => (
-              <a
-                key={link.name}
-                href={link.href}
-                className={`text-[16px] xl:text-[16.5px] 2xl:text-[17.5px] font-semibold transition-colors relative py-1.5 tracking-[-0.01em] ${
-                  idx === 0
-                    ? 'text-[#0B1528] font-bold'
-                    : 'text-[#334155] hover:text-[#0B1528]'
-                }`}
-              >
-                {link.name}
-                {idx === 0 && (
-                  <motion.span
-                    layoutId="nav-underline"
-                    className="absolute bottom-0 left-0 w-full h-[2.5px] bg-[#F5D327] rounded-full shadow-[0_0_8px_rgba(245,211,39,0.6)]"
-                  />
-                )}
-              </a>
-            ))}
+          {/* Desktop Navigation */}
+          <nav className="hidden lg:flex items-center gap-5 xl:gap-7 2xl:gap-8">
+            {navLinks.map((link) => {
+              const isActive = location.pathname === link.path;
+              return (
+                <Link
+                  key={link.name}
+                  to={link.path}
+                  className={`text-[14.5px] xl:text-[15.5px] 2xl:text-[16.5px] font-semibold transition-colors relative py-1.5 tracking-[-0.01em] ${
+                    isActive
+                      ? 'text-[#0B1528] font-bold'
+                      : 'text-[#334155] hover:text-[#0B1528]'
+                  }`}
+                >
+                  {link.name}
+                  {isActive && (
+                    <motion.span
+                      layoutId="nav-underline"
+                      className="absolute bottom-0 left-0 w-full h-[2.5px] bg-[#F5D327] rounded-full shadow-[0_0_8px_rgba(245,211,39,0.6)]"
+                    />
+                  )}
+                </Link>
+              );
+            })}
           </nav>
 
-          {/* Enquire CTA & Mobile Toggle - Bold uppercase matching reference style */}
+          {/* Enquire CTA & Mobile Toggle */}
           <div className="flex items-center gap-4">
-            <motion.a
-              whileHover={{ scale: 1.02 }}
-              whileTap={{ scale: 0.98 }}
-              href="#contact"
-              className="relative overflow-hidden group hidden sm:inline-flex items-center gap-2 px-5 py-2 bg-gradient-to-r from-[#E5B80B] via-[#F5D327] to-[#D9A300] text-[#0B1528] font-body text-xs sm:text-[13px] font-extrabold uppercase tracking-wider rounded-lg transition-all shadow-[inset_0_1px_1px_rgba(255,255,255,0.7),0_4px_16px_rgba(245,211,39,0.35)] hover:shadow-[inset_0_1px_1px_rgba(255,255,255,0.9),0_6px_24px_rgba(245,211,39,0.55)]"
-            >
-              {/* Glossy Metallic Light-Sweep Shimmer */}
-              <span className="absolute inset-0 bg-gradient-to-r from-transparent via-white/45 to-transparent -translate-x-full group-hover:translate-x-full transition-transform duration-1000 ease-out pointer-events-none" />
-              <span className="relative z-10">Enquire Now</span>
-              <ArrowUpRight className="w-4 h-4 relative z-10 stroke-[2.5]" />
-            </motion.a>
+            <motion.div whileHover={{ scale: 1.02 }} whileTap={{ scale: 0.98 }}>
+              <Link
+                to="/contact"
+                className="relative overflow-hidden group hidden sm:inline-flex items-center gap-2 px-5 py-2 bg-gradient-to-r from-[#E5B80B] via-[#F5D327] to-[#D9A300] text-[#0B1528] font-body text-xs sm:text-[13px] font-extrabold uppercase tracking-wider rounded-lg transition-all shadow-[inset_0_1px_1px_rgba(255,255,255,0.7),0_4px_16px_rgba(245,211,39,0.35)] hover:shadow-[inset_0_1px_1px_rgba(255,255,255,0.9),0_6px_24px_rgba(245,211,39,0.55)]"
+              >
+                <span className="absolute inset-0 bg-gradient-to-r from-transparent via-white/45 to-transparent -translate-x-full group-hover:translate-x-full transition-transform duration-1000 ease-out pointer-events-none" />
+                <span className="relative z-10">Enquire Now</span>
+                <ArrowUpRight className="w-4 h-4 relative z-10 stroke-[2.5]" />
+              </Link>
+            </motion.div>
 
-          <button
-            onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-            className="lg:hidden p-2 text-[#0B1528] hover:text-[#C49206] transition-colors rounded-lg focus:outline-none"
-            aria-label="Toggle navigation menu"
-          >
-            {mobileMenuOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
-          </button>
+            <button
+              onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
+              className="lg:hidden p-2 text-[#0B1528] hover:text-[#C49206] transition-colors rounded-lg focus:outline-none"
+              aria-label="Toggle navigation menu"
+            >
+              {mobileMenuOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
+            </button>
+          </div>
         </div>
       </div>
-    </div>
 
       {/* Mobile Drawer */}
       <AnimatePresence>
@@ -104,28 +114,34 @@ export default function Navbar() {
             initial={{ opacity: 0, height: 0 }}
             animate={{ opacity: 1, height: 'auto' }}
             exit={{ opacity: 0, height: 0 }}
-            transition={{ duration: 0.25, ease: 'easeInOut' }}
-            className="lg:hidden absolute top-full left-0 right-0 z-50 border-t border-[#E1E7DF] bg-[#F8FAF7]/98 backdrop-blur-lg px-5 sm:px-6 py-5 sm:py-6 space-y-3 max-h-[calc(100dvh-100px)] overflow-y-auto shadow-2xl"
+            className="lg:hidden bg-white/98 border-b border-[#E2E8F0] px-4 pt-3 pb-6 shadow-xl overflow-hidden"
           >
-            {navLinks.map((link) => (
-              <a
-                key={link.name}
-                href={link.href}
-                onClick={() => setMobileMenuOpen(false)}
-                className="block text-base font-medium text-[#0B1528] hover:text-[#C49206] py-2 transition-colors border-b border-[#E1E7DF]/40"
-              >
-                {link.name}
-              </a>
-            ))}
-            <div className="pt-3">
-              <a
-                href="#contact"
-                onClick={() => setMobileMenuOpen(false)}
-                className="relative overflow-hidden group w-full flex items-center justify-center gap-2 px-6 py-3 bg-gradient-to-r from-[#E5B80B] via-[#F5D327] to-[#D9A300] text-[#0B1528] text-sm font-bold rounded-xl transition-all shadow-[inset_0_1px_1px_rgba(255,255,255,0.7),0_4px_14px_rgba(245,211,39,0.35)]"
-              >
-                <span>Enquire Now</span>
-                <ArrowUpRight className="w-4 h-4 stroke-[2.5]" />
-              </a>
+            <div className="flex flex-col space-y-2">
+              {navLinks.map((link) => {
+                const isActive = location.pathname === link.path;
+                return (
+                  <Link
+                    key={link.name}
+                    to={link.path}
+                    className={`px-3 py-2 rounded-lg text-sm font-semibold transition-colors ${
+                      isActive
+                        ? 'bg-[#F5D327]/15 text-[#0B1528] font-bold border-l-4 border-[#F5D327]'
+                        : 'text-[#334155] hover:bg-gray-100 hover:text-[#0B1528]'
+                    }`}
+                  >
+                    {link.name}
+                  </Link>
+                );
+              })}
+              <div className="pt-3 border-t border-gray-100">
+                <Link
+                  to="/contact"
+                  className="w-full flex items-center justify-center gap-2 px-4 py-2.5 bg-gradient-to-r from-[#E5B80B] via-[#F5D327] to-[#D9A300] text-[#0B1528] font-bold text-xs uppercase tracking-wider rounded-lg shadow-sm"
+                >
+                  <span>Enquire Now</span>
+                  <ArrowUpRight className="w-4 h-4 stroke-[2.5]" />
+                </Link>
+              </div>
             </div>
           </motion.div>
         )}

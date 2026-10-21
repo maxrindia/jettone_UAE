@@ -1,12 +1,31 @@
 import React, { useEffect } from 'react';
+import { Routes, Route, useLocation, Navigate } from 'react-router-dom';
 import Navbar from './components/Navbar';
-import Hero from './components/Hero';
-import Services from './components/Services';
-import Markets from './components/Markets';
-import JBotSection from './components/JBotSection';
-import Insights from './components/Insights';
-import Contact from './components/Contact';
 import Footer from './components/Footer';
+
+// Pages
+import HomePage from './pages/HomePage';
+import InvestmentPartner from './pages/InvestmentPartner';
+import TradingConsultancy from './pages/TradingConsultancy';
+import JBotPage from './pages/JBotPage';
+import ServicesPage from './pages/ServicesPage';
+import ExploreJBot from './pages/ExploreJBot';
+import InsightsPage from './pages/InsightsPage';
+import AboutPage from './pages/AboutPage';
+import ContactPage from './pages/ContactPage';
+
+function ScrollToTop() {
+  const { pathname } = useLocation();
+
+  useEffect(() => {
+    const main = document.getElementById('main-content');
+    if (main) {
+      main.scrollTo({ top: 0, behavior: 'instant' });
+    }
+  }, [pathname]);
+
+  return null;
+}
 
 export default function App() {
   // Smooth scroll handler for all internal anchor links inside the scrollable main container
@@ -56,7 +75,7 @@ export default function App() {
         {/* Unified sleek dark obsidian-emerald gradient - 100% consistent throughout the site */}
         <div className="absolute inset-0 bg-gradient-to-b from-[#06140E]/85 via-[#06140E]/70 to-[#06140E]/85" />
         
-        {/* Dynamic animated live market wave / chart pulse (living gif / trading terminal feel) */}
+        {/* Dynamic animated live market wave / chart pulse */}
         <div className="absolute top-1/4 right-1/4 w-[750px] h-[450px] bg-[radial-gradient(ellipse_at_center,rgba(0,230,118,0.2)_0%,transparent_70%)] blur-[100px] animate-pulse" style={{ animationDuration: '6s' }} />
         <div className="absolute bottom-1/3 left-1/4 w-[650px] h-[400px] bg-[radial-gradient(ellipse_at_center,rgba(245,211,39,0.15)_0%,transparent_70%)] blur-[100px] animate-pulse" style={{ animationDuration: '8s' }} />
         
@@ -75,25 +94,25 @@ export default function App() {
         <Navbar />
       </div>
 
+      {/* Scroll to top handler on route change */}
+      <ScrollToTop />
+
       {/* <main> — flex: 1, min-height: 0, overflow-y: auto (ONLY scroll element) */}
-      <main id="main-content" className="relative z-10 flex-1 min-h-0 w-full overflow-y-auto overflow-x-hidden scroll-smooth">
-        {/* 1. Hero Section */}
-        <Hero />
-
-        {/* 2. Our Services: Three Paths. One Perspective. */}
-        <Services />
-
-        {/* 3. Global Markets & Trading Services: Explore the Opportunities. */}
-        <Markets />
-
-        {/* 4. JBot Technology: From Strategy to Automation. */}
-        <JBotSection />
-
-        {/* 5. Market Insights: Market Perspectives. */}
-        <Insights />
-
-        {/* 6. Contact Section: Start a Conversation with JETTONE. */}
-        <Contact />
+      <main id="main-content" className="relative z-10 flex-1 min-h-0 w-full overflow-y-auto overflow-x-hidden scroll-smooth flex flex-col justify-between">
+        <div className="flex-1 w-full">
+          <Routes>
+            <Route path="/" element={<HomePage />} />
+            <Route path="/investment-partner" element={<InvestmentPartner />} />
+            <Route path="/trading-consultancy" element={<TradingConsultancy />} />
+            <Route path="/jbot" element={<JBotPage />} />
+            <Route path="/services" element={<ServicesPage />} />
+            <Route path="/explore-jbot" element={<ExploreJBot />} />
+            <Route path="/insights" element={<InsightsPage />} />
+            <Route path="/about" element={<AboutPage />} />
+            <Route path="/contact" element={<ContactPage />} />
+            <Route path="*" element={<Navigate to="/" replace />} />
+          </Routes>
+        </div>
 
         {/* Footer — flush at bottom with zero extra space below */}
         <Footer />
