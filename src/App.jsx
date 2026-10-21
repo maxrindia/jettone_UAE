@@ -1,18 +1,20 @@
-import React, { useEffect } from 'react';
+import React, { useEffect, Suspense, lazy } from 'react';
 import { Routes, Route, useLocation, Navigate } from 'react-router-dom';
 import Navbar from './components/Navbar';
 import Footer from './components/Footer';
 
-// Pages
+// Critical Homepage loaded directly for zero-latency initial render
 import HomePage from './pages/HomePage';
-import InvestmentPartner from './pages/InvestmentPartner';
-import TradingConsultancy from './pages/TradingConsultancy';
-import JBotPage from './pages/JBotPage';
-import ServicesPage from './pages/ServicesPage';
-import ExploreJBot from './pages/ExploreJBot';
-import InsightsPage from './pages/InsightsPage';
-import ArticlePage from './pages/ArticlePage';
-import ContactPage from './pages/ContactPage';
+
+// Route-based code splitting for subpages to reduce initial bundle size
+const InvestmentPartner = lazy(() => import('./pages/InvestmentPartner'));
+const TradingConsultancy = lazy(() => import('./pages/TradingConsultancy'));
+const JBotPage = lazy(() => import('./pages/JBotPage'));
+const ServicesPage = lazy(() => import('./pages/ServicesPage'));
+const ExploreJBot = lazy(() => import('./pages/ExploreJBot'));
+const InsightsPage = lazy(() => import('./pages/InsightsPage'));
+const ArticlePage = lazy(() => import('./pages/ArticlePage'));
+const ContactPage = lazy(() => import('./pages/ContactPage'));
 
 function ScrollToTop() {
   const { pathname, hash } = useLocation();
@@ -112,32 +114,40 @@ export default function App() {
       {/* <main> — flex: 1, min-height: 0, overflow-y: auto (ONLY scroll element) */}
       <main id="main-content" className="relative z-10 flex-1 min-h-0 w-full overflow-y-auto overflow-x-hidden scroll-smooth flex flex-col justify-between">
         <div className="flex-1 w-full">
-          <Routes>
-            <Route path="/" element={<HomePage />} />
-            
-            {/* Services Pathways */}
-            <Route path="/services/investment-partner" element={<InvestmentPartner />} />
-            <Route path="/investment-partner" element={<InvestmentPartner />} />
-            <Route path="/services/consultancy" element={<TradingConsultancy />} />
-            <Route path="/trading-consultancy" element={<TradingConsultancy />} />
-            <Route path="/services" element={<ServicesPage />} />
-            
-            {/* JBot Technology */}
-            <Route path="/services/jbot" element={<JBotPage />} />
-            <Route path="/jbot" element={<JBotPage />} />
-            <Route path="/explore-jbot" element={<ExploreJBot />} />
-            
-            {/* Insights & Individual Article View */}
-            <Route path="/insights" element={<InsightsPage />} />
-            <Route path="/insights/:id" element={<ArticlePage />} />
-            
-            {/* Contact */}
-            <Route path="/contact" element={<ContactPage />} />
+          <Suspense
+            fallback={
+              <div className="w-full min-h-[50vh] flex items-center justify-center">
+                <div className="w-6 h-6 border-2 border-[#287348]/40 border-t-[#F5D327] rounded-full animate-spin" />
+              </div>
+            }
+          >
+            <Routes>
+              <Route path="/" element={<HomePage />} />
+              
+              {/* Services Pathways */}
+              <Route path="/services/investment-partner" element={<InvestmentPartner />} />
+              <Route path="/investment-partner" element={<InvestmentPartner />} />
+              <Route path="/services/consultancy" element={<TradingConsultancy />} />
+              <Route path="/trading-consultancy" element={<TradingConsultancy />} />
+              <Route path="/services" element={<ServicesPage />} />
+              
+              {/* JBot Technology */}
+              <Route path="/services/jbot" element={<JBotPage />} />
+              <Route path="/jbot" element={<JBotPage />} />
+              <Route path="/explore-jbot" element={<ExploreJBot />} />
+              
+              {/* Insights & Individual Article View */}
+              <Route path="/insights" element={<InsightsPage />} />
+              <Route path="/insights/:id" element={<ArticlePage />} />
+              
+              {/* Contact */}
+              <Route path="/contact" element={<ContactPage />} />
 
-            {/* Fallback & Removed About Redirect */}
-            <Route path="/about" element={<Navigate to="/" replace />} />
-            <Route path="*" element={<Navigate to="/" replace />} />
-          </Routes>
+              {/* Fallback & Removed About Redirect */}
+              <Route path="/about" element={<Navigate to="/" replace />} />
+              <Route path="*" element={<Navigate to="/" replace />} />
+            </Routes>
+          </Suspense>
         </div>
 
         {/* Footer — flush at bottom with zero extra space below */}
