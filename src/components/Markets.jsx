@@ -234,7 +234,7 @@ const markets = [
     id: 'forex',
     num: '01',
     title: 'Forex Trading',
-    description: 'Major, minor and emerging currency pairs with competitive institutional spreads.',
+    description: 'Major, minor and emerging currency pairs with competitive tight spreads.',
     icon: CurrencyExchangeIcon,
     badgeText: 'Active',
     badgeType: 'active',
@@ -286,7 +286,7 @@ const markets = [
     id: 'crypto',
     num: '05',
     title: 'Cryptocurrency',
-    description: 'Major digital assets and token trading via institutional liquidity providers.',
+    description: 'Major digital assets and token trading via deep liquidity providers.',
     icon: BrainCircuit,
     badgeText: 'Digital Asset',
     badgeType: 'algorithmic',
@@ -330,7 +330,7 @@ const markets = [
     badgeText: 'Advisory',
     badgeType: 'bespoke',
     chart: StructuredChart,
-    leftMetric: 'Institutional',
+    leftMetric: 'Bespoke Advisory',
     rightMetric: 'Custom Review',
     rightStyle: 'text-[#F5D327]'
   }
@@ -344,7 +344,7 @@ export default function Markets() {
 
       <div className="relative z-10 max-w-7xl xl:max-w-[1380px] 2xl:max-w-[1640px] [@media(min-width:2000px)]:max-w-[1880px] mx-auto">
 
-        {/* Section Header - Perfectly Left-Aligned like Services & Insights */}
+        {/* Section Header */}
         <div className="flex flex-col md:flex-row md:items-end justify-between mb-7 sm:mb-8 2xl:mb-12">
           <motion.div
             initial={{ opacity: 0, y: 16 }}
@@ -360,7 +360,7 @@ export default function Markets() {
               Explore the Opportunities.
             </h2>
             <p className="font-body text-[#BCE2CD] font-normal text-sm md:text-base 2xl:text-lg leading-relaxed">
-              Explore market analysis and institutional services across supported global asset classes.
+              Explore market analysis and structured services across supported global asset classes.
             </p>
           </motion.div>
         </div>
@@ -431,21 +431,6 @@ export default function Markets() {
               </motion.div>
             );
           })}
-        </div>
-
-        {/* Global CTA */}
-        <div className="mt-10 text-center">
-          <motion.div whileHover={{ scale: 1.02 }} whileTap={{ scale: 0.98 }} className="inline-block">
-            <Link
-              to="/services"
-              className="relative overflow-hidden group inline-flex items-center gap-2.5 px-8 py-3.5 bg-gradient-to-r from-[#E5B80B] via-[#F5D327] to-[#D9A300] text-[#0B1528] font-body text-sm font-bold rounded-xl transition-all shadow-[inset_0_1px_1px_rgba(255,255,255,0.7),0_4px_18px_rgba(245,211,39,0.38)] hover:shadow-[0_6px_26px_rgba(245,211,39,0.55)]"
-            >
-              {/* Glossy Metallic Light-Sweep Shimmer */}
-              <span className="absolute inset-0 bg-gradient-to-r from-transparent via-white/45 to-transparent -translate-x-full group-hover:translate-x-full transition-transform duration-1000 ease-out pointer-events-none" />
-              <span className="relative z-10">Explore Trading Services</span>
-              <ArrowRight className="w-4 h-4 relative z-10 stroke-[2.5]" />
-            </Link>
-          </motion.div>
         </div>
 
       </div>

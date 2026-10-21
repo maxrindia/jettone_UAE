@@ -15,7 +15,8 @@ const services = [
     icon: Handshake,
     image: '/images/service-invest.jpg',
     ctaText: 'Explore Investment Partner',
-    ctaLink: '/investment-partner'
+    ctaLink: '/services/investment-partner',
+    isAnchor: false
   },
   {
     number: 'Path 02',
@@ -28,7 +29,8 @@ const services = [
     icon: TrendingUp,
     image: '/images/service-trading.jpg',
     ctaText: 'Explore Consultancy',
-    ctaLink: '/trading-consultancy'
+    ctaLink: '/services/consultancy',
+    isAnchor: false
   },
   {
     number: 'Path 03',
@@ -41,7 +43,8 @@ const services = [
     icon: Cpu,
     image: '/images/jbot-mobile-app.jpg',
     ctaText: 'Discover JBot',
-    ctaLink: '/jbot'
+    ctaLink: '#jbot',
+    isAnchor: true
   }
 ];
 
@@ -117,13 +120,23 @@ export default function Services() {
                 </div>
 
                 <div className="pt-4 border-t border-[#25633F]/50 flex items-center justify-between">
-                  <Link
-                    to={service.ctaLink}
-                    className="inline-flex items-center gap-2 text-sm font-semibold text-[#F5D77F] hover:text-white transition-colors group-hover:translate-x-1 duration-200"
-                  >
-                    <span>{service.ctaText}</span>
-                    <ArrowRight className="w-4 h-4 text-[#00E676]" />
-                  </Link>
+                  {service.isAnchor ? (
+                    <a
+                      href={service.ctaLink}
+                      className="inline-flex items-center gap-2 text-sm font-semibold text-[#F5D77F] hover:text-white transition-colors group-hover:translate-x-1 duration-200"
+                    >
+                      <span>{service.ctaText}</span>
+                      <ArrowRight className="w-4 h-4 text-[#00E676]" />
+                    </a>
+                  ) : (
+                    <Link
+                      to={service.ctaLink}
+                      className="inline-flex items-center gap-2 text-sm font-semibold text-[#F5D77F] hover:text-white transition-colors group-hover:translate-x-1 duration-200"
+                    >
+                      <span>{service.ctaText}</span>
+                      <ArrowRight className="w-4 h-4 text-[#00E676]" />
+                    </Link>
+                  )}
                 </div>
               </div>
             </motion.div>

@@ -285,7 +285,7 @@ export default function ContactPage() {
                 Dubai, UAE
               </h3>
               <p className="font-body text-xs sm:text-sm text-[#BCE2CD] leading-relaxed">
-                Operating in the financial capital of the UAE, connecting institutional partnerships and global trading workflows.
+                Operating in the financial capital of the UAE, connecting strategic partnerships and global trading workflows.
               </p>
             </div>
 

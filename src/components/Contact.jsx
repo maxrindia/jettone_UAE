@@ -117,11 +117,11 @@ export default function Contact() {
               Connect directly with our Dubai executive desk to explore investment partnerships, quantitative technology or tailored trading mandates.
             </motion.p>
 
-            {/* Direct Institutional Fast-Track Badges */}
+            {/* Direct Fast-Track Badges */}
             <div className="flex flex-wrap gap-2.5 text-xs text-[#E4F5EB]">
               <div className="flex items-center gap-2 px-3 py-1.5 rounded-lg bg-[#06180F]/80 border border-[#25633F]/60">
                 <ShieldCheck className="w-3.5 h-3.5 text-[#F5D77F]" />
-                <span>DIFC Regulated Standards</span>
+                <span>Global Governance Standards</span>
               </div>
               <div className="flex items-center gap-2 px-3 py-1.5 rounded-lg bg-[#06180F]/80 border border-[#25633F]/60">
                 <span className="w-2 h-2 rounded-full bg-[#00E676] animate-pulse" />
@@ -265,7 +265,7 @@ export default function Contact() {
               <div className="flex flex-col sm:flex-row items-center justify-between gap-3 pt-2">
                 <p className="text-[11px] text-[#A8D3BA] flex items-center gap-1.5 order-2 sm:order-1">
                   <ShieldCheck className="w-3.5 h-3.5 text-[#F5D327] shrink-0" />
-                  <span>Strict institutional confidentiality under DIFC jurisdiction.</span>
+                  <span>Strict confidentiality and data security protocols.</span>
                 </p>
 
                 <motion.button

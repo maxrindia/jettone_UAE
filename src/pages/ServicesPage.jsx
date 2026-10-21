@@ -22,18 +22,18 @@ const fullServices = [
     name: 'Forex Trading',
     icon: Currency,
     description:
-      'Access global foreign exchange liquidity across major, minor, and emerging market currency pairs. Benefit from institutional-grade pricing feeds, low-latency execution routing, and deep market depth. Our consultancy frameworks assist traders in structuring systematic currency exposure and managing exchange volatility.',
+      'Access global foreign exchange liquidity across major, minor, and emerging market currency pairs. Benefit from tier-one pricing feeds, low-latency execution routing, and deep market depth. Our consultancy frameworks assist traders in structuring systematic currency exposure and managing exchange volatility.',
     examples: 'EUR/USD, USD/JPY, GBP/USD, USD/AED (Examples only)',
-    learnMoreLink: '/trading-consultancy'
+    learnMoreLink: '/services/consultancy'
   },
   {
     num: '02',
     name: 'Gold & Silver Trading',
     icon: Coins,
     description:
-      'Participate in precious metals trading encompassing spot gold, silver, platinum, and palladium. Leverage Dubai’s strategic status as the global City of Gold with institutional physical and synthetic benchmark liquidity. We provide in-depth bullion flow analysis and macroeconomic correlation models.',
+      'Participate in precious metals trading encompassing spot gold, silver, platinum, and palladium. Leverage Dubai’s strategic status as the global City of Gold with deep physical and synthetic benchmark liquidity. We provide in-depth bullion flow analysis and macroeconomic correlation models.',
     examples: 'XAU/USD (Spot Gold), XAG/USD (Spot Silver) (Examples only)',
-    learnMoreLink: '/trading-consultancy'
+    learnMoreLink: '/services/consultancy'
   },
   {
     num: '03',
@@ -42,7 +42,7 @@ const fullServices = [
     description:
       'Navigate energy markets and industrial commodities with structured insight into supply chain disruptions and geopolitical catalysts. Cover crude oil, natural gas, agricultural futures, and base metals. Our advisory desk offers comprehensive seasonal curve analysis and demand-supply modeling.',
     examples: 'Brent Crude, WTI, Natural Gas, Copper (Examples only)',
-    learnMoreLink: '/trading-consultancy'
+    learnMoreLink: '/services/consultancy'
   },
   {
     num: '04',
@@ -51,16 +51,16 @@ const fullServices = [
     description:
       'Trade leading global equity benchmarks that reflect worldwide economic performance. Access cash and index futures on premier exchanges across the US, Europe, Asia, and regional Middle Eastern bourses. Our research enables tactical positioning across diversified macroeconomic cycles.',
     examples: 'S&P 500, NASDAQ 100, FTSE 100, Nikkei 225, DFM (Examples only)',
-    learnMoreLink: '/trading-consultancy'
+    learnMoreLink: '/services/consultancy'
   },
   {
     num: '05',
     name: 'Cryptocurrency Trading',
     icon: Boxes,
     description:
-      'Engage with digital asset markets supported by institutional liquidity gateways and advanced algorithmic order routing. Access major digital currencies with structured risk parameters and cold-storage security standards. We examine cross-venue spreads, network on-chain indicators, and market microstructure.',
+      'Engage with digital asset markets supported by direct liquidity gateways and advanced algorithmic order routing. Access major digital currencies with structured risk parameters and cold-storage security standards. We examine cross-venue spreads, network on-chain indicators, and market microstructure.',
     examples: 'BTC/USD, ETH/USD, SOL/USD (Examples only)',
-    learnMoreLink: '/trading-consultancy'
+    learnMoreLink: '/services/consultancy'
   },
   {
     num: '06',
@@ -69,14 +69,14 @@ const fullServices = [
     description:
       'Employ exchange-traded derivative instruments for portfolio hedging, directional positioning, and volatility management. Access liquid multi-asset derivative contracts across premier international exchanges. Our quantitative review examines strike skew, implied volatility surfaces, and risk-defined spreads.',
     examples: 'Index Futures, Equity Options, Commodity Swaps (Examples only)',
-    learnMoreLink: '/trading-consultancy'
+    learnMoreLink: '/services/consultancy'
   },
   {
     num: '07',
     name: 'Market Analysis & Education',
     icon: FileSearch,
     description:
-      'Strengthen your trading perspective through daily market intelligence, technical charting setups, and institutional educational modules. We deconstruct macroeconomic releases, central bank policy shifts, and liquidity dynamics into practical insights for traders at all experience tiers.',
+      'Strengthen your trading perspective through daily market intelligence, technical charting setups, and professional educational modules. We deconstruct macroeconomic releases, central bank policy shifts, and liquidity dynamics into practical insights for traders at all experience tiers.',
     examples: 'Daily Technical Briefings, Macro Outlook Reports, Webinars (Examples only)',
     learnMoreLink: '/contact'
   },
@@ -85,7 +85,7 @@ const fullServices = [
     name: 'Stock Market Investment Consulting',
     icon: Landmark,
     description:
-      'Receive strategic guidance on global equity portfolios, sector allocation, and quantitative factor screening. We assist institutional partners and family offices in evaluating equity risk premiums, dividend quality, and corporate governance metrics across domestic and international exchanges.',
+      'Receive strategic guidance on global equity portfolios, sector allocation, and quantitative factor screening. We assist strategic partners and family offices in evaluating equity risk premiums, dividend quality, and corporate governance metrics across domestic and international exchanges.',
     examples: 'Global Blue-chips, GCC Equities, Dividend Aristocrats (Examples only)',
     learnMoreLink: '/contact'
   }
@@ -113,7 +113,7 @@ export default function ServicesPage() {
             Analyse. Strategise. Trade Smarter.
           </p>
           <p className="font-body text-[#BCE2CD] text-base sm:text-lg leading-relaxed max-w-2xl">
-            Comprehensive trading consultancy, market intelligence, and institutional technology frameworks across global asset classes.
+            Comprehensive trading consultancy, market intelligence, and systematic technology frameworks across global asset classes.
           </p>
         </div>
       </section>
@@ -186,7 +186,7 @@ export default function ServicesPage() {
       {/* Bottom CTA */}
       <ContactCtaStrip
         title="Ready to Discuss Trading Services?"
-        subtext="Contact JETTONE’s Dubai advisory desk to evaluate your institutional requirements."
+        subtext="Contact JETTONE’s Dubai advisory desk to evaluate your strategic requirements."
         ctaText="Enquire Now →"
         ctaLink="/contact"
       />

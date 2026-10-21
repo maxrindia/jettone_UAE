@@ -11,18 +11,30 @@ import JBotPage from './pages/JBotPage';
 import ServicesPage from './pages/ServicesPage';
 import ExploreJBot from './pages/ExploreJBot';
 import InsightsPage from './pages/InsightsPage';
-import AboutPage from './pages/AboutPage';
+import ArticlePage from './pages/ArticlePage';
 import ContactPage from './pages/ContactPage';
 
 function ScrollToTop() {
-  const { pathname } = useLocation();
+  const { pathname, hash } = useLocation();
 
   useEffect(() => {
     const main = document.getElementById('main-content');
-    if (main) {
+    if (!main) return;
+
+    if (hash) {
+      setTimeout(() => {
+        const targetEl = document.querySelector(hash);
+        if (targetEl) {
+          const mainRect = main.getBoundingClientRect();
+          const elRect = targetEl.getBoundingClientRect();
+          const offset = elRect.top - mainRect.top + main.scrollTop;
+          main.scrollTo({ top: Math.max(0, offset - 12), behavior: 'smooth' });
+        }
+      }, 50);
+    } else {
       main.scrollTo({ top: 0, behavior: 'instant' });
     }
-  }, [pathname]);
+  }, [pathname, hash]);
 
   return null;
 }
@@ -94,7 +106,7 @@ export default function App() {
         <Navbar />
       </div>
 
-      {/* Scroll to top handler on route change */}
+      {/* Scroll to top / hash handler on route change */}
       <ScrollToTop />
 
       {/* <main> — flex: 1, min-height: 0, overflow-y: auto (ONLY scroll element) */}
@@ -102,14 +114,27 @@ export default function App() {
         <div className="flex-1 w-full">
           <Routes>
             <Route path="/" element={<HomePage />} />
+            
+            {/* Services Pathways */}
+            <Route path="/services/investment-partner" element={<InvestmentPartner />} />
             <Route path="/investment-partner" element={<InvestmentPartner />} />
+            <Route path="/services/consultancy" element={<TradingConsultancy />} />
             <Route path="/trading-consultancy" element={<TradingConsultancy />} />
-            <Route path="/jbot" element={<JBotPage />} />
             <Route path="/services" element={<ServicesPage />} />
+            
+            {/* JBot Technology */}
+            <Route path="/jbot" element={<JBotPage />} />
             <Route path="/explore-jbot" element={<ExploreJBot />} />
+            
+            {/* Insights & Individual Article View */}
             <Route path="/insights" element={<InsightsPage />} />
-            <Route path="/about" element={<AboutPage />} />
+            <Route path="/insights/:id" element={<ArticlePage />} />
+            
+            {/* Contact */}
             <Route path="/contact" element={<ContactPage />} />
+
+            {/* Fallback & Removed About Redirect */}
+            <Route path="/about" element={<Navigate to="/" replace />} />
             <Route path="*" element={<Navigate to="/" replace />} />
           </Routes>
         </div>

@@ -25,14 +25,31 @@ export default function Navbar() {
   }, [location.pathname]);
 
   const navLinks = [
-    { name: 'Home', path: '/' },
-    { name: 'Our Services', path: '/services' },
-    { name: 'Trading Consultancy', path: '/trading-consultancy' },
-    { name: 'JBot', path: '/jbot' },
-    { name: 'Insights', path: '/insights' },
-    { name: 'About', path: '/about' },
-    { name: 'Contact', path: '/contact' }
+    { name: 'Home', hash: '#hero', fallback: '/' },
+    { name: 'Our Services', hash: '#services', fallback: '/#services' },
+    { name: 'JBot', hash: '#jbot', fallback: '/#jbot' },
+    { name: 'Insights', hash: '#insights', fallback: '/#insights' }
   ];
+
+  const handleNavClick = (e, item) => {
+    if (location.pathname === '/') {
+      e.preventDefault();
+      const main = document.getElementById('main-content');
+      if (!main) return;
+      if (!item.hash || item.hash === '#hero') {
+        main.scrollTo({ top: 0, behavior: 'smooth' });
+      } else {
+        const targetEl = document.querySelector(item.hash);
+        if (targetEl) {
+          const mainRect = main.getBoundingClientRect();
+          const elRect = targetEl.getBoundingClientRect();
+          const offset = elRect.top - mainRect.top + main.scrollTop;
+          main.scrollTo({ top: Math.max(0, offset - 12), behavior: 'smooth' });
+        }
+      }
+    }
+    setMobileMenuOpen(false);
+  };
 
   return (
     <header className="relative w-full z-50 shrink-0">
@@ -58,29 +75,17 @@ export default function Navbar() {
           </Link>
 
           {/* Desktop Navigation */}
-          <nav className="hidden lg:flex items-center gap-5 xl:gap-7 2xl:gap-8">
-            {navLinks.map((link) => {
-              const isActive = location.pathname === link.path;
-              return (
-                <Link
-                  key={link.name}
-                  to={link.path}
-                  className={`text-[14.5px] xl:text-[15.5px] 2xl:text-[16.5px] font-semibold transition-colors relative py-1.5 tracking-[-0.01em] ${
-                    isActive
-                      ? 'text-[#0B1528] font-bold'
-                      : 'text-[#334155] hover:text-[#0B1528]'
-                  }`}
-                >
-                  {link.name}
-                  {isActive && (
-                    <motion.span
-                      layoutId="nav-underline"
-                      className="absolute bottom-0 left-0 w-full h-[2.5px] bg-[#F5D327] rounded-full shadow-[0_0_8px_rgba(245,211,39,0.6)]"
-                    />
-                  )}
-                </Link>
-              );
-            })}
+          <nav className="hidden lg:flex items-center gap-7 xl:gap-9 2xl:gap-11">
+            {navLinks.map((link) => (
+              <a
+                key={link.name}
+                href={location.pathname === '/' ? link.hash : link.fallback}
+                onClick={(e) => handleNavClick(e, link)}
+                className="text-[15px] xl:text-[16px] 2xl:text-[17px] font-semibold text-[#334155] hover:text-[#0B1528] transition-colors relative py-1.5 tracking-[-0.01em]"
+              >
+                {link.name}
+              </a>
+            ))}
           </nav>
 
           {/* Enquire CTA & Mobile Toggle */}
@@ -98,7 +103,7 @@ export default function Navbar() {
 
             <button
               onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-              className="lg:hidden p-2 text-[#0B1528] hover:text-[#C49206] transition-colors rounded-lg focus:outline-none"
+              className="lg:hidden p-2 text-[#0B1528] hover:text-[#C49206] transition-colors rounded-lg focus:outline-none cursor-pointer"
               aria-label="Toggle navigation menu"
             >
               {mobileMenuOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
@@ -117,22 +122,16 @@ export default function Navbar() {
             className="lg:hidden bg-white/98 border-b border-[#E2E8F0] px-4 pt-3 pb-6 shadow-xl overflow-hidden"
           >
             <div className="flex flex-col space-y-2">
-              {navLinks.map((link) => {
-                const isActive = location.pathname === link.path;
-                return (
-                  <Link
-                    key={link.name}
-                    to={link.path}
-                    className={`px-3 py-2 rounded-lg text-sm font-semibold transition-colors ${
-                      isActive
-                        ? 'bg-[#F5D327]/15 text-[#0B1528] font-bold border-l-4 border-[#F5D327]'
-                        : 'text-[#334155] hover:bg-gray-100 hover:text-[#0B1528]'
-                    }`}
-                  >
-                    {link.name}
-                  </Link>
-                );
-              })}
+              {navLinks.map((link) => (
+                <a
+                  key={link.name}
+                  href={location.pathname === '/' ? link.hash : link.fallback}
+                  onClick={(e) => handleNavClick(e, link)}
+                  className="px-3 py-2 rounded-lg text-sm font-semibold text-[#334155] hover:bg-gray-100 hover:text-[#0B1528] transition-colors"
+                >
+                  {link.name}
+                </a>
+              ))}
               <div className="pt-3 border-t border-gray-100">
                 <Link
                   to="/contact"

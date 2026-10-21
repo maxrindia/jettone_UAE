@@ -2,33 +2,7 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import { motion } from 'framer-motion';
 import { ArrowRight, Clock } from 'lucide-react';
-
-const articles = [
-  {
-    category: 'MARKETS',
-    title: 'Macro Liquidity & Global Currency Flows in Emerging Financial Centers',
-    summary: 'Evaluating central bank monetary divergence and systematic trade mechanics.',
-    date: 'Date TBC',
-    readTime: 'Placeholder — content pending',
-    image: '/images/service-invest.jpg'
-  },
-  {
-    category: 'TECHNOLOGY',
-    title: 'Algorithmic Risk Parameterization: Managing Execution Latency in Systematic Models',
-    summary: 'A structured examination of rule validation and order management architectures.',
-    date: 'Date TBC',
-    readTime: 'Placeholder — content pending',
-    image: '/images/jbot-mobile-app.jpg'
-  },
-  {
-    category: 'STRATEGY',
-    title: 'Institutional Capital Structuring: Frameworks for Long-Term Portfolio Discipline',
-    summary: 'Aligning governance, asset diversity, and institutional standards for sustained performance.',
-    date: 'Date TBC',
-    readTime: 'Placeholder — content pending',
-    image: '/images/service-trading.jpg'
-  }
-];
+import { insightsArticles } from '../data/insightsData';
 
 export default function Insights() {
   return (
@@ -69,11 +43,11 @@ export default function Insights() {
         </motion.div>
       </div>
 
-      {/* 3 Placeholder Cards */}
+      {/* 3 Articles Grid */}
       <div className="relative z-10 grid grid-cols-1 lg:grid-cols-3 gap-6 sm:gap-8">
-        {articles.map((item, index) => (
+        {insightsArticles.slice(0, 3).map((item, index) => (
           <motion.article
-            key={item.title}
+            key={item.id}
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true, margin: '-30px' }}
@@ -97,7 +71,7 @@ export default function Insights() {
               <div className="p-5 sm:p-6">
                 <div className="flex items-center gap-2 mb-2.5 text-xs text-[#A8D3BA] font-mono">
                   <Clock className="w-3.5 h-3.5 text-[#00E676]" />
-                  <span className="text-[11px] text-[#F5D327]/80">{item.readTime}</span>
+                  <span className="text-[11px] text-[#A8D3BA]">{item.readTime}</span>
                 </div>
 
                 <h3 className="font-headline text-lg sm:text-xl font-semibold text-white mb-2.5 group-hover:text-[#F5D327] transition-colors leading-snug">
@@ -112,10 +86,11 @@ export default function Insights() {
 
             <div className="p-5 sm:p-6 pt-0 border-t border-[#25633F]/40 mt-auto">
               <Link
-                to="/insights"
-                className="inline-flex items-center gap-2 text-xs sm:text-sm font-semibold text-[#F5D327] hover:text-white transition-colors pt-3"
+                to={`/insights/${item.id}`}
+                className="inline-flex items-center gap-2 text-xs sm:text-sm font-semibold text-[#F5D327] hover:text-white transition-colors pt-3 group/link"
               >
-                <span>Read Article →</span>
+                <span>Read Article</span>
+                <ArrowRight className="w-3.5 h-3.5 group-hover/link:translate-x-1 transition-transform" />
               </Link>
             </div>
           </motion.article>

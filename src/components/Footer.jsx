@@ -1,7 +1,24 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
+import { Link, useLocation } from 'react-router-dom';
 
 export default function Footer() {
+  const location = useLocation();
+
+  const handleFooterLinkClick = (e, hash) => {
+    if (location.pathname === '/') {
+      e.preventDefault();
+      const main = document.getElementById('main-content');
+      if (!main) return;
+      const targetEl = document.querySelector(hash);
+      if (targetEl) {
+        const mainRect = main.getBoundingClientRect();
+        const elRect = targetEl.getBoundingClientRect();
+        const offset = elRect.top - mainRect.top + main.scrollTop;
+        main.scrollTo({ top: Math.max(0, offset - 12), behavior: 'smooth' });
+      }
+    }
+  };
+
   return (
     <footer className="w-full bg-[#06140E] border-t border-[#1F5D3B]/40 pt-10 2xl:pt-14 pb-8 2xl:pb-12">
       <div className="max-w-7xl xl:max-w-[1380px] 2xl:max-w-[1640px] [@media(min-width:2000px)]:max-w-[1880px] mx-auto px-4 sm:px-6 lg:px-10 xl:px-12 2xl:px-16 flex flex-col gap-8 2xl:gap-12">
@@ -26,7 +43,7 @@ export default function Footer() {
             </p>
 
             <p className="font-body text-xs md:text-sm text-[#A8D3BA] max-w-sm leading-relaxed">
-              Investment partnerships, market insights and trading technology rooted in Dubai for global institutions and forward-looking traders.
+              Investment partnerships, market insights and trading technology rooted in Dubai for forward-looking traders and strategic partners.
             </p>
           </div>
 
@@ -36,28 +53,50 @@ export default function Footer() {
               Quick Links
             </span>
             <div className="flex flex-col gap-2 text-xs md:text-sm text-[#BCE2CD]">
-              <Link to="/" className="hover:text-[#F5D327] transition-colors">Home</Link>
-              <Link to="/services" className="hover:text-[#F5D327] transition-colors">Trading Services</Link>
-              <Link to="/investment-partner" className="hover:text-[#F5D327] transition-colors">Investment Partner</Link>
-              <Link to="/trading-consultancy" className="hover:text-[#F5D327] transition-colors">Trading Consultancy</Link>
-              <Link to="/jbot" className="hover:text-[#F5D327] transition-colors">JBot Technology</Link>
-              <Link to="/explore-jbot" className="hover:text-[#F5D327] transition-colors">Explore JBot</Link>
-              <Link to="/insights" className="hover:text-[#F5D327] transition-colors">Insights</Link>
-              <Link to="/about" className="hover:text-[#F5D327] transition-colors">About JETTONE</Link>
-              <Link to="/contact" className="hover:text-[#F5D327] transition-colors">Contact</Link>
+              <a
+                href={location.pathname === '/' ? '#services' : '/#services'}
+                onClick={(e) => handleFooterLinkClick(e, '#services')}
+                className="hover:text-[#F5D327] transition-colors"
+              >
+                Our Services
+              </a>
+              <a
+                href={location.pathname === '/' ? '#markets' : '/#markets'}
+                onClick={(e) => handleFooterLinkClick(e, '#markets')}
+                className="hover:text-[#F5D327] transition-colors"
+              >
+                Global Markets
+              </a>
+              <a
+                href={location.pathname === '/' ? '#jbot' : '/#jbot'}
+                onClick={(e) => handleFooterLinkClick(e, '#jbot')}
+                className="hover:text-[#F5D327] transition-colors"
+              >
+                JBot
+              </a>
+              <a
+                href={location.pathname === '/' ? '#insights' : '/#insights'}
+                onClick={(e) => handleFooterLinkClick(e, '#insights')}
+                className="hover:text-[#F5D327] transition-colors"
+              >
+                Insights
+              </a>
+              <Link to="/contact" className="hover:text-[#F5D327] transition-colors">
+                Contact
+              </Link>
             </div>
           </div>
 
-          {/* Legal & Compliance Column (Zero Fabricated Claims) */}
+          {/* Legal Column */}
           <div className="md:col-span-4 flex flex-col gap-3">
             <span className="font-headline font-semibold text-white tracking-wider text-xs uppercase">
               Legal &amp; Compliance
             </span>
             <div className="flex flex-col gap-2 text-xs md:text-sm text-[#BCE2CD]">
-              <span className="text-[#88A896]">Institutional Governance</span>
-              <span className="text-[#88A896]">Confidentiality Protocols</span>
-              <span className="text-[#88A896]">Risk Governance Framework</span>
-              <span className="text-[#88A896]">Dubai Financial Ecosystem Standards</span>
+              <span className="text-[#88A896]">Privacy Policy</span>
+              <span className="text-[#88A896]">Terms &amp; Conditions</span>
+              <span className="text-[#88A896]">Risk Disclosure</span>
+              <span className="text-[#88A896]">Regulatory Framework</span>
             </div>
           </div>
 
@@ -69,10 +108,8 @@ export default function Footer() {
             © 2026 <strong className="text-white font-semibold">JETTONE™</strong>. All rights reserved. Smart Wealth. Smarter Future.
           </p>
 
-          <p className="text-center md:text-right max-w-2xl text-[11px] leading-relaxed text-[#88A896]">
-            <em>
-              Financial markets involve risk of loss. JETTONE is a financial services company operating across investment partnerships, trading consultancy, and trading technology, and is not a retail broker. Services and instrument availability are subject to individual agreements and applicable regulatory requirements.
-            </em>
+          <p className="text-center md:text-right max-w-xl text-[11px] leading-relaxed text-[#88A896]">
+            <em>Financial markets involve risk of loss. Services and instrument availability are subject to applicable terms, eligibility and regulatory requirements.</em>
           </p>
         </div>
 

@@ -39,7 +39,7 @@ const coreFeatures = [
     icon: Network,
     name: 'Broker Integration',
     description:
-      'Built for connectivity with supported broker endpoints via secure institutional APIs and standardized order gateways.'
+      'Built for connectivity with supported broker endpoints via secure broker APIs and standardized order gateways.'
   },
   {
     icon: Activity,
