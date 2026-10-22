@@ -1,6 +1,6 @@
 import React from 'react';
 import { motion } from 'framer-motion';
-import { TrendingUp, BarChart3, Zap, DollarSign } from 'lucide-react';
+import { TrendingUp, Zap, DollarSign, IndianRupee } from 'lucide-react';
 
 /**
  * Animated real trading-related elements positioned strictly in perimeter safe-zones
@@ -92,24 +92,7 @@ export default function HeroTradingBackground() {
         </div>
       </motion.div>
 
-      {/* 4. AED Currency Token (Placed in bottom-left perimeter under the globe) */}
-      <motion.div
-        animate={{
-          y: [4, -4, 4],
-        }}
-        transition={{
-          duration: 6.5,
-          repeat: Infinity,
-          ease: 'easeInOut',
-        }}
-        className="absolute bottom-6 left-6 sm:left-14 flex items-center justify-center w-7 h-7 rounded-full bg-gradient-to-br from-[#F5D327]/20 to-[#0A2619]/60 border border-[#F5D327]/30 backdrop-blur-md opacity-50"
-      >
-        <span className="text-[9px] font-mono font-black text-[#F5D327]">
-          AED
-        </span>
-      </motion.div>
-
-      {/* 5. USD Token (Placed in far bottom-right perimeter) */}
+      {/* 4. USD Token (Swapped to bottom-left where AED was) */}
       <motion.div
         animate={{
           y: [-3, 3, -3],
@@ -118,29 +101,43 @@ export default function HeroTradingBackground() {
           duration: 7,
           repeat: Infinity,
           ease: 'easeInOut',
-          delay: 1.5,
         }}
-        className="absolute bottom-6 right-8 hidden lg:flex items-center justify-center w-6 h-6 rounded-full bg-gradient-to-br from-[#00E676]/20 to-[#061811]/60 border border-[#00E676]/30 backdrop-blur-md opacity-45"
+        className="absolute bottom-6 left-6 sm:left-14 flex items-center justify-center w-7 h-7 rounded-full bg-gradient-to-br from-[#00E676]/20 to-[#061811]/60 border border-[#00E676]/35 backdrop-blur-md opacity-60 shadow-[0_0_10px_rgba(0,230,118,0.2)]"
       >
-        <DollarSign className="w-3 h-3 text-[#00E676]" />
+        <DollarSign className="w-3.5 h-3.5 text-[#00E676]" />
       </motion.div>
 
-      {/* 6. Market Depth Bar Chart Widget (Placed safely in bottom-left under globe) */}
+      {/* 5. INR Token (Indian Rupee logo added) */}
       <motion.div
         animate={{
-          y: [-3, 3, -3],
+          y: [3, -3, 3],
         }}
         transition={{
-          duration: 6,
+          duration: 6.5,
           repeat: Infinity,
           ease: 'easeInOut',
-          delay: 2,
+          delay: 0.6,
         }}
-        className="absolute bottom-6 left-1/4 hidden xl:flex items-center gap-1.5 px-2.5 py-1 rounded-lg bg-[#061811]/40 border border-[#1E4532]/60 backdrop-blur-sm opacity-40"
+        className="absolute bottom-6 left-16 sm:left-24 flex items-center justify-center w-7 h-7 rounded-full bg-gradient-to-br from-[#38BDF8]/20 to-[#061811]/60 border border-[#38BDF8]/35 backdrop-blur-md opacity-60 shadow-[0_0_10px_rgba(56,189,248,0.2)]"
       >
-        <BarChart3 className="w-3 h-3 text-[#00E676]" />
-        <span className="text-[9px] font-mono text-[#94A3B8]">
-          Multi-Asset Depth
+        <IndianRupee className="w-3.5 h-3.5 text-[#38BDF8]" />
+      </motion.div>
+
+      {/* 6. AED Currency Token (Swapped to bottom-right where USD was) */}
+      <motion.div
+        animate={{
+          y: [4, -4, 4],
+        }}
+        transition={{
+          duration: 6.5,
+          repeat: Infinity,
+          ease: 'easeInOut',
+          delay: 1.2,
+        }}
+        className="absolute bottom-6 right-8 hidden lg:flex items-center justify-center w-7 h-7 rounded-full bg-gradient-to-br from-[#F5D327]/20 to-[#0A2619]/60 border border-[#F5D327]/35 backdrop-blur-md opacity-60 shadow-[0_0_10px_rgba(245,211,39,0.2)]"
+      >
+        <span className="text-[9.5px] font-mono font-black text-[#F5D327]">
+          AED
         </span>
       </motion.div>
 

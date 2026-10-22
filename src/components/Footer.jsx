@@ -175,7 +175,7 @@ export default function Footer() {
         {/* Regulatory Disclaimer & Copyright */}
         <div className="pt-6 border-t border-[#1F5D3B]/40 flex flex-col md:flex-row items-center justify-between gap-3 text-xs text-[#88A896]">
           <p className="text-center md:text-left shrink-0 text-xs">
-            © 2026 <strong className="text-white font-semibold">JETTONE™</strong>. All rights reserved. Smart Wealth. Smarter Future.
+            © 2026 <strong className="text-white font-semibold">JETTONE™</strong>. Wealth Accelerator. All rights reserved.
           </p>
 
           <p className="text-center md:text-right text-[10px] sm:text-[10.5px] leading-normal text-[#88A896] tracking-tight whitespace-normal lg:whitespace-nowrap">

@@ -21,36 +21,69 @@ const quantTabs = [
     label: 'Strategy Builder',
     title: 'Custom Multi-Factor Strategy Engine',
     subtitle: 'Deploy no-code rulebooks with 500+ quantitative parameters',
-    winRate: '78.4%',
-    profitFactor: '2.92',
-    drawdown: '3.2%',
-    sizing: 'Automated Dynamic',
     pnl: '+42.6% PnL',
-    chartPath: 'M 0 100 Q 50 80, 100 85 T 200 60 T 300 40 T 400 15'
+    metrics: [
+      { label: 'Win Rate', value: 'Varies by strategy' },
+      { label: 'Profit Factor', value: 'Strategy dependent' },
+      { label: 'Max Drawdown', value: 'Configurable' },
+      { label: 'Sizing Mode', value: 'Automated Dynamic', highlight: true }
+    ],
+    buySignals: '142',
+    targetExits: '136',
+    latency: '<0.8ms',
+    chartPath: 'M 0 100 Q 50 80, 100 85 T 200 60 T 300 40 T 400 15',
+    nodes: [
+      { cx: 90, cy: 70, fill: '#00E676' },
+      { cx: 180, cy: 55, fill: '#00E676' },
+      { cx: 280, cy: 35, fill: '#F5D327' },
+      { cx: 395, cy: 15, fill: '#00E676', pulse: true }
+    ]
   },
   {
     id: 'backtest',
     label: 'Backtesting Studio',
     title: 'Multi-Year Historical Tick Simulator',
     subtitle: 'Exhaustive walk-forward evaluation across Equity, Futures & Options',
-    winRate: '81.2%',
-    profitFactor: '3.18',
-    drawdown: '2.8%',
-    sizing: 'Fractional Fixed',
     pnl: '+156.4% Total',
-    chartPath: 'M 0 105 Q 40 95, 90 70 T 180 55 T 280 30 T 400 10'
+    metrics: [
+      { label: 'Data Range', value: '3+ Years' },
+      { label: 'Segments', value: 'Equity, F&O' },
+      { label: 'Test Mode', value: 'Walk-Forward' },
+      { label: 'Sizing Mode', value: 'Fractional Fixed', highlight: true }
+    ],
+    buySignals: '284',
+    targetExits: '276',
+    latency: '<0.8ms',
+    chartPath: 'M 0 105 Q 40 95, 90 70 T 180 55 T 280 30 T 400 10',
+    nodes: [
+      { cx: 90, cy: 70, fill: '#00E676' },
+      { cx: 180, cy: 55, fill: '#00E676' },
+      { cx: 280, cy: 30, fill: '#F5D327' },
+      { cx: 395, cy: 10, fill: '#00E676', pulse: true }
+    ]
   },
   {
     id: 'paper',
     label: 'Paper Trading Mode',
     title: 'Real-Time Sandbox Forward Testing',
     subtitle: 'Simulate live order book liquidity without capital exposure',
-    winRate: '75.0%',
-    profitFactor: '2.65',
-    drawdown: '1.9%',
-    sizing: 'Dynamic Cap',
     pnl: '+12.8% 30D',
-    chartPath: 'M 0 95 Q 60 90, 120 75 T 220 50 T 310 35 T 400 20'
+    metrics: [
+      { label: 'Mode', value: 'Live Market' },
+      { label: 'Capital', value: 'Virtual Only' },
+      { label: 'Real Risk', value: 'Zero' },
+      { label: 'Sizing Mode', value: 'Dynamic Cap', highlight: true }
+    ],
+    buySignals: '96',
+    targetExits: '92',
+    latency: '<0.8ms',
+    chartPath: 'M 0 95 Q 60 90, 120 75 T 220 50 T 310 35 T 400 20',
+    nodes: [
+      { cx: 120, cy: 75, fill: '#00E676' },
+      { cx: 220, cy: 50, fill: '#00E676' },
+      { cx: 310, cy: 35, fill: '#F5D327' },
+      { cx: 395, cy: 20, fill: '#00E676', pulse: true }
+    ]
   }
 ];
 
@@ -101,7 +134,7 @@ export default function JBotSection() {
                   No-Code Strategy Builder
                 </h4>
                 <p className="font-body text-xs sm:text-sm text-[#BCE2CD] mt-0.5">
-                  Build multi-condition triggers with indicator suites, volume profiles, and candlestick pattern recognition.
+                  Build multi-condition triggers with indicator suites, volume profiles, and candlestick pattern recognition. 500+ parameters. No coding required.
                 </p>
               </div>
             </div>
@@ -115,7 +148,7 @@ export default function JBotSection() {
                   Exhaustive Tick Backtesting
                 </h4>
                 <p className="font-body text-xs sm:text-sm text-[#BCE2CD] mt-0.5">
-                  Validate historical performance against multi-year high-frequency tick data with slippage simulation.
+                  Validate historical performance against multi-year high-frequency tick data with slippage simulation. Covers equity, futures &amp; options.
                 </p>
               </div>
             </div>
@@ -129,7 +162,7 @@ export default function JBotSection() {
                   Capital Autonomy &amp; Safe API Links
                 </h4>
                 <p className="font-body text-xs sm:text-sm text-[#BCE2CD] mt-0.5">
-                  Direct connection with verified brokers — your funds remain strictly inside your secure broker trading accounts.
+                  Direct connection with verified brokers — your funds remain strictly inside your secure broker trading accounts. Zero fund handling by JETTONE.
                 </p>
               </div>
             </div>
@@ -161,180 +194,194 @@ export default function JBotSection() {
         </motion.div>
 
         {/* Right Column: Emerald Green Glassy Finish Dashboard Panel */}
-        <motion.div
-          initial={{ opacity: 0, x: 24 }}
-          whileInView={{ opacity: 1, x: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.6 }}
-          className="lg:col-span-6 bg-gradient-to-br from-[#0F3524]/75 via-[#0A2619]/80 to-[#123E2A]/70 backdrop-blur-2xl rounded-3xl border border-[#287348]/55 shadow-[inset_0_1px_1px_rgba(255,255,255,0.18),0_16px_44px_rgba(10,38,25,0.22)] flex flex-col justify-between"
-        >
-          {/* Top Control Bar with Glassy View Switcher */}
-          <div className="bg-[#081F14]/90 border-b border-[#25633F]/50 px-4 sm:px-5 py-3 sm:py-3.5 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-3 rounded-t-3xl">
-            <div className="flex items-center gap-2">
-              <span className="w-2 h-2 rounded-full bg-[#00E676] animate-pulse shadow-[0_0_8px_#00E676]" />
-              <span className="text-xs font-mono font-semibold text-[#F5D327] tracking-wider uppercase ml-1">
-                JBot Platform
-              </span>
-            </div>
-
-            {/* Seamless View Mode Switcher */}
-            <div className="flex items-center bg-[#06180F] border border-[#25633F]/50 p-1 rounded-xl text-xs font-semibold shrink-0">
-              <button
-                onClick={() => setViewMode('mobile')}
-                className={`flex items-center gap-1.5 px-3 py-1.5 rounded-lg transition-all shrink-0 cursor-pointer ${
-                  viewMode === 'mobile'
-                    ? 'bg-[#00E676] text-[#0A2619] font-bold shadow-[0_0_10px_rgba(0,230,118,0.25)]'
-                    : 'text-[#A8D3BA] hover:text-[#FFFFFF]'
-                }`}
-              >
-                <Smartphone className="w-3.5 h-3.5" />
-                <span>Mobile App</span>
-              </button>
-              <button
-                onClick={() => setViewMode('terminal')}
-                className={`flex items-center gap-1.5 px-3 py-1.5 rounded-lg transition-all shrink-0 cursor-pointer ${
-                  viewMode === 'terminal'
-                    ? 'bg-[#00E676] text-[#0A2619] font-bold shadow-[0_0_10px_rgba(0,230,118,0.25)]'
-                    : 'text-[#A8D3BA] hover:text-[#FFFFFF]'
-                }`}
-              >
-                <Activity className="w-3.5 h-3.5" />
-                <span>Quant Studio</span>
-              </button>
-            </div>
-          </div>
-
-          {/* View Mode 1: Mobile App Preview */}
-          {viewMode === 'mobile' && (
-            <div className="p-4 sm:p-5 flex flex-col justify-between">
-              <div className="relative w-full h-56 sm:h-64 2xl:h-72 rounded-2xl overflow-hidden mb-4 bg-[#0A2619] border border-[#25633F]/40 shadow-inner">
-                <img
-                  src="/images/jbot-mobile-app.jpg"
-                  alt="JBot Mobile Application"
-                  className="w-full h-full object-cover object-top opacity-95"
-                />
-                <div className="absolute inset-0 bg-gradient-to-t from-[#0A2619] via-transparent to-transparent opacity-80" />
+        <div className="lg:col-span-6 flex flex-col">
+          <motion.div
+            initial={{ opacity: 0, x: 24 }}
+            whileInView={{ opacity: 1, x: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.6 }}
+            className="w-full bg-gradient-to-br from-[#0F3524]/75 via-[#0A2619]/80 to-[#123E2A]/70 backdrop-blur-2xl rounded-3xl border border-[#287348]/55 shadow-[inset_0_1px_1px_rgba(255,255,255,0.18),0_16px_44px_rgba(10,38,25,0.22)] flex flex-col justify-between"
+          >
+            {/* Top Control Bar with Glassy View Switcher */}
+            <div className="bg-[#081F14]/90 border-b border-[#25633F]/50 px-4 sm:px-5 py-3 sm:py-3.5 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-3 rounded-t-3xl">
+              <div className="flex items-center gap-2">
+                <span className="w-2 h-2 rounded-full bg-[#00E676] animate-pulse shadow-[0_0_8px_#00E676]" />
+                <span className="text-xs font-mono font-semibold text-[#F5D327] tracking-wider uppercase ml-1">
+                  JBot Platform
+                </span>
               </div>
 
-              <div className="grid grid-cols-2 sm:grid-cols-4 gap-2 sm:gap-2.5">
-                <div className="bg-[#0D2D1E]/80 backdrop-blur-md p-2.5 sm:p-3 rounded-xl border border-[#287348]/50 shadow-[inset_0_1px_1px_rgba(255,255,255,0.1)]">
-                  <span className="text-[10px] text-[#A8D3BA] block uppercase tracking-wider">Signals Monitored</span>
-                  <span className="text-lg font-mono font-semibold text-[#FFFFFF]">24/7</span>
-                  <span className="text-[9px] text-[#00E676] block mt-0.5">Real-Time</span>
-                </div>
-                <div className="bg-[#0D2D1E]/80 backdrop-blur-md p-2.5 sm:p-3 rounded-xl border border-[#287348]/50 shadow-[inset_0_1px_1px_rgba(255,255,255,0.1)]">
-                  <span className="text-[10px] text-[#A8D3BA] block uppercase tracking-wider">Execution Latency</span>
-                  <span className="text-lg font-mono font-semibold text-[#FFFFFF]">&lt;0.8ms</span>
-                  <span className="text-[9px] text-[#00E676] block mt-0.5">Direct Route</span>
-                </div>
-                <div className="bg-[#0D2D1E]/80 backdrop-blur-md p-2.5 sm:p-3 rounded-xl border border-[#287348]/50 shadow-[inset_0_1px_1px_rgba(255,255,255,0.1)]">
-                  <span className="text-[10px] text-[#A8D3BA] block uppercase tracking-wider">Drawdown Guard</span>
-                  <span className="text-lg font-mono font-semibold text-[#FFFFFF]">Active</span>
-                  <span className="text-[9px] text-[#00E676] block mt-0.5">Controlled</span>
-                </div>
-                <div className="bg-[#0D2D1E]/80 backdrop-blur-md p-2.5 sm:p-3 rounded-xl border border-[#287348]/50 shadow-[inset_0_1px_1px_rgba(255,255,255,0.1)]">
-                  <span className="text-[10px] text-[#A8D3BA] block uppercase tracking-wider">Sizing Mode</span>
-                  <span className="text-lg font-mono font-semibold text-[#F5D327]">Dynamic</span>
-                  <span className="text-[9px] text-[#A8D3BA] block mt-0.5">Rule-Based</span>
-                </div>
+              {/* Seamless View Mode Switcher */}
+              <div className="flex items-center bg-[#06180F] border border-[#25633F]/50 p-1 rounded-xl text-xs font-semibold shrink-0">
+                <button
+                  onClick={() => setViewMode('mobile')}
+                  className={`flex items-center gap-1.5 px-3 py-1.5 rounded-lg transition-all shrink-0 cursor-pointer ${
+                    viewMode === 'mobile'
+                      ? 'bg-[#00E676] text-[#0A2619] font-bold shadow-[0_0_10px_rgba(0,230,118,0.25)]'
+                      : 'text-[#A8D3BA] hover:text-[#FFFFFF]'
+                  }`}
+                >
+                  <Smartphone className="w-3.5 h-3.5" />
+                  <span>Mobile App</span>
+                </button>
+                <button
+                  onClick={() => setViewMode('terminal')}
+                  className={`flex items-center gap-1.5 px-3 py-1.5 rounded-lg transition-all shrink-0 cursor-pointer ${
+                    viewMode === 'terminal'
+                      ? 'bg-[#00E676] text-[#0A2619] font-bold shadow-[0_0_10px_rgba(0,230,118,0.25)]'
+                      : 'text-[#A8D3BA] hover:text-[#FFFFFF]'
+                  }`}
+                >
+                  <Activity className="w-3.5 h-3.5" />
+                  <span>Quant Studio</span>
+                </button>
               </div>
             </div>
-          )}
 
-          {/* View Mode 2: Interactive Quant Studio & Backtesting Terminal */}
-          {viewMode === 'terminal' && (
-            <div className="p-4 sm:p-5 flex flex-col justify-between">
-              {/* Strategy Mode Chips */}
-              <div className="flex flex-wrap items-center gap-2 mb-4 bg-[#06180F] border border-[#25633F]/50 p-1.5 rounded-xl text-xs font-medium">
-                {quantTabs.map((tab) => (
-                  <button
-                    key={tab.id}
-                    onClick={() => setActiveQuantTab(tab.id)}
-                    className={`px-3 py-1.5 rounded-lg transition-all cursor-pointer ${
-                      activeQuantTab === tab.id
-                        ? 'bg-[#14422B] text-[#FFFFFF] font-semibold shadow-xs border border-[#2E7A4E]/60'
-                        : 'text-[#A8D3BA] hover:text-[#FFFFFF]'
-                    }`}
-                  >
-                    {tab.label}
-                  </button>
-                ))}
-              </div>
+            {/* View Mode 1: Mobile App Preview */}
+            {viewMode === 'mobile' && (
+              <div className="p-4 sm:p-5 flex flex-col justify-between">
+                <div className="relative w-full h-56 sm:h-64 2xl:h-72 rounded-2xl overflow-hidden mb-4 bg-[#0A2619] border border-[#25633F]/40 shadow-inner">
+                  <img
+                    src="/images/jbot-mobile-app.jpg"
+                    alt="JBot Mobile Application"
+                    className="w-full h-full object-cover object-top opacity-95"
+                  />
+                  <div className="absolute inset-0 bg-gradient-to-t from-[#0A2619] via-transparent to-transparent opacity-80" />
+                </div>
 
-              {/* Dynamic Metrics */}
-              <div className="grid grid-cols-2 sm:grid-cols-4 gap-2 sm:gap-2.5 mb-4">
-                <div className="bg-[#0D2D1E]/80 backdrop-blur-md p-2.5 sm:p-3 rounded-xl border border-[#287348]/50 shadow-[inset_0_1px_1px_rgba(255,255,255,0.1)]">
-                  <span className="text-[10px] text-[#A8D3BA] block uppercase tracking-wider">Win Rate</span>
-                  <span className="text-lg font-mono font-semibold text-[#FFFFFF]">{currentQuant.winRate}</span>
-                </div>
-                <div className="bg-[#0D2D1E]/80 backdrop-blur-md p-2.5 sm:p-3 rounded-xl border border-[#287348]/50 shadow-[inset_0_1px_1px_rgba(255,255,255,0.1)]">
-                  <span className="text-[10px] text-[#A8D3BA] block uppercase tracking-wider">Profit Factor</span>
-                  <span className="text-lg font-mono font-semibold text-[#FFFFFF]">{currentQuant.profitFactor}</span>
-                </div>
-                <div className="bg-[#0D2D1E]/80 backdrop-blur-md p-2.5 sm:p-3 rounded-xl border border-[#287348]/50 shadow-[inset_0_1px_1px_rgba(255,255,255,0.1)]">
-                  <span className="text-[10px] text-[#A8D3BA] block uppercase tracking-wider">Max Drawdown</span>
-                  <span className="text-lg font-mono font-semibold text-[#FFFFFF]">{currentQuant.drawdown}</span>
-                </div>
-                <div className="bg-[#0D2D1E]/80 backdrop-blur-md p-2.5 sm:p-3 rounded-xl border border-[#287348]/50 shadow-[inset_0_1px_1px_rgba(255,255,255,0.1)]">
-                  <span className="text-[10px] text-[#A8D3BA] block uppercase tracking-wider">Sizing Mode</span>
-                  <span className="text-lg font-mono font-semibold text-[#F5D327]">{currentQuant.sizing}</span>
-                </div>
-              </div>
-
-              {/* Equity Curve Visualizer */}
-              <div className="bg-[#0D2D1E]/90 backdrop-blur-md p-3.5 sm:p-4 rounded-xl border border-[#287348]/50 shadow-[inset_0_1px_1px_rgba(255,255,255,0.1)]">
-                <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-1.5 mb-2">
-                  <div>
-                    <span className="text-xs font-semibold text-[#FFFFFF] block">{currentQuant.title}</span>
-                    <span className="text-[10px] text-[#A8D3BA]">{currentQuant.subtitle}</span>
+                <div className="grid grid-cols-2 sm:grid-cols-4 gap-2 sm:gap-2.5">
+                  <div className="bg-[#0D2D1E]/80 backdrop-blur-md p-2.5 sm:p-3 rounded-xl border border-[#287348]/50 shadow-[inset_0_1px_1px_rgba(255,255,255,0.1)]">
+                    <span className="text-[10px] text-[#A8D3BA] block uppercase tracking-wider">Signals Monitored</span>
+                    <span className="text-lg font-mono font-semibold text-[#FFFFFF]">24/7</span>
+                    <span className="text-[9px] text-[#00E676] block mt-0.5">Real-Time</span>
                   </div>
-                  <span className="text-xs font-mono font-bold text-[#00E676] bg-[#00E676]/15 border border-[#00E676]/40 shadow-[0_0_10px_rgba(0,230,118,0.2)] px-2 py-0.5 rounded self-start sm:self-auto shrink-0">
-                    {currentQuant.pnl}
-                  </span>
-                </div>
-
-                <div className="relative w-full h-32 pt-1">
-                  <svg className="w-full h-full" preserveAspectRatio="none" viewBox="0 0 400 120">
-                    <defs>
-                      <linearGradient id="quantGradEmerald" x1="0%" x2="0%" y1="0%" y2="100%">
-                        <stop offset="0%" stopColor="#00E676" stopOpacity="0.35" />
-                        <stop offset="100%" stopColor="#00E676" stopOpacity="0.0" />
-                      </linearGradient>
-                    </defs>
-                    <line stroke="#25633F" strokeOpacity="0.4" strokeDasharray="3 3" strokeWidth="0.8" x1="0" x2="400" y1="30" y2="30" />
-                    <line stroke="#25633F" strokeOpacity="0.4" strokeDasharray="3 3" strokeWidth="0.8" x1="0" x2="400" y1="65" y2="65" />
-                    <line stroke="#25633F" strokeOpacity="0.4" strokeDasharray="3 3" strokeWidth="0.8" x1="0" x2="400" y1="100" y2="100" />
-                    <path d={`${currentQuant.chartPath} L 400 120 L 0 120 Z`} fill="url(#quantGradEmerald)" />
-                    <path d={currentQuant.chartPath} fill="none" stroke="#00E676" strokeWidth="2.2" />
-                    <circle cx="90" cy="70" fill="#00E676" r="3.5" />
-                    <circle cx="180" cy="55" fill="#00E676" r="3.5" />
-                    <circle cx="280" cy="35" fill="#F5D327" r="3.5" />
-                    <circle className="pulse-node" cx="395" cy="15" fill="#00E676" r="4.5" />
-                  </svg>
-                </div>
-
-                <div className="flex flex-wrap items-center justify-between gap-2 text-[10px] font-mono text-[#A8D3BA] border-t border-[#25633F]/50 pt-2 mt-2">
-                  <span className="flex items-center gap-1.5">
-                    <span className="w-1.5 h-1.5 rounded-full bg-[#00E676] shadow-[0_0_6px_#00E676]" /> Buy Signals: 142
-                  </span>
-                  <span className="flex items-center gap-1.5">
-                    <span className="w-1.5 h-1.5 rounded-full bg-[#F5D327] shadow-[0_0_6px_#F5D327]" /> Target Exits: 136
-                  </span>
-                  <span className="text-[#FFFFFF] font-semibold">Latency: &lt;0.8ms</span>
+                  <div className="bg-[#0D2D1E]/80 backdrop-blur-md p-2.5 sm:p-3 rounded-xl border border-[#287348]/50 shadow-[inset_0_1px_1px_rgba(255,255,255,0.1)]">
+                    <span className="text-[10px] text-[#A8D3BA] block uppercase tracking-wider">Broker Gateway</span>
+                    <span className="text-sm sm:text-base font-mono font-semibold text-[#FFFFFF] mt-1 block truncate">Direct API</span>
+                    <span className="text-[9px] text-[#00E676] block mt-0.5">Encrypted</span>
+                  </div>
+                  <div className="bg-[#0D2D1E]/80 backdrop-blur-md p-2.5 sm:p-3 rounded-xl border border-[#287348]/50 shadow-[inset_0_1px_1px_rgba(255,255,255,0.1)]">
+                    <span className="text-[10px] text-[#A8D3BA] block uppercase tracking-wider">Drawdown Guard</span>
+                    <span className="text-lg font-mono font-semibold text-[#FFFFFF]">Active</span>
+                    <span className="text-[9px] text-[#00E676] block mt-0.5">Controlled</span>
+                  </div>
+                  <div className="bg-[#0D2D1E]/80 backdrop-blur-md p-2.5 sm:p-3 rounded-xl border border-[#287348]/50 shadow-[inset_0_1px_1px_rgba(255,255,255,0.1)]">
+                    <span className="text-[10px] text-[#A8D3BA] block uppercase tracking-wider">Sizing Mode</span>
+                    <span className="text-lg font-mono font-semibold text-[#F5D327]">Dynamic</span>
+                    <span className="text-[9px] text-[#A8D3BA] block mt-0.5">Rule-Based</span>
+                  </div>
                 </div>
               </div>
-            </div>
-          )}
+            )}
 
-          {/* Universal Footer Strip */}
-          <div className="bg-[#081F14]/90 border-t border-[#25633F]/50 px-4 sm:px-5 py-2.5 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-1.5 text-[11px] text-[#A8D3BA] rounded-b-3xl">
-            <span className="flex items-center gap-1.5">
-              <CheckCircle2 className="w-3.5 h-3.5 text-[#00E676]" />
-              <span className="text-[#E4F5EB]">Zero Fund Lock-in • Secure Direct Broker Connectivity</span>
-            </span>
-            <span className="font-mono text-[#F5D327] font-semibold">Auto Risk Engine Active</span>
-          </div>
-        </motion.div>
+            {/* View Mode 2: Interactive Quant Studio & Backtesting Terminal */}
+            {viewMode === 'terminal' && (
+              <div className="p-4 sm:p-5 flex flex-col justify-between">
+                {/* Strategy Mode Chips */}
+                <div className="flex flex-wrap items-center gap-2 mb-4 bg-[#06180F] border border-[#25633F]/50 p-1.5 rounded-xl text-xs font-medium">
+                  {quantTabs.map((tab) => (
+                    <button
+                      key={tab.id}
+                      onClick={() => setActiveQuantTab(tab.id)}
+                      className={`px-3 py-1.5 rounded-lg transition-all cursor-pointer ${
+                        activeQuantTab === tab.id
+                          ? 'bg-[#14422B] text-[#FFFFFF] font-semibold shadow-xs border border-[#2E7A4E]/60'
+                          : 'text-[#A8D3BA] hover:text-[#FFFFFF]'
+                      }`}
+                    >
+                      {tab.label}
+                    </button>
+                  ))}
+                </div>
+
+                {/* Dynamic Metrics (All words fully visible, no truncation) */}
+                <div className="grid grid-cols-2 sm:grid-cols-4 gap-2 sm:gap-2.5 mb-3.5">
+                  {currentQuant.metrics.map((metric, idx) => (
+                    <div
+                      key={idx}
+                      className="bg-[#0D2D1E]/80 backdrop-blur-md p-2.5 sm:p-3 rounded-xl border border-[#287348]/50 shadow-[inset_0_1px_1px_rgba(255,255,255,0.1)] flex flex-col justify-between min-h-[64px]"
+                    >
+                      <span className="text-[10px] text-[#A8D3BA] block uppercase tracking-wider font-mono font-semibold">
+                        {metric.label}
+                      </span>
+                      <span
+                        className={`text-xs sm:text-[13px] font-sans font-bold block mt-1 leading-snug whitespace-normal break-words ${
+                          metric.highlight ? 'text-[#F5D327]' : 'text-[#FFFFFF]'
+                        }`}
+                      >
+                        {metric.value}
+                      </span>
+                    </div>
+                  ))}
+                </div>
+
+                {/* Equity Curve Visualizer - Exactly matching user's screenshot */}
+                <div className="bg-[#0D2D1E]/90 backdrop-blur-md p-3.5 sm:p-4 rounded-xl border border-[#287348]/50 shadow-[inset_0_1px_1px_rgba(255,255,255,0.1)]">
+                  <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-1.5 mb-2">
+                    <div>
+                      <span className="text-xs font-semibold text-[#FFFFFF] block">{currentQuant.title}</span>
+                      <span className="text-[10px] text-[#A8D3BA]">{currentQuant.subtitle}</span>
+                    </div>
+                    <span className="text-xs font-mono font-bold text-[#00E676] bg-[#00E676]/15 border border-[#00E676]/40 shadow-[0_0_10px_rgba(0,230,118,0.2)] px-2 py-0.5 rounded self-start sm:self-auto shrink-0">
+                      {currentQuant.pnl}
+                    </span>
+                  </div>
+
+                  <div className="relative w-full h-32 pt-1">
+                    <svg className="w-full h-full" preserveAspectRatio="none" viewBox="0 0 400 120">
+                      <defs>
+                        <linearGradient id="quantGradEmerald" x1="0%" x2="0%" y1="0%" y2="100%">
+                          <stop offset="0%" stopColor="#00E676" stopOpacity="0.35" />
+                          <stop offset="100%" stopColor="#00E676" stopOpacity="0.0" />
+                        </linearGradient>
+                      </defs>
+                      <line stroke="#25633F" strokeOpacity="0.4" strokeDasharray="3 3" strokeWidth="0.8" x1="0" x2="400" y1="30" y2="30" />
+                      <line stroke="#25633F" strokeOpacity="0.4" strokeDasharray="3 3" strokeWidth="0.8" x1="0" x2="400" y1="65" y2="65" />
+                      <line stroke="#25633F" strokeOpacity="0.4" strokeDasharray="3 3" strokeWidth="0.8" x1="0" x2="400" y1="100" y2="100" />
+                      <path d={`${currentQuant.chartPath} L 400 120 L 0 120 Z`} fill="url(#quantGradEmerald)" />
+                      <path d={currentQuant.chartPath} fill="none" stroke="#00E676" strokeWidth="2.2" />
+                      {currentQuant.nodes.map((node, nIdx) => (
+                        <circle
+                          key={nIdx}
+                          cx={node.cx}
+                          cy={node.cy}
+                          r={node.pulse ? 4.5 : 3.5}
+                          fill={node.fill}
+                          className={node.pulse ? 'pulse-node animate-pulse' : ''}
+                        />
+                      ))}
+                    </svg>
+                  </div>
+
+                  <div className="flex flex-wrap items-center justify-between gap-2 text-[10px] font-mono text-[#A8D3BA] border-t border-[#25633F]/50 pt-2 mt-2">
+                    <span className="flex items-center gap-1.5">
+                      <span className="w-1.5 h-1.5 rounded-full bg-[#00E676] shadow-[0_0_6px_#00E676]" /> Buy Signals: {currentQuant.buySignals}
+                    </span>
+                    <span className="flex items-center gap-1.5">
+                      <span className="w-1.5 h-1.5 rounded-full bg-[#F5D327] shadow-[0_0_6px_#F5D327]" /> Target Exits: {currentQuant.targetExits}
+                    </span>
+                    <span className="text-[#FFFFFF] font-semibold">Latency: {currentQuant.latency}</span>
+                  </div>
+                </div>
+              </div>
+            )}
+
+            {/* Universal Footer Strip */}
+            <div className="bg-[#081F14]/90 border-t border-[#25633F]/50 px-4 sm:px-5 py-2.5 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-1.5 text-[11px] text-[#A8D3BA] rounded-b-3xl">
+              <span className="flex items-center gap-1.5">
+                <CheckCircle2 className="w-3.5 h-3.5 text-[#00E676]" />
+                <span className="text-[#E4F5EB]">Zero Fund Lock-in • Secure Direct Broker Connectivity</span>
+              </span>
+              <span className="font-mono text-[#F5D327] font-semibold">Auto Risk Engine Active</span>
+            </div>
+          </motion.div>
+
+          {/* Compliance Disclaimer below dashboard */}
+          <p className="text-[11px] text-[#88A896] leading-relaxed mt-3 px-1 text-center sm:text-left">
+            All dashboard data shown is illustrative only and does not represent live trading results, guaranteed returns, or verified performance. Past strategy backtests do not guarantee future results.
+          </p>
+        </div>
 
       </div>
 

@@ -157,7 +157,6 @@ export default function Contact() {
                     value={formData.name}
                     onChange={(e) => handleChange('name', e.target.value)}
                     onBlur={() => handleBlur('name')}
-                    placeholder="Alexander Vance"
                     className={`w-full px-3.5 py-2.5 bg-[#06180F]/90 border rounded-xl focus:outline-none text-xs sm:text-sm text-white placeholder-[#5A7E6B] transition-all ${
                       touched.name && errors.name
                         ? 'border-[#EF4444] focus:border-[#EF4444] focus:ring-1 focus:ring-[#EF4444]/40'
@@ -187,7 +186,6 @@ export default function Contact() {
                     value={formData.email}
                     onChange={(e) => handleChange('email', e.target.value)}
                     onBlur={() => handleBlur('email')}
-                    placeholder="a.vance@fund.ae"
                     className={`w-full px-3.5 py-2.5 bg-[#06180F]/90 border rounded-xl focus:outline-none text-xs sm:text-sm text-white placeholder-[#5A7E6B] transition-all ${
                       touched.email && errors.email
                         ? 'border-[#EF4444] focus:border-[#EF4444] focus:ring-1 focus:ring-[#EF4444]/40'
@@ -217,7 +215,6 @@ export default function Contact() {
                     value={formData.phone}
                     onChange={(e) => handleChange('phone', e.target.value)}
                     onBlur={() => handleBlur('phone')}
-                    placeholder="+971 50 123 4567"
                     className={`w-full px-3.5 py-2.5 bg-[#06180F]/90 border rounded-xl focus:outline-none text-xs sm:text-sm text-white placeholder-[#5A7E6B] transition-all font-mono ${
                       touched.phone && errors.phone
                         ? 'border-[#EF4444] focus:border-[#EF4444] focus:ring-1 focus:ring-[#EF4444]/40'
@@ -246,7 +243,6 @@ export default function Contact() {
                   value={formData.message}
                   onChange={(e) => handleChange('message', e.target.value)}
                   onBlur={() => handleBlur('message')}
-                  placeholder="Outline your partnership scope, capital mandate, or algorithmic requirements..."
                   className={`w-full px-3.5 py-2.5 bg-[#06180F]/90 border rounded-xl focus:outline-none text-xs sm:text-sm text-white placeholder-[#5A7E6B] transition-all resize-none ${
                     touched.message && errors.message
                       ? 'border-[#EF4444] focus:border-[#EF4444] focus:ring-1 focus:ring-[#EF4444]/40'

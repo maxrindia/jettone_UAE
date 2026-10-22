@@ -1,43 +1,10 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import { motion } from 'framer-motion';
-import { Clock, Calendar, ArrowRight, Sparkles } from 'lucide-react';
+import { Clock, ArrowRight, Sparkles } from 'lucide-react';
 import SEO from '../components/SEO';
 import { insightsArticles } from '../data/insightsData';
 import ContactCtaStrip from '../components/ContactCtaStrip';
-
-const additionalArticles = [
-  {
-    id: 'precious-metals-flow',
-    category: 'COMMODITIES',
-    badgeClass: 'bg-[#F5D327]/15 text-[#F5D327] border-[#F5D327]/30',
-    title: 'Precious Metals Flow Analysis: Dubai’s Emerging Bullion Benchmark Role',
-    date: 'October 2026',
-    readTime: '4 min read',
-    summary:
-      'Exploring supply-demand shifts in physical gold and silver, macroeconomic hedging demand, and regional vault allocation patterns.'
-  },
-  {
-    id: 'global-equity-valuation',
-    category: 'MARKETS',
-    badgeClass: 'bg-[#F5D327]/15 text-[#F5D327] border-[#F5D327]/30',
-    title: 'Global Equity Valuation Metrics in an Era of Quantitative Realignment',
-    date: 'October 2026',
-    readTime: '4 min read',
-    summary:
-      'Evaluating cross-market earnings yields, sector rotations, and the evolving behavior of major equity index benchmarks.'
-  },
-  {
-    id: 'walk-forward-optimization',
-    category: 'TECHNOLOGY',
-    badgeClass: 'bg-[#38BDF8]/15 text-[#38BDF8] border-[#38BDF8]/30',
-    title: 'Walk-Forward Optimization: Overcoming Overfitting in Quantitative Research',
-    date: 'October 2026',
-    readTime: '5 min read',
-    summary:
-      'Methodologies for backtesting strategy parameters without succumbing to curve-fitting pitfalls or sample-selection biases.'
-  }
-];
 
 export default function InsightsPage() {
   return (
@@ -69,12 +36,9 @@ export default function InsightsPage() {
           <div className="flex items-center gap-3">
             <Sparkles className="w-5 h-5 text-[#F5D327] shrink-0" />
             <p className="font-body text-xs sm:text-sm text-white font-medium">
-              Market intelligence &amp; research articles published by the JETTONE research desk.
+              Market intelligence &amp; research articles published by JETTONE.
             </p>
           </div>
-          <span className="text-[11px] font-mono font-semibold text-[#00E676] px-2.5 py-1 rounded bg-[#00E676]/15 border border-[#00E676]/30 shrink-0">
-            Research Desk
-          </span>
         </div>
       </section>
 
@@ -142,7 +106,7 @@ export default function InsightsPage() {
       {/* CTA Strip */}
       <ContactCtaStrip
         title="Stay Informed With JETTONE"
-        subtext="Connect with our research team to discuss specific market analysis and insights."
+        subtext="Connect with our team to discuss specific market analysis and insights."
         ctaText="Connect With Team →"
         ctaLink="/contact"
       />

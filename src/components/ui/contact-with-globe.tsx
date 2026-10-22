@@ -344,7 +344,6 @@ export default function ContactWithGlobe({
                     value={formData.name}
                     onChange={(e) => handleChange("name", e.target.value)}
                     onBlur={() => handleBlur("name")}
-                    placeholder="Alexander Vance"
                     className={cn(
                       "w-full bg-[#06180F]/90 border rounded-xl px-4 py-2.5 text-sm text-white placeholder-[#5A7E6B] outline-none transition-all duration-200",
                       touched.name && errors.name
@@ -372,7 +371,6 @@ export default function ContactWithGlobe({
                     value={formData.phone}
                     onChange={(e) => handleChange("phone", e.target.value)}
                     onBlur={() => handleBlur("phone")}
-                    placeholder="+971 50 123 4567"
                     className={cn(
                       "w-full bg-[#06180F]/90 border rounded-xl px-4 py-2.5 text-sm text-white placeholder-[#5A7E6B] font-mono outline-none transition-all duration-200",
                       touched.phone && errors.phone
@@ -400,7 +398,6 @@ export default function ContactWithGlobe({
                     value={formData.email}
                     onChange={(e) => handleChange("email", e.target.value)}
                     onBlur={() => handleBlur("email")}
-                    placeholder="alexander@domain.com"
                     className={cn(
                       "w-full bg-[#06180F]/90 border rounded-xl px-4 py-2.5 text-sm text-white placeholder-[#5A7E6B] outline-none transition-all duration-200",
                       touched.email && errors.email
@@ -425,7 +422,6 @@ export default function ContactWithGlobe({
                     type="text"
                     value={formData.company}
                     onChange={(e) => handleChange("company", e.target.value)}
-                    placeholder="Strategic Partner"
                     className="w-full bg-[#06180F]/90 border border-[#25633F]/60 rounded-xl px-4 py-2.5 text-sm text-white placeholder-[#5A7E6B] outline-none focus:border-[#00E676] focus:ring-1 focus:ring-[#00E676]/30 transition-all duration-200"
                   />
                 </div>
@@ -457,7 +453,6 @@ export default function ContactWithGlobe({
                   rows={4}
                   value={formData.message}
                   onChange={(e) => handleChange("message", e.target.value)}
-                  placeholder="Outline your requirements, objectives, or questions..."
                   className="w-full bg-[#06180F]/90 border border-[#25633F]/60 rounded-xl px-4 py-2.5 text-sm text-white placeholder-[#5A7E6B] outline-none resize-none focus:border-[#00E676] focus:ring-1 focus:ring-[#00E676]/30 transition-all duration-200"
                 />
               </div>

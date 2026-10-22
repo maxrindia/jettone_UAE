@@ -72,7 +72,7 @@ export default function ArticlePage() {
           <div className="absolute inset-0 bg-gradient-to-t from-[#06140E] via-transparent to-transparent" />
           <div className="absolute bottom-4 left-4 sm:bottom-6 sm:left-6 flex items-center gap-2 px-3 py-1.5 rounded-xl bg-black/60 backdrop-blur-md border border-[#25633F]/60 text-xs font-mono text-[#00E676]">
             <Sparkles className="w-3.5 h-3.5 text-[#F5D327]" />
-            <span>JETTONE Market Research Desk</span>
+            <span>JETTONE Market Intelligence</span>
           </div>
         </div>
 
@@ -138,7 +138,7 @@ export default function ArticlePage() {
       {/* CTA Strip */}
       <ContactCtaStrip
         title="Discuss Strategic Market Perspectives"
-        subtext="Connect with our Dubai research and advisory desk for tailored market evaluations."
+        subtext="Connect with our Dubai advisory desk for tailored market evaluations."
         ctaText="Connect With Team →"
         ctaLink="/contact"
       />
