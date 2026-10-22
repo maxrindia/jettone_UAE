@@ -24,7 +24,7 @@ const smoothEase = [0.25, 0.1, 0.25, 1] as const;
 export const JETTONE_CONTACT_LINKS = [
   {
     icon: MapPin,
-    label: "Dubai, United Arab Emirates",
+    label: "DWTC, Sheikh Zayed Road, Trade Center Second, Dubai, UAE",
     href: "#",
     subtext: "Location",
   },
@@ -199,7 +199,7 @@ export default function ContactWithGlobe({
       <div className="absolute top-1/4 left-1/2 -translate-x-1/2 w-[700px] h-[350px] bg-[radial-gradient(ellipse_at_center,rgba(0,230,118,0.12)_0%,transparent_70%)] blur-[90px] pointer-events-none" />
 
       <div className="relative mx-auto max-w-7xl xl:max-w-[1380px] 2xl:max-w-[1640px] px-4 sm:px-6 lg:px-10">
-        
+
         {/* Header Section */}
         <div className="flex flex-col items-center text-center gap-3.5 mb-12 sm:mb-14">
           <motion.div
@@ -238,7 +238,7 @@ export default function ContactWithGlobe({
 
         {/* 2-Column Grid: Left (Direct Channels & Connection Image) · Right (Luxury Contact Form) */}
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-10 max-w-6xl mx-auto items-start">
-          
+
           {/* Left Column: Direct Inquiries & Global Connection Visual */}
           <motion.div
             initial={{ opacity: 0, y: 24 }}
