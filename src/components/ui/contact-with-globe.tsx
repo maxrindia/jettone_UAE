@@ -30,14 +30,14 @@ export const JETTONE_CONTACT_LINKS = [
   },
   {
     icon: Phone,
-    label: "+91 80568 46874",
-    href: "tel:+918056846874",
-    subtext: "Phone & WhatsApp",
+    label: "+971 (0)4 389 3999",
+    href: "tel:+97143893999",
+    subtext: "Direct Executive Line",
   },
   {
     icon: Mail,
-    label: "jettoneindia@gmail.com",
-    href: "mailto:jettoneindia@gmail.com",
+    label: "info@dwtc.com",
+    href: "mailto:info@dwtc.com",
     subtext: "Official Direct Inquiries",
   },
 ];
@@ -150,8 +150,8 @@ export default function ContactWithGlobe({
     setIsSubmitting(true);
 
     try {
-      // Send real-time notification to jettoneindia@gmail.com via FormSubmit AJAX service
-      await fetch("https://formsubmit.co/ajax/jettoneindia@gmail.com", {
+      // Send real-time notification to info@dwtc.com via FormSubmit AJAX service
+      await fetch("https://formsubmit.co/ajax/info@dwtc.com", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
@@ -489,7 +489,7 @@ export default function ContactWithGlobe({
                   >
                     <div className="flex items-center gap-2.5">
                       <CheckCircle2 className="w-5 h-5 text-[#00E676] shrink-0" />
-                      <span>Your enquiry has been received and dispatched to <strong>jettoneindia@gmail.com</strong>. Our team will contact you shortly.</span>
+                      <span>Your enquiry has been received and dispatched to <strong>info@dwtc.com</strong>. Our team will contact you shortly.</span>
                     </div>
                   </motion.div>
                 )}
