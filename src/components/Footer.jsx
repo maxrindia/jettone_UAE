@@ -136,7 +136,7 @@ export default function Footer() {
             </p>
             <div className="flex items-center gap-2.5 pt-1">
               <a
-                href="https://www.instagram.com/jettone"
+                href="https://www.instagram.com/jettoneofficial/"
                 target="_blank"
                 rel="noopener noreferrer"
                 aria-label="Instagram"
@@ -147,7 +147,7 @@ export default function Footer() {
               </a>
 
               <a
-                href="https://www.facebook.com/jettone"
+                href="https://www.facebook.com/people/Jettone/61584666157046/"
                 target="_blank"
                 rel="noopener noreferrer"
                 aria-label="Facebook"
@@ -158,7 +158,7 @@ export default function Footer() {
               </a>
 
               <a
-                href="https://www.youtube.com/@jettone"
+                href="https://www.youtube.com/@JETTONEINDIA"
                 target="_blank"
                 rel="noopener noreferrer"
                 aria-label="YouTube"
