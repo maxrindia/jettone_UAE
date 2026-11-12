@@ -28,6 +28,7 @@ export default function Navbar() {
     { name: 'Home', hash: '#hero', fallback: '/', isPage: false },
     { name: 'Our Services', hash: '#services', fallback: '/#services', isPage: false },
     { name: 'JBot', hash: '#jbot', fallback: '/#jbot', isPage: false },
+    { name: 'Academy', path: '/academy', isPage: true },
     { name: 'Insights', path: '/insights', isPage: true }
   ];
 

@@ -16,6 +16,7 @@ const ExploreJBot = lazy(() => import('./pages/ExploreJBot'));
 const InsightsPage = lazy(() => import('./pages/InsightsPage'));
 const ArticlePage = lazy(() => import('./pages/ArticlePage'));
 const ContactPage = lazy(() => import('./pages/ContactPage'));
+const AcademyPage = lazy(() => import('./pages/AcademyPage'));
 
 function ScrollToTop() {
   const { pathname, hash } = useLocation();
@@ -141,6 +142,9 @@ export default function App() {
               <Route path="/insights" element={<InsightsPage />} />
               <Route path="/insights/:id" element={<ArticlePage />} />
               
+              {/* Academy */}
+              <Route path="/academy" element={<AcademyPage />} />
+
               {/* Contact */}
               <Route path="/contact" element={<ContactPage />} />
 
